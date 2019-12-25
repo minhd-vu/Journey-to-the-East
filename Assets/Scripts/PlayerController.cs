@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 input;
     private Vector2 mousePosition;
     private Animator animator;
+    [SerializeField] private GameObject leftArm;
+    [SerializeField] private GameObject rightArm;
+    [SerializeField] private GameObject weapon;
+
+    private bool facingLeft, facingRight, facingUp, facingDown;
+    [SerializeField] private Vector3[] leftArmPositions;
+    [SerializeField] private Vector3[] rightArmPositions;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +36,53 @@ public class PlayerController : MonoBehaviour
         rb.velocity = input * moveSpeed;
         Vector2 direction = mousePosition - rb.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        animator.SetBool("Facing Left", (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135));
-        animator.SetBool("Facing Right", angle >= -45 && angle < 45);
-        animator.SetBool("Facing Up", angle >= 45 && angle < 135);
-        animator.SetBool("Facing Down", (angle >= -135 && angle <= -90) || (angle < -45 && angle > 0));
+
+        if (facingLeft = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
+        {
+            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[0];
+            leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
+            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[0];
+            rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
+            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        }
+        if (facingRight = (angle >= -45 && angle < 45))
+        {
+            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[1];
+            leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
+            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[1];
+            rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
+            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
+        }
+        if (facingUp = (angle >= 45 && angle < 135))
+        {
+            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[2];
+            leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
+            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[2];
+            rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
+            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
+        }
+        if (facingDown = (angle >= -135 && angle <= -90) || (angle < -45 && angle > 0))
+        {
+            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[3];
+            leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
+            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[3];
+            rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
+            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        }
+
+        leftArm.GetComponent<SpriteRenderer>().flipY = rightArm.GetComponent<SpriteRenderer>().flipY = angle > 90 || angle < -90;
+        foreach (SpriteRenderer sr in rightArm.GetComponentsInChildren<SpriteRenderer>())
+        {
+            sr.flipY = rightArm.GetComponent<SpriteRenderer>().flipY;
+        }
+
+        animator.SetBool("Facing Left", facingLeft);
+        animator.SetBool("Facing Right", facingRight);
+        animator.SetBool("Facing Up", facingUp);
+        animator.SetBool("Facing Down", facingDown);
         animator.SetFloat("Mouse Angle", angle);
+
+        leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        rightArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
