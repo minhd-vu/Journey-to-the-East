@@ -1253,9 +1253,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Moving
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Facing Right
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5270009759097187726}
   m_Solo: 0

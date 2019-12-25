@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: bf7f73fac0f31a6498e73efa4a548acb
+guid: bf99bcd1fcad24e46869a6ee1d871c93
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -432955823490921091
-    second: zright_0
+      213: 2198386292566382998
+    second: femaleleft_0
   - first:
-      213: -4178313668057114787
-    second: zright_1
+      213: 7530739846857761003
+    second: femaleleft_1
   - first:
-      213: 7828672688383718215
-    second: zright_2
-  - first:
-      213: 6831639445145828502
-    second: zright_3
+      213: 6009504254861521116
+    second: femaleleft_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,12 +119,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: zright_0
+      name: femaleleft_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,19 +133,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d51f4ab0a0d71549afd3a43e6d7cc96
-      internalID: -432955823490921091
+      spriteID: 63ab7670ac1fa2746b22fe3a7511103a
+      internalID: 2198386292566382998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zright_1
+      name: femaleleft_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,19 +154,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c3665010eca3964eb8d90253ab8a652
-      internalID: -4178313668057114787
+      spriteID: bd4beb08ae97a5f4c8cbeea8c21c9804
+      internalID: 7530739846857761003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zright_2
+      name: femaleleft_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 66
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,29 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15aca01b8ba1b274885b0182ba25da85
-      internalID: 7828672688383718215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: zright_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41bcd300841daad4abcbcab43124f3c3
-      internalID: 6831639445145828502
+      spriteID: 4484eae09026f9c4ab6c25487ac11f29
+      internalID: 6009504254861521116
       vertices: []
       indices: 
       edges: []

@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: bf7f73fac0f31a6498e73efa4a548acb
+guid: b4e1715ddadf487439f7ba50a7cd50e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -432955823490921091
-    second: zright_0
+      213: 8543336237345503523
+    second: femaleright_0
   - first:
-      213: -4178313668057114787
-    second: zright_1
+      213: -6380382905426788231
+    second: femaleright_1
   - first:
-      213: 7828672688383718215
-    second: zright_2
-  - first:
-      213: 6831639445145828502
-    second: zright_3
+      213: 1617596919167637506
+    second: femaleright_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,12 +119,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: zright_0
+      name: femaleright_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,19 +133,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d51f4ab0a0d71549afd3a43e6d7cc96
-      internalID: -432955823490921091
+      spriteID: 10b32994cf0242244bbb65df86e8b663
+      internalID: 8543336237345503523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zright_1
+      name: femaleright_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,19 +154,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c3665010eca3964eb8d90253ab8a652
-      internalID: -4178313668057114787
+      spriteID: 04e74e5a2dee42b4080272a18b2a3f7e
+      internalID: -6380382905426788231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zright_2
+      name: femaleright_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 66
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,29 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15aca01b8ba1b274885b0182ba25da85
-      internalID: 7828672688383718215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: zright_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41bcd300841daad4abcbcab43124f3c3
-      internalID: 6831639445145828502
+      spriteID: c6e6a8db87497804090189295aebadd0
+      internalID: 1617596919167637506
       vertices: []
       indices: 
       edges: []
