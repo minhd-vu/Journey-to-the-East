@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        weapon = Instantiate(weapon, rightArm.GetComponent<Transform>());
     }
 
     // Update is called once per frame
