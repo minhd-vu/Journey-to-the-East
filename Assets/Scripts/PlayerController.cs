@@ -34,6 +34,5 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Facing Up", angle >= 45 && angle < 135);
         animator.SetBool("Facing Down", (angle >= -135 && angle <= -90) || (angle < -45 && angle > 0));
         animator.SetFloat("Mouse Angle", angle);
-
     }
 }
