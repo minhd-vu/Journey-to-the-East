@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = input * moveSpeed;
         Vector2 direction = mousePosition - rb.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        animator.SetBool("Facing Left", (angle >= 135 && angle <= 180) || (angle < -135 && angle > -45));
+        animator.SetBool("Facing Left", (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135));
         animator.SetBool("Facing Right", angle >= -45 && angle < 45);
         animator.SetBool("Facing Up", angle >= 45 && angle < 135);
         animator.SetBool("Facing Down", (angle >= -135 && angle <= -90) || (angle < -45 && angle > 0));
