@@ -380,6 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1861497663312174962, guid: ccb1fda78186c67488eda909e5301a76, type: 3}
+  firePoint: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079bb157fd48d01438be5fc7c47236de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   leftArm: {fileID: 100849105}
   rightArm: {fileID: 356952707}
   weapon: {fileID: 466712668}

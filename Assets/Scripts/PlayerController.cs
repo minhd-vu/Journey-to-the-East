@@ -73,14 +73,17 @@ public class PlayerController : MonoBehaviour
         leftArm.GetComponent<SpriteRenderer>().flipY = rightArm.GetComponent<SpriteRenderer>().flipY = angle > 90 || angle < -90;
         foreach (SpriteRenderer sr in rightArm.GetComponentsInChildren<SpriteRenderer>())
         {
-            sr.flipY = rightArm.GetComponent<SpriteRenderer>().flipY;
+            if (sr.flipY = rightArm.GetComponent<SpriteRenderer>().flipY)
+            {
+                rightArm.GetComponentInChildren<Weapon>().firePoint.position *= new Vector2(1f, -1f);
+            }
         }
 
         animator.SetBool("Facing Left", facingLeft);
         animator.SetBool("Facing Right", facingRight);
         animator.SetBool("Facing Up", facingUp);
         animator.SetBool("Facing Down", facingDown);
-        animator.SetFloat("Mouse Angle", angle);
+        animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
 
         leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         rightArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
-    private Transform firePoint;
+    [HideInInspector] public Transform firePoint;
 
     // Start is called before the first frame update
     void Start()
