@@ -70,14 +70,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
 
-        leftArm.GetComponent<SpriteRenderer>().flipY = rightArm.GetComponent<SpriteRenderer>().flipY = angle > 90 || angle < -90;
-        foreach (SpriteRenderer sr in rightArm.GetComponentsInChildren<SpriteRenderer>())
-        {
-            if (sr.flipY = rightArm.GetComponent<SpriteRenderer>().flipY)
-            {
-                rightArm.GetComponentInChildren<Weapon>().firePoint.position *= new Vector2(1f, -1f);
-            }
-        }
+        rightArm.GetComponentInChildren<Weapon>().isFlipped = leftArm.GetComponent<SpriteRenderer>().flipY = rightArm.GetComponent<SpriteRenderer>().flipY = angle > 90 || angle < -90;        
 
         animator.SetBool("Facing Left", facingLeft);
         animator.SetBool("Facing Right", facingRight);
