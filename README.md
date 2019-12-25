@@ -1,5 +1,5 @@
 # Journey to the East
-A top down post-apoctalyptic shooter created in Unity.
+A top down post-apoctalyptic shooter rpg created in Unity.
 ## Contributors
 - Project Leader: Minh Vu
 - Art Director: Tung Tran
