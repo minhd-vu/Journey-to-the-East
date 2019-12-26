@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private float smoothing = 5f;
-    [SerializeField] private float viewDistance = 2f;
-    private Vector3 center;
+    [SerializeField] public Transform target;
 
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        center = new Vector3((player.position.x + mousePosition.x) / viewDistance, (player.position.y + mousePosition.y) / viewDistance, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, center, Time.deltaTime * smoothing);
+        transform.position = new Vector3((target.position.x + mousePosition.x) / 2, (target.position.y + mousePosition.y) / 2, 0f);
     }
 }
