@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float range;
+    [SerializeField] private float range = 10f;
     private Vector3 initialPosition;
-    [SerializeField] float force;
+    [SerializeField] float force = 20f;
 
     // Start is called before the first frame update
     void Start()

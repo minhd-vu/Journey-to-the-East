@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 3f;
     private Rigidbody2D rb;
     private Vector2 input;
     private Vector2 mousePosition;
     private Animator animator;
-    [SerializeField] private GameObject leftArm;
-    [SerializeField] private GameObject rightArm;
-    [SerializeField] private GameObject weapon;
+    [SerializeField] private GameObject leftArm = null;
+    [SerializeField] private GameObject rightArm = null;
+    [SerializeField] private GameObject weapon = null;
 
     private bool facingLeft, facingRight, facingUp, facingDown;
-    [SerializeField] private Vector3[] leftArmPositions;
-    [SerializeField] private Vector3[] rightArmPositions;
+    [SerializeField] private Vector3[] leftArmPositions = null;
+    [SerializeField] private Vector3[] rightArmPositions = null;
 
     // Start is called before the first frame update
     void Start()

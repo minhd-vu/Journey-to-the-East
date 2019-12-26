@@ -723,8 +723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd4b19a4d04fef469fb161add6e0da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraMovementSpeed: 1000
+  PPU: 32
   target: {fileID: 753930566}
-  smoothTime: 0.5
 --- !u!1001 &1872640371
 PrefabInstance:
   m_ObjectHideFlags: 0
