@@ -1,0 +1,16 @@
+{
+"companyName": "Homemade Games",
+"productName": "Journey to the East",
+"productVersion": "0.04",
+"dataUrl": "v0.04.data.unityweb",
+"wasmCodeUrl": "v0.04.wasm.code.unityweb",
+"wasmFrameworkUrl": "v0.04.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.3.0f3"
+}
