@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject leftArm = null;
     [SerializeField] private GameObject rightArm = null;
     [SerializeField] private GameObject weapon = null;
+    [SerializeField] private GameObject offhand = null;
 
     private bool facingLeft, facingRight, facingUp, facingDown;
     [SerializeField] private Vector3[] leftArmPositions = null;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         weapon = Instantiate(weapon, rightArm.GetComponent<Transform>());
+        offhand = Instantiate(offhand, leftArm.GetComponent<Transform>());
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
             rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[0];
             rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
+            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
         if (facingRight = (angle >= -45 && angle < 45))
         {
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour
             rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[1];
             rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
+            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
         if (facingUp = (angle >= 45 && angle < 135))
         {
@@ -61,6 +65,7 @@ public class PlayerController : MonoBehaviour
             rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[2];
             rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
+            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
         if (facingDown = (angle >= -135 && angle <= -90) || (angle < -45 && angle > 0))
         {
@@ -69,9 +74,10 @@ public class PlayerController : MonoBehaviour
             rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[3];
             rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
+            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
 
-        rightArm.GetComponentInChildren<Weapon>().isFlipped = leftArm.GetComponent<SpriteRenderer>().flipY = rightArm.GetComponent<SpriteRenderer>().flipY = angle > 90 || angle < -90;        
+        leftArm.transform.localScale = rightArm.transform.localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
 
         animator.SetBool("Facing Left", facingLeft);
         animator.SetBool("Facing Right", facingRight);
