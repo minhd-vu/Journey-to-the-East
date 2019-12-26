@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cefe48955a8714882290c61bfd3c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1861497663312174962, guid: 3c7b6c35cbdbe6d4cbd9977563e8e6de, type: 3}
+  bullet: {fileID: 1861497663312174962, guid: 776d759d95bc0104783daea6040aee49, type: 3}
   firePoint: {fileID: 0}
   shakeMagnitude: 1
   shakeRoughness: 1

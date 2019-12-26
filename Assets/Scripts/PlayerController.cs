@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Slashing", true);
             leftArm.SetActive(false);
             rightArm.SetActive(false);
-            StartCoroutine(Slash(0.7f));
+            StartCoroutine(Slash(animator.GetCurrentAnimatorStateInfo(0).length));
         }
     }
 
