@@ -614,9 +614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc4fcc2678114541bbd00fa359e7ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShakeDuration: 0.3
-  ShakeAmplitude: 1.2
-  ShakeFrequency: 2
 --- !u!1 &753930564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,6 +1034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-  m_AmplitudeGain: 1
-  m_FrequencyGain: 1
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
   mNoiseOffsets: {x: 0, y: 0, z: 0}

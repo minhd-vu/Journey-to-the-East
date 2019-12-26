@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using EZCameraShake;
 
 public class Weapon : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public Transform firePoint;
     [SerializeField] private float shakeMagnitude = 1f;
     [SerializeField] private float shakeRoughness = 1f;
+    [SerializeField] private float shakeDuration = 0.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +28,6 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);
+        CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, 0.3f);
     }
 }
