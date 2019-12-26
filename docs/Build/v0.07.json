@@ -1,0 +1,17 @@
+{
+"companyName": "Swaying Grass Games",
+"productName": "Journey to the East",
+"productVersion": "0.07",
+"dataUrl": "v0.07.data.unityweb",
+"wasmCodeUrl": "v0.07.wasm.code.unityweb",
+"wasmFrameworkUrl": "v0.07.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"backgroundUrl": "v0.07.jpg",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#FFFFFF",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.3.0f3"
+}
