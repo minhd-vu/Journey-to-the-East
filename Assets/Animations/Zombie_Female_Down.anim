@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Zombie_Male_Left
+  m_Name: Zombie_Female_Down
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 8981396645943940242, guid: 17f0f72cffd1e8948bc49986db3613b9,
+      value: {fileID: 1123427197288094944, guid: 9c705fab30392e7408ab44839e60ea42,
         type: 3}
     - time: 0.25
-      value: {fileID: 3764250193027526194, guid: 17f0f72cffd1e8948bc49986db3613b9,
-        type: 3}
-    - time: 0.5
-      value: {fileID: -978542616126780460, guid: 17f0f72cffd1e8948bc49986db3613b9,
-        type: 3}
-    - time: 0.75
-      value: {fileID: 2095051452214128345, guid: 17f0f72cffd1e8948bc49986db3613b9,
+      value: {fileID: -5170046306019268704, guid: 9c705fab30392e7408ab44839e60ea42,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -50,16 +44,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 8981396645943940242, guid: 17f0f72cffd1e8948bc49986db3613b9, type: 3}
-    - {fileID: 3764250193027526194, guid: 17f0f72cffd1e8948bc49986db3613b9, type: 3}
-    - {fileID: -978542616126780460, guid: 17f0f72cffd1e8948bc49986db3613b9, type: 3}
-    - {fileID: 2095051452214128345, guid: 17f0f72cffd1e8948bc49986db3613b9, type: 3}
+    - {fileID: 1123427197288094944, guid: 9c705fab30392e7408ab44839e60ea42, type: 3}
+    - {fileID: -5170046306019268704, guid: 9c705fab30392e7408ab44839e60ea42, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
