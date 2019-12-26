@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private float smoothing = 5f;
-    [SerializeField] private float viewDistance = 5f;
+    [SerializeField] private float viewDistance = 2f;
     private Vector3 center;
 
     void Update()

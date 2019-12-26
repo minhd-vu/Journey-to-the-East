@@ -740,11 +740,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd4b19a4d04fef469fb161add6e0da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damping: 5
   player: {fileID: 753930566}
-  height: 4
-  offset: 5
-  viewDistance: 5
+  smoothing: 3
+  viewDistance: 2
 --- !u!1001 &1872640371
 PrefabInstance:
   m_ObjectHideFlags: 0
