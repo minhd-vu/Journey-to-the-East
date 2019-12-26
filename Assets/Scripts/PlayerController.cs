@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
-        if (facingDown = (angle >= -135 && angle <= -90) || (angle < -45 && angle > 0))
+        if (facingDown = (angle >= -135 && angle <= -45))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[3];
             leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
