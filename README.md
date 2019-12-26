@@ -3,6 +3,7 @@ A top down post-apoctalyptic shooter rpg created in Unity.
 ## Contributors
 - Project Leader: Minh Vu
 - Art Director: Tung Tran
+- Artists: Connie
 - Developers: Vu Nguyen
 
 Play the latest version and tell us what you think!
