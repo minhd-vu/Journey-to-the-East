@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: d8f881e0b9c7442459a63c989a0c93e1
+guid: ceea0bdddca7cb34a8b6a05ed123de56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2780484362046104312
-    second: zombie_male_down_0
+      213: 5708361568921565711
+    second: zombie_male_up_0
   - first:
-      213: -2505051424851426372
-    second: zombie_male_down_1
+      213: 2531550882248269879
+    second: zombie_male_up_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: zombie_male_down_0
+      name: zombie_male_up_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2b590a9a5fc30f49bee7d389c108d89
-      internalID: 2780484362046104312
+      spriteID: c03719a442294a04bacc0324b51adae6
+      internalID: 5708361568921565711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zombie_male_down_1
+      name: zombie_male_up_1
       rect:
         serializedVersion: 2
         x: 25
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d166832db62d5c42855d8467f2d46ba
-      internalID: -2505051424851426372
+      spriteID: 906c2ec1e1b16a34e9600a86a830515d
+      internalID: 2531550882248269879
       vertices: []
       indices: 
       edges: []
