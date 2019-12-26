@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform target = null;
-    [SerializeField] private float smoothing = 1f;
+    [SerializeField] private float smoothing = 0.1f;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     {
         if (transform.position != target.position)
         {
-            Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+            Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z) * Time.deltaTime;
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
         }
     }
