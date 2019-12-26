@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initialPosition = transform.position;
         GetComponent<Rigidbody2D>().AddForce(transform.right * force, ForceMode2D.Impulse);
     }
 
