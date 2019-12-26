@@ -32,6 +32,22 @@ public class PlayerController : MonoBehaviour
     {
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetButtonDown("Fire2") && !animator.GetBool("Slashing"))
+        {
+            animator.SetBool("Slashing", true);
+            leftArm.SetActive(false);
+            rightArm.SetActive(false);
+            StartCoroutine(Slash(0.7f));
+        }
+    }
+
+    IEnumerator Slash(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        animator.SetBool("Slashing", false);
+        leftArm.SetActive(true);
+        rightArm.SetActive(true);
     }
 
     private void FixedUpdate()

@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: cf343e8f8fb2cea4fad88eccfddbfc83
+guid: 0b5b937382bf7a9428eb2c9f875995db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8434883553876750483
-    second: slashleft_0
+      213: -3142559402699602451
+    second: slashdown_0
   - first:
-      213: 3761238830107200913
-    second: slashleft_1
+      213: 4495998331107960761
+    second: slashdown_1
   - first:
-      213: -8856148016469846491
-    second: slashleft_2
+      213: 4288248338787296173
+    second: slashdown_2
   - first:
-      213: -4047349108714722495
-    second: slashleft_3
+      213: 3023266320208637347
+    second: slashdown_3
   - first:
-      213: 8463374026764023057
-    second: slashleft_4
+      213: -186865130854470857
+    second: slashdown_4
   - first:
-      213: -4600998810009450297
-    second: slashleft_5
+      213: 680234920817008138
+    second: slashdown_5
+  - first:
+      213: 2373332413139701583
+    second: slashdown_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -78,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -90,7 +93,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -102,7 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -114,7 +117,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -128,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slashleft_0
+      name: slashdown_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 53
-        height: 32
+        y: 50
+        width: 30
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d59f588b604f0e340a6db1683a1523f2
-      internalID: -8434883553876750483
+      spriteID: 0644d1ddd4f3e324b930fe8b19e9e887
+      internalID: -3142559402699602451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slashleft_1
+      name: slashdown_1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 32
-        width: 53
-        height: 32
+        x: 30
+        y: 50
+        width: 30
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64c2dd70f4b0e284d8ec42013fc0eaa2
-      internalID: 3761238830107200913
+      spriteID: 47836c101258baf4ea3a754e449228ba
+      internalID: 4495998331107960761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slashleft_2
+      name: slashdown_2
       rect:
         serializedVersion: 2
-        x: 106
-        y: 32
-        width: 53
-        height: 32
+        x: 60
+        y: 50
+        width: 30
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64ec792e0bf3398449f386f18f21e40c
-      internalID: -8856148016469846491
+      spriteID: 8ef298693f9059641a13f70f80ed2efa
+      internalID: 4288248338787296173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slashleft_3
+      name: slashdown_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 32
-        width: 53
-        height: 32
+        x: 90
+        y: 50
+        width: 30
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b17aa537f985eb541bd4254cf5f2bc4e
-      internalID: -4047349108714722495
+      spriteID: 0a9eddcbbe32fc74ab8bda9baba60144
+      internalID: 3023266320208637347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slashleft_4
+      name: slashdown_4
       rect:
         serializedVersion: 2
-        x: 212
-        y: 32
-        width: 53
-        height: 32
+        x: 120
+        y: 50
+        width: 30
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 795351183316a06459c10f8435d29071
-      internalID: 8463374026764023057
+      spriteID: 8b7f14aa57f1c7e42a39446b50955d5d
+      internalID: -186865130854470857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slashleft_5
+      name: slashdown_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 53
-        height: 32
+        width: 30
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,8 +250,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce65224d726206f4a8378e91fafa7638
-      internalID: -4600998810009450297
+      spriteID: 2055a0feddbebb44e8825c74dbf10efd
+      internalID: 680234920817008138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slashdown_6
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f4ffa0a6dd05e469b009529e7870b6
+      internalID: 2373332413139701583
       vertices: []
       indices: 
       edges: []
