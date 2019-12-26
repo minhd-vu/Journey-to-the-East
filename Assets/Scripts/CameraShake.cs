@@ -48,6 +48,7 @@ public class CameraShake : MonoBehaviour
 
             // If Camera Shake effect is over, reset variables
             virtualCameraNoise.m_AmplitudeGain = 0f;
+            virtualCameraNoise.m_FrequencyGain = 0f;
         }
     }
 }

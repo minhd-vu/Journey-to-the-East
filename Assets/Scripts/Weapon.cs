@@ -28,6 +28,6 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);
-        CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, 0.3f);
+        CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);
     }
 }
