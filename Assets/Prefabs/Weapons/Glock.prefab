@@ -97,7 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1861497663312174962, guid: 3c7b6c35cbdbe6d4cbd9977563e8e6de, type: 3}
   firePoint: {fileID: 0}
-  isFlipped: 0
+  shakeMagnitude: 4
+  shakeRoughness: 4
 --- !u!1 &1248723405195273367
 GameObject:
   m_ObjectHideFlags: 0
