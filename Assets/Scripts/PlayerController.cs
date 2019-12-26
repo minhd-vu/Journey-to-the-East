@@ -40,6 +40,11 @@ public class PlayerController : MonoBehaviour
             rightArm.SetActive(false);
             StartCoroutine(Slash(animator.GetCurrentAnimatorStateInfo(0).length));
         }
+
+        if (animator.GetBool("Slashing"))
+        {
+            input = Vector2.zero;
+        }
     }
 
     IEnumerator Slash(float duration)
