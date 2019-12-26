@@ -540,13 +540,13 @@ MonoBehaviour:
   leftArmPositions:
   - {x: 0, y: 0, z: 0}
   - {x: 0.25, y: 0, z: 0}
-  - {x: -0.15, y: 0, z: 0}
-  - {x: 0.15, y: 0, z: 0}
+  - {x: -0.25, y: 0, z: 0}
+  - {x: 0.23, y: 0, z: 0}
   rightArmPositions:
   - {x: -0.25, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0.15, y: 0, z: 0}
-  - {x: -0.15, y: 0, z: 0}
+  - {x: 0.23, y: 0, z: 0}
+  - {x: -0.25, y: 0, z: 0}
 --- !u!95 &753930570
 Animator:
   serializedVersion: 3
