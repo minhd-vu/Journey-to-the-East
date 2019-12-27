@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Swaying Grass Games
   productName: Journey to the East
-  defaultCursor: {fileID: 2800000, guid: d059ae0c44276744583962f1c5dd323b, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 097132be55b7f164daa4f2deb29c562e, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1

@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(Slash());
             }
 
-            else if (Input.GetButtonDown("Jump"))
+            else if (Input.GetButtonDown("Jump") && animator.GetBool("Moving"))
             {
                 roll = StartCoroutine(Roll());
             }
