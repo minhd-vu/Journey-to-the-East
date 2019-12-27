@@ -151,7 +151,6 @@ public class PlayerController : MonoBehaviour
             duration = animationTimes["Player_Roll_Down_Right"];
         }
 
-
         rb.DOMove(rollVector, duration);
 
         yield return new WaitForSeconds(duration);
