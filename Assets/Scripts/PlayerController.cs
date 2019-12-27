@@ -21,6 +21,13 @@ public class PlayerController : MonoBehaviour
 
     private Coroutine roll;
 
+    public float attackTime;
+    public float damageTime;
+    public float deathTime;
+    public float idleTime;
+
+    private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +35,16 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         weapon = Instantiate(weapon, rightArm.GetComponent<Transform>());
         offhand = Instantiate(offhand, leftArm.GetComponent<Transform>());
+        GetAnimationClipLengths();
+    }
+
+    private void GetAnimationClipLengths()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            animationTimes[clip.name] = clip.length;
+        }
     }
 
     // Update is called once per frame
@@ -61,7 +78,27 @@ public class PlayerController : MonoBehaviour
         leftArm.SetActive(false);
         rightArm.SetActive(false);
 
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        float duration = 0f;
+
+        if (animator.GetBool("Facing Left"))
+        {
+            duration = animationTimes["Player_Slash_Left"];
+        }
+        else if (animator.GetBool("Facing Right"))
+        {
+            duration = animationTimes["Player_Slash_Right"];
+
+        }
+        else if (animator.GetBool("Facing Up"))
+        {
+            duration = animationTimes["Player_Slash_Up"];
+        }
+        else if (animator.GetBool("Facing Down"))
+        {
+            duration = animationTimes["Player_Slash_Down"];
+        }
+
+        yield return new WaitForSeconds(duration);
 
         animator.SetBool("Slashing", false);
         leftArm.SetActive(true);
@@ -143,13 +180,21 @@ public class PlayerController : MonoBehaviour
 
         leftArm.transform.localScale = rightArm.transform.localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
 
-        animator.SetBool("Facing Left", facingLeft);
-        animator.SetBool("Facing Right", facingRight);
-        animator.SetBool("Facing Up", facingUp);
-        animator.SetBool("Facing Down", facingDown);
+        if (!animator.GetBool("Slashing"))
+        {
+            animator.SetBool("Facing Left", facingLeft);
+            animator.SetBool("Facing Right", facingRight);
+            animator.SetBool("Facing Up", facingUp);
+            animator.SetBool("Facing Down", facingDown);
+        }
+
         animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
-        animator.SetFloat("Velocity X", rb.velocity.x);
-        animator.SetFloat("Velocity Y", rb.velocity.y);
+
+        if (!animator.GetBool("Rolling"))
+        {
+            animator.SetFloat("Velocity X", rb.velocity.x);
+            animator.SetFloat("Velocity Y", rb.velocity.y);
+        }
 
         leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         rightArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
