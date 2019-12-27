@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3[] leftArmPositions = null;
     [SerializeField] private Vector3[] rightArmPositions = null;
 
+    private Coroutine roll;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,26 +36,66 @@ public class PlayerController : MonoBehaviour
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetButtonDown("Fire2") && !animator.GetBool("Slashing"))
+        if (!animator.GetBool("Slashing") && !animator.GetBool("Rolling"))
         {
-            animator.SetBool("Slashing", true);
-            leftArm.SetActive(false);
-            rightArm.SetActive(false);
-            StartCoroutine(Slash(animator.GetCurrentAnimatorStateInfo(0).length));
+            if (Input.GetButtonDown("Fire2"))
+            {
+                StartCoroutine(Slash());
+            }
+
+            else if (Input.GetButtonDown("Jump"))
+            {
+                roll = StartCoroutine(Roll());
+            }
         }
 
-        if (animator.GetBool("Slashing"))
+        if (animator.GetBool("Slashing") || animator.GetBool("Rolling"))
         {
             input = Vector2.zero;
         }
     }
 
-    IEnumerator Slash(float duration)
+    IEnumerator Slash()
     {
-        yield return new WaitForSeconds(duration);
+        animator.SetBool("Slashing", true);
+        leftArm.SetActive(false);
+        rightArm.SetActive(false);
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
         animator.SetBool("Slashing", false);
         leftArm.SetActive(true);
         rightArm.SetActive(true);
+    }
+    IEnumerator Roll()
+    {
+        animator.SetBool("Rolling", true);
+        leftArm.SetActive(false);
+        rightArm.SetActive(false);
+
+        Vector3 rollVector = rb.transform.position + (Vector3)input * 3f;
+
+        float duration = animator.GetCurrentAnimatorStateInfo(0).length;
+
+        rb.DOMove(rollVector, duration);
+
+        yield return new WaitForSeconds(duration);
+
+        animator.SetBool("Rolling", false);
+        leftArm.SetActive(true);
+        rightArm.SetActive(true);
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (animator.GetBool("Rolling") && roll != null)
+        {
+            rb.DOKill();
+            StopCoroutine(roll);
+
+            animator.SetBool("Rolling", false);
+            leftArm.SetActive(true);
+            rightArm.SetActive(true);
+        }
     }
 
     private void FixedUpdate()
@@ -105,6 +148,8 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Facing Up", facingUp);
         animator.SetBool("Facing Down", facingDown);
         animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
+        animator.SetFloat("Velocity X", rb.velocity.x);
+        animator.SetFloat("Velocity Y", rb.velocity.y);
 
         leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         rightArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
