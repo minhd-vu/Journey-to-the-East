@@ -96,8 +96,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1861497663312174962, guid: ccb1fda78186c67488eda909e5301a76, type: 3}
+  muzzleFlash: {fileID: 3260572321552191500, guid: 1453d15e8435c774eb7865fb6dd45b26,
+    type: 3}
   firePoint: {fileID: 0}
-  isFlipped: 0
+  shakeMagnitude: 1
+  shakeRoughness: 1
+  shakeDuration: 0.3
 --- !u!1 &1248723405195273367
 GameObject:
   m_ObjectHideFlags: 0
