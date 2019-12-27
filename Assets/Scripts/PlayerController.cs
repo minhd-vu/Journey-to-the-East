@@ -118,23 +118,39 @@ public class PlayerController : MonoBehaviour
 
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
 
-        if (animator.GetFloat("Velocity X") < 0)
+        if (animator.GetBool("Moving Left"))
         {
             duration = animationTimes["Player_Roll_Left"];
         }
-        else if (animator.GetFloat("Velocity X") > 0)
+        else if (animator.GetBool("Moving Right"))
         {
             duration = animationTimes["Player_Roll_Right"];
         }
-
-        if (animator.GetFloat("Velocity Y") > 0)
+        else if (animator.GetBool("Moving Up"))
         {
             duration = animationTimes["Player_Roll_Up"];
         }
-        else if (animator.GetFloat("Velocity Y") < 0)
+        else if (animator.GetBool("Moving Down"))
         {
             duration = animationTimes["Player_Roll_Down"];
         }
+        else if (animator.GetBool("Moving Up Left"))
+        {
+            duration = animationTimes["Player_Roll_Up_Left"];
+        }
+        else if (animator.GetBool("Moving Up Right"))
+        {
+            duration = animationTimes["Player_Roll_Up_Right"];
+        }
+        else if (animator.GetBool("Moving Down Left"))
+        {
+            duration = animationTimes["Player_Roll_Down_Left"];
+        }
+        else if (animator.GetBool("Moving Down Right"))
+        {
+            duration = animationTimes["Player_Roll_Down_Right"];
+        }
+
 
         rb.DOMove(rollVector, duration);
 
@@ -214,8 +230,14 @@ public class PlayerController : MonoBehaviour
 
         if (!animator.GetBool("Rolling"))
         {
-            animator.SetFloat("Velocity X", rb.velocity.x);
-            animator.SetFloat("Velocity Y", rb.velocity.y);
+            animator.SetBool("Moving Left", rb.velocity.x < 0 && rb.velocity.y == 0);
+            animator.SetBool("Moving Right", rb.velocity.x > 0 && rb.velocity.y == 0);
+            animator.SetBool("Moving Up", rb.velocity.y > 0 && rb.velocity.x == 0);
+            animator.SetBool("Moving Up Left", rb.velocity.y > 0 && rb.velocity.x < 0);
+            animator.SetBool("Moving Up Right", rb.velocity.y > 0 && rb.velocity.x > 0);
+            animator.SetBool("Moving Down", rb.velocity.y < 0 && rb.velocity.x == 0);
+            animator.SetBool("Moving Down Left", rb.velocity.y < 0 && rb.velocity.x < 0);
+            animator.SetBool("Moving Down Right", rb.velocity.y < 0 && rb.velocity.x > 0);
         }
 
         leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);

@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float range = 10f;
     private Vector3 initialPosition;
     [SerializeField] float force = 20f;
-    [SerializeField] float muzzleFlashTime = 0.02f;
+    [SerializeField] float muzzleFlashTime = 0.03f;
     private Animator animator;
 
     // Start is called before the first frame update
