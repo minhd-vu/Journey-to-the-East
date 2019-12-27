@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3[] rightArmPositions = null;
 
     private Coroutine roll;
+    [SerializeField] private float rollForce = 3f;
 
     public float attackTime;
     public float damageTime;
@@ -110,9 +111,27 @@ public class PlayerController : MonoBehaviour
         leftArm.SetActive(false);
         rightArm.SetActive(false);
 
-        Vector3 rollVector = rb.transform.position + (Vector3)input * 3f;
+        Vector3 rollVector = rb.transform.position + (Vector3)input * rollForce;
 
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
+
+        if (animator.GetFloat("Velocity X") < 0)
+        {
+            duration = animationTimes["Player_Roll_Left"];
+        }
+        else if (animator.GetFloat("Velocity X") > 0)
+        {
+            duration = animationTimes["Player_Roll_Right"];
+        }
+
+        if (animator.GetFloat("Velocity Y") > 0)
+        {
+            duration = animationTimes["Player_Roll_Up"];
+        }
+        else if (animator.GetFloat("Velocity Y") < 0)
+        {
+            duration = animationTimes["Player_Roll_Down"];
+        }
 
         rb.DOMove(rollVector, duration);
 
