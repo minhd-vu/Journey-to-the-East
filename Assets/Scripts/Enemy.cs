@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
-    private Vector3 lastPosition;
 
     // Start is called before the first frame update
     void Start()
