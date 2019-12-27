@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3((target.position.x + mousePosition.x) / 4, (target.position.y + mousePosition.y) / 4, 0f);
+        transform.position = new Vector3((target.position.x + mousePosition.x) / 2f, (target.position.y + mousePosition.y) / 2f, 0f);
         //transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
     }
 }
