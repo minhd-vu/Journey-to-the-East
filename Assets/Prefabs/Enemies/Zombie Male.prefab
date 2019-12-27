@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7333362668080438386}
   - component: {fileID: 1785136593123521003}
   - component: {fileID: 5164615401457795226}
+  - component: {fileID: 1421653897}
   m_Layer: 0
   m_Name: Zombie Male
   m_TagString: Untagged
@@ -232,3 +233,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &1421653897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196323693561124409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8830c2e1e572634dbbd03b631319bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

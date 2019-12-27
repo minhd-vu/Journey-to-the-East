@@ -1043,6 +1043,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Female
       objectReference: {fileID: 0}
+    - target: {fileID: 7380409158687637074, guid: 8058297401ea44e4083f3edd4b04c408,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 753930566}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8058297401ea44e4083f3edd4b04c408, type: 3}
 --- !u!1 &748344475
@@ -2072,24 +2077,6 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
---- !u!1 &1421653896 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4196323693561124409, guid: 282e93716f4117c4fae7e399da3af665,
-    type: 3}
-  m_PrefabInstance: {fileID: 228399507}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1421653897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421653896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8830c2e1e572634dbbd03b631319bf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1528572416
 GameObject:
   m_ObjectHideFlags: 0

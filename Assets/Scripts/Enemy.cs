@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
+    private Vector3 lastPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +18,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
-        animator.SetBool("Moving Left", (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135));
-        animator.SetBool("Moving Right", (angle >= -45 && angle < 45));
-        animator.SetBool("Moving Up", (angle >= 45 && angle < 135));
-        animator.SetBool("Moving Down", (angle >= -135 && angle <= -45));
+        Vector3 delta = (transform.position - lastPosition).normalized;
+        animator.SetFloat("Move X", delta.x);
+        animator.SetFloat("Move Y", delta.y);
+        lastPosition = transform.position;
     }
 }
