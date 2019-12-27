@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 input;
     private Vector2 mousePosition;
     private Animator animator;
-    [SerializeField] private GameObject leftArm = null;
-    [SerializeField] private GameObject rightArm = null;
+    [SerializeField] private GameObject arm = null;
+    private GameObject leftArm = null;
+    private GameObject rightArm = null;
     [SerializeField] private GameObject weapon = null;
     [SerializeField] private GameObject offhand = null;
 
@@ -34,6 +35,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        leftArm = Instantiate(arm, transform);
+        rightArm = Instantiate(arm, transform);
         weapon = Instantiate(weapon, rightArm.GetComponent<Transform>());
         offhand = Instantiate(offhand, leftArm.GetComponent<Transform>());
         GetAnimationClipLengths();
