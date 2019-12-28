@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3260572321552191502}
   - component: {fileID: 3260572321552191503}
   - component: {fileID: 7776516870123910538}
+  - component: {fileID: 8473198461636094232}
   m_Layer: 0
   m_Name: Muzzle Flash
   m_TagString: Untagged
@@ -69,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1102807815
-  m_SortingLayer: 3
+  m_SortingLayerID: -1262396705
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 60d76f88f0f5b564d881e982e4414222, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -112,5 +113,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfba3d8475067474085f07793d3eef93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8473198461636094232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3260572321552191500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
