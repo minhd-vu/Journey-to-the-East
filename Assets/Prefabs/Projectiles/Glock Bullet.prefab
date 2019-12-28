@@ -146,7 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   force: 13
-  muzzleFlashTime: 0.03
 --- !u!95 &4598666856328756333
 Animator:
   serializedVersion: 3
