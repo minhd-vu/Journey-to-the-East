@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Slash()
     {
         animator.SetBool("Slashing", true);
+        AudioManager.instance.Play("Sword Slash " + Random.Range(1, 3));
         leftArm.SetActive(false);
         rightArm.SetActive(false);
 
