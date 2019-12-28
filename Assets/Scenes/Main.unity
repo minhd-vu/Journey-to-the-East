@@ -2687,10 +2687,6 @@ MonoBehaviour:
   - {x: 0.21, y: 0, z: 0}
   - {x: -0.25, y: 0, z: 0}
   rollForce: 3
-  attackTime: 0
-  damageTime: 0
-  deathTime: 0
-  idleTime: 0
 --- !u!95 &753930570
 Animator:
   serializedVersion: 3

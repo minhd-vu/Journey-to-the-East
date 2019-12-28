@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,17 +17,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject weapon = null;
     [SerializeField] private GameObject offhand = null;
 
-    private bool facingLeft, facingRight, facingUp, facingDown;
     [SerializeField] private Vector3[] leftArmPositions = null;
     [SerializeField] private Vector3[] rightArmPositions = null;
 
     private Coroutine roll;
     [SerializeField] private float rollForce = 3f;
+    private enum Direction
+    {
+        Left = 0,
+        Right,
+        Up,
+        Down,
+    }
 
-    public float attackTime;
-    public float damageTime;
-    public float deathTime;
-    public float idleTime;
+    private bool[] facingDirection = new bool[Enum.GetNames(typeof(Direction)).Length];
+    private bool[] movingDirection = new bool[Enum.GetNames(typeof(Direction)).Length];
 
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
@@ -79,26 +84,43 @@ public class PlayerController : MonoBehaviour
     IEnumerator Slash()
     {
         animator.SetBool("Slashing", true);
-        AudioManager.instance.Play("Sword Slash " + Random.Range(1, 3));
+        AudioManager.instance.Play("Sword Slash " + UnityEngine.Random.Range(1, 3));
         leftArm.SetActive(false);
         rightArm.SetActive(false);
 
         float duration = 0f;
 
-        if (animator.GetBool("Facing Left"))
+        if (facingDirection[(int)Direction.Left])
         {
             duration = animationTimes["Player_Slash_Left"];
+            
+            if (facingDirection[(int)Direction.Up])
+            {
+                duration = animationTimes["Player_Slash_Up_Left"];
+            }
+            else if (facingDirection[(int)Direction.Down])
+            {
+                duration = animationTimes["Player_Slash_Down_Left"];
+            }
         }
-        else if (animator.GetBool("Facing Right"))
+        else if (facingDirection[(int)Direction.Right])
         {
             duration = animationTimes["Player_Slash_Right"];
-
+            
+            if (facingDirection[(int)Direction.Up])
+            {
+                duration = animationTimes["Player_Slash_Up_Right"];
+            }
+            else if (facingDirection[(int)Direction.Down])
+            {
+                duration = animationTimes["Player_Slash_Down_Right"];
+            }
         }
-        else if (animator.GetBool("Facing Up"))
+        else if (facingDirection[(int)Direction.Up])
         {
             duration = animationTimes["Player_Slash_Up"];
         }
-        else if (animator.GetBool("Facing Down"))
+        else if (facingDirection[(int)Direction.Down])
         {
             duration = animationTimes["Player_Slash_Down"];
         }
@@ -118,39 +140,6 @@ public class PlayerController : MonoBehaviour
         Vector3 rollVector = rb.transform.position + (Vector3)input * rollForce;
 
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
-
-        if (animator.GetBool("Moving Left"))
-        {
-            duration = animationTimes["Player_Roll_Left"];
-        }
-        else if (animator.GetBool("Moving Right"))
-        {
-            duration = animationTimes["Player_Roll_Right"];
-        }
-        else if (animator.GetBool("Moving Up"))
-        {
-            duration = animationTimes["Player_Roll_Up"];
-        }
-        else if (animator.GetBool("Moving Down"))
-        {
-            duration = animationTimes["Player_Roll_Down"];
-        }
-        else if (animator.GetBool("Moving Up Left"))
-        {
-            duration = animationTimes["Player_Roll_Up_Left"];
-        }
-        else if (animator.GetBool("Moving Up Right"))
-        {
-            duration = animationTimes["Player_Roll_Up_Right"];
-        }
-        else if (animator.GetBool("Moving Down Left"))
-        {
-            duration = animationTimes["Player_Roll_Down_Left"];
-        }
-        else if (animator.GetBool("Moving Down Right"))
-        {
-            duration = animationTimes["Player_Roll_Down_Right"];
-        }
 
         rb.DOMove(rollVector, duration);
 
@@ -179,7 +168,7 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = (mousePosition - rb.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (facingLeft = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
+        if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[0];
             leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
@@ -188,7 +177,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
-        if (facingRight = (angle >= -45 && angle < 45))
+        if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[1];
             leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
@@ -197,7 +186,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
-        if (facingUp = (angle >= 45 && angle < 135))
+        if (facingDirection[(int)Direction.Up] = (angle >= 45 && angle < 135))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[2];
             leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
@@ -206,7 +195,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
-        if (facingDown = (angle >= -135 && angle <= -45))
+        if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[3];
             leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
@@ -218,35 +207,27 @@ public class PlayerController : MonoBehaviour
 
         leftArm.transform.localScale = rightArm.transform.localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
 
-        animator.SetFloat("Direction X", direction.x);
-        animator.SetFloat("Direction Y", direction.y);
+        animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
+
+        if (!animator.GetBool("Slashing"))
+        {
+            animator.SetFloat("Direction X", direction.x);
+            animator.SetFloat("Direction Y", direction.y);
+        }
 
         if (!animator.GetBool("Rolling"))
         {
             animator.SetFloat("Velocity X", rb.velocity.normalized.x);
             animator.SetFloat("Velocity Y", rb.velocity.normalized.y);
-        }
 
-        if (!animator.GetBool("Slashing"))
-        {
-            animator.SetBool("Facing Left", facingLeft);
-            animator.SetBool("Facing Right", facingRight);
-            animator.SetBool("Facing Up", facingUp);
-            animator.SetBool("Facing Down", facingDown);
-        }
-
-        animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
-
-        if (!animator.GetBool("Rolling"))
-        {
-            animator.SetBool("Moving Left", rb.velocity.x < 0 && rb.velocity.y == 0);
-            animator.SetBool("Moving Right", rb.velocity.x > 0 && rb.velocity.y == 0);
-            animator.SetBool("Moving Up", rb.velocity.y > 0 && rb.velocity.x == 0);
-            animator.SetBool("Moving Up Left", rb.velocity.y > 0 && rb.velocity.x < 0);
-            animator.SetBool("Moving Up Right", rb.velocity.y > 0 && rb.velocity.x > 0);
-            animator.SetBool("Moving Down", rb.velocity.y < 0 && rb.velocity.x == 0);
-            animator.SetBool("Moving Down Left", rb.velocity.y < 0 && rb.velocity.x < 0);
-            animator.SetBool("Moving Down Right", rb.velocity.y < 0 && rb.velocity.x > 0);
+            movingDirection[(int)Direction.Left] = rb.velocity.x < 0;
+            movingDirection[(int)Direction.Right] = rb.velocity.x > 0;
+            movingDirection[(int)Direction.Up] = rb.velocity.y > 0;
+            movingDirection[(int)Direction.Down] = rb.velocity.y < 0;
+            //animator.SetBool("Moving Up Left", rb.velocity.y > 0 && rb.velocity.x < 0);
+            //animator.SetBool("Moving Up Right", rb.velocity.y > 0 && rb.velocity.x > 0);
+            //animator.SetBool("Moving Down Left", rb.velocity.y < 0 && rb.velocity.x < 0);
+            //animator.SetBool("Moving Down Right", rb.velocity.y < 0 && rb.velocity.x > 0);
         }
 
         leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
