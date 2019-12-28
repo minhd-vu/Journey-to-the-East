@@ -246,6 +246,7 @@ public class PlayerController : MonoBehaviour
         //    rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[3];
         //}
 
+        GetComponent<SpriteRenderer>().sortingOrder = (int)(transform.position.y * -100);
 
         // Set the direction the mouse is facing.
         if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
