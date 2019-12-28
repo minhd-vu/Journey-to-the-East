@@ -141,6 +141,41 @@ public class PlayerController : MonoBehaviour
 
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
 
+        if (movingDirection[(int)Direction.Left])
+        {
+            duration = animationTimes["Player_Roll_Left"];
+
+            if (movingDirection[(int)Direction.Up])
+            {
+                duration = animationTimes["Player_Roll_Up_Left"];
+            }
+            else if (movingDirection[(int)Direction.Down])
+            {
+                duration = animationTimes["Player_Roll_Down_Left"];
+            }
+        }
+        else if (movingDirection[(int)Direction.Right])
+        {
+            duration = animationTimes["Player_Roll_Right"];
+
+            if (movingDirection[(int)Direction.Up])
+            {
+                duration = animationTimes["Player_Roll_Up_Right"];
+            }
+            else if (movingDirection[(int)Direction.Down])
+            {
+                duration = animationTimes["Player_Roll_Down_Right"];
+            }
+        }
+        else if (movingDirection[(int)Direction.Up])
+        {
+            duration = animationTimes["Player_Roll_Up"];
+        }
+        else if (movingDirection[(int)Direction.Down])
+        {
+            duration = animationTimes["Player_Roll_Down"];
+        }
+
         rb.DOMove(rollVector, duration);
 
         yield return new WaitForSeconds(duration);
@@ -224,10 +259,6 @@ public class PlayerController : MonoBehaviour
             movingDirection[(int)Direction.Right] = rb.velocity.x > 0;
             movingDirection[(int)Direction.Up] = rb.velocity.y > 0;
             movingDirection[(int)Direction.Down] = rb.velocity.y < 0;
-            //animator.SetBool("Moving Up Left", rb.velocity.y > 0 && rb.velocity.x < 0);
-            //animator.SetBool("Moving Up Right", rb.velocity.y > 0 && rb.velocity.x > 0);
-            //animator.SetBool("Moving Down Left", rb.velocity.y < 0 && rb.velocity.x < 0);
-            //animator.SetBool("Moving Down Right", rb.velocity.y < 0 && rb.velocity.x > 0);
         }
 
         leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
