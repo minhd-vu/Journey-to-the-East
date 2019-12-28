@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
         Down,
     }
 
+    [SerializeField]
     private bool[] facingDirection = new bool[Enum.GetNames(typeof(Direction)).Length];
     private bool[] movingDirection = new bool[Enum.GetNames(typeof(Direction)).Length];
 
@@ -88,12 +89,12 @@ public class PlayerController : MonoBehaviour
         leftArm.SetActive(false);
         rightArm.SetActive(false);
 
-        float duration = 0f;
+        float duration = animator.GetCurrentAnimatorStateInfo(0).length;
 
         if (facingDirection[(int)Direction.Left])
         {
             duration = animationTimes["Player_Slash_Left"];
-            
+
             if (facingDirection[(int)Direction.Up])
             {
                 duration = animationTimes["Player_Slash_Up_Left"];
@@ -106,7 +107,7 @@ public class PlayerController : MonoBehaviour
         else if (facingDirection[(int)Direction.Right])
         {
             duration = animationTimes["Player_Slash_Right"];
-            
+
             if (facingDirection[(int)Direction.Up])
             {
                 duration = animationTimes["Player_Slash_Up_Right"];
@@ -212,7 +213,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
-        if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
+        else if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[1];
             leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
@@ -230,7 +231,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
-        if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
+        else if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[3];
             leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
@@ -238,6 +239,26 @@ public class PlayerController : MonoBehaviour
             rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        }
+
+        if (angle >= 22.5 && angle <= 67.5)
+        {
+            facingDirection[(int)Direction.Up] = facingDirection[(int)Direction.Right] = true;
+        }
+
+        else if (angle >= 112.5 && angle <= 157.5)
+        {
+            facingDirection[(int)Direction.Up] = facingDirection[(int)Direction.Left] = true;
+        }
+
+        else if (angle >= -157.5 && angle < -112.5)
+        {
+            facingDirection[(int)Direction.Down] = facingDirection[(int)Direction.Left] = true;
+        }
+
+        else if (angle <= -22.5 && angle >= -67.5)
+        {
+            facingDirection[(int)Direction.Down] = facingDirection[(int)Direction.Right] = true;
         }
 
         leftArm.transform.localScale = rightArm.transform.localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
