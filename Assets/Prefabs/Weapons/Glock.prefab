@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -758058659
+  m_SortingLayerID: -1262396705
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 45ed1ce7cf07e4c48a9e641708dec985, type: 3}
@@ -102,6 +102,8 @@ MonoBehaviour:
   shakeMagnitude: 1
   shakeRoughness: 1
   shakeDuration: 0.3
+  isAutomatic: 0
+  bulletsPerSecond: 0
 --- !u!1 &1248723405195273367
 GameObject:
   m_ObjectHideFlags: 0
