@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpriteSorter : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    private const int scale = -100;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,11 @@ public class SpriteSorter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spriteRenderer.sortingOrder = (int)(spriteRenderer.transform.position.y * -100);
+        spriteRenderer.sortingOrder = (int)(spriteRenderer.transform.position.y * scale);
+    }
+
+    public static void UpdateSpriteRenderer(SpriteRenderer sr)
+    {
+        sr.sortingOrder = (int)(sr.transform.position.y * scale);
     }
 }
