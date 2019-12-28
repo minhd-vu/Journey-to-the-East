@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = input * moveSpeed;
-        Vector2 direction = mousePosition - rb.position;
+        Vector2 direction = (mousePosition - rb.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         if (facingLeft = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
@@ -217,6 +217,15 @@ public class PlayerController : MonoBehaviour
         }
 
         leftArm.transform.localScale = rightArm.transform.localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
+
+        animator.SetFloat("Direction X", direction.x);
+        animator.SetFloat("Direction Y", direction.y);
+
+        if (!animator.GetBool("Rolling"))
+        {
+            animator.SetFloat("Velocity X", rb.velocity.normalized.x);
+            animator.SetFloat("Velocity Y", rb.velocity.normalized.y);
+        }
 
         if (!animator.GetBool("Slashing"))
         {
