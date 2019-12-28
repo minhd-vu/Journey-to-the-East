@@ -3503,7 +3503,7 @@ GameObject:
   - component: {fileID: 1215259607}
   - component: {fileID: 1215259609}
   - component: {fileID: 1215259608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4767,7 +4767,7 @@ GameObject:
   - component: {fileID: 1913381923}
   - component: {fileID: 1913381922}
   - component: {fileID: 1913381925}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
