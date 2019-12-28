@@ -226,6 +226,7 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = (mousePosition - rb.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+        // Set the direction the mouse is facing.
         if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[0];
@@ -263,6 +264,7 @@ public class PlayerController : MonoBehaviour
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
 
+        // Set the direction for diagonal directions.
         if (angle >= 22.5 && angle <= 67.5)
         {
             facingDirection[(int)Direction.Up] = facingDirection[(int)Direction.Right] = true;
@@ -283,16 +285,19 @@ public class PlayerController : MonoBehaviour
             facingDirection[(int)Direction.Down] = facingDirection[(int)Direction.Right] = true;
         }
 
+        // Flip the arms if the player is facing to the left.
         leftArm.transform.localScale = rightArm.transform.localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
 
         animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
 
+        // Prevent the player from moving if they are slashing.
         if (!animator.GetBool("Slashing"))
         {
             animator.SetFloat("Direction X", direction.x);
             animator.SetFloat("Direction Y", direction.y);
         }
 
+        // Prevent the player from moving if the are rolling.
         if (!animator.GetBool("Rolling"))
         {
             animator.SetFloat("Velocity X", rb.velocity.normalized.x);
@@ -304,6 +309,7 @@ public class PlayerController : MonoBehaviour
             movingDirection[(int)Direction.Down] = rb.velocity.y < 0;
         }
 
+        // Rotate the arms based on the mouse position.
         leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         rightArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
