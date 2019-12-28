@@ -6,14 +6,18 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
     private Rigidbody2D rb;
+    private Animator animator;
+
     private Vector2 input;
     private Vector2 mousePosition;
-    private Animator animator;
+
+    [SerializeField] private float moveSpeed = 3f;
+
     [SerializeField] private GameObject arm = null;
     private GameObject leftArm = null;
     private GameObject rightArm = null;
+
     [SerializeField] private GameObject weapon = null;
     [SerializeField] private GameObject offhand = null;
 
@@ -48,6 +52,9 @@ public class PlayerController : MonoBehaviour
         GetAnimationClipLengths();
     }
 
+    /**
+     * Store all animation lengths in the animator in animationTimes corresponding to the animation name.
+     */
     private void GetAnimationClipLengths()
     {
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
@@ -60,9 +67,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Store movement input.
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        // Store mouse input.
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        // Prevent the player from slashing or moving when they are already slashing or rolling.
         if (!animator.GetBool("Slashing") && !animator.GetBool("Rolling"))
         {
             if (Input.GetButtonDown("Fire2"))
@@ -72,25 +82,34 @@ public class PlayerController : MonoBehaviour
 
             else if (Input.GetButtonDown("Jump") && animator.GetBool("Moving"))
             {
+                // Store the roll coroutine so that we can kill it later.
                 roll = StartCoroutine(Roll());
             }
         }
 
+        // Prevent the player from moving when they are slashing or rolling.
         if (animator.GetBool("Slashing") || animator.GetBool("Rolling"))
         {
             input = Vector2.zero;
         }
     }
 
+    /**
+     * Slash coroutine.
+     */
     IEnumerator Slash()
     {
         animator.SetBool("Slashing", true);
+        // Play a random sword slash sound.
         AudioManager.instance.Play("Sword Slash " + UnityEngine.Random.Range(1, 3));
+        // Make the arms disappear.
         leftArm.SetActive(false);
         rightArm.SetActive(false);
 
+        // Temporarily set the duration.
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
 
+        // Set the duration of the coroutine to the duration of the animation clip length.
         if (facingDirection[(int)Direction.Left])
         {
             duration = animationTimes["Player_Slash_Left"];
@@ -128,6 +147,7 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
+        // Return the arms to normal.
         animator.SetBool("Slashing", false);
         leftArm.SetActive(true);
         rightArm.SetActive(true);
@@ -135,6 +155,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Roll()
     {
         animator.SetBool("Rolling", true);
+        // Deactivate the arms.
         leftArm.SetActive(false);
         rightArm.SetActive(false);
 
@@ -142,6 +163,7 @@ public class PlayerController : MonoBehaviour
 
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
 
+        // Set the duration of the coroutine to the duration of the animation clip length.
         if (movingDirection[(int)Direction.Left])
         {
             duration = animationTimes["Player_Roll_Left"];
@@ -187,11 +209,11 @@ public class PlayerController : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Stop the player from rolling if there is a collision.
         if (animator.GetBool("Rolling") && roll != null)
         {
-            rb.DOKill();
             StopCoroutine(roll);
-
+            rb.DOKill();
             animator.SetBool("Rolling", false);
             leftArm.SetActive(true);
             rightArm.SetActive(true);
