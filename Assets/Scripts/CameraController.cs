@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] public Transform target;
 
+    // Get the point between the mouse and the target for camera movement.
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

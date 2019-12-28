@@ -7,6 +7,7 @@ public class DestroyAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Destroy the animation after it reaches the last frame.
         Destroy(gameObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
 }

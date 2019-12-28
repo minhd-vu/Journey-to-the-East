@@ -17,8 +17,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 delta = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
-        animator.SetFloat("Move X", delta.x);
-        animator.SetFloat("Move Y", delta.y);
+        // Set the direction the enemy is moving in.
+        Vector3 direction = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
+        animator.SetFloat("Move X", direction.x);
+        animator.SetFloat("Move Y", direction.y);
     }
 }
