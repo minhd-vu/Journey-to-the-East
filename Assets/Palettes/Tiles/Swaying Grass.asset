@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Swaying Grass
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 4290023330361630238, guid: d9b96c3b9bccef8409bb9dbd3735a3f5, type: 3}
-  - {fileID: 6063019184080347547, guid: d9b96c3b9bccef8409bb9dbd3735a3f5, type: 3}
-  - {fileID: -8963923299545899808, guid: d9b96c3b9bccef8409bb9dbd3735a3f5, type: 3}
-  - {fileID: -1064447678858291310, guid: d9b96c3b9bccef8409bb9dbd3735a3f5, type: 3}
-  - {fileID: 4420435038409328163, guid: d9b96c3b9bccef8409bb9dbd3735a3f5, type: 3}
+  - {fileID: 7868801621366726462, guid: 8077bc95575302d4db68bfc5ee58db5e, type: 3}
+  - {fileID: 3067355099561995485, guid: 8077bc95575302d4db68bfc5ee58db5e, type: 3}
+  - {fileID: -8072478494564673202, guid: 8077bc95575302d4db68bfc5ee58db5e, type: 3}
+  - {fileID: -5260191905487793831, guid: 8077bc95575302d4db68bfc5ee58db5e, type: 3}
+  - {fileID: 2929539179824660139, guid: 8077bc95575302d4db68bfc5ee58db5e, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
