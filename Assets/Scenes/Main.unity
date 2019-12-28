@@ -222,6 +222,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4196323693561124405, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.052415133
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124405, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.2238388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124405, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.16129032
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124405, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.78125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124405, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.96875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124405, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124405, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124405, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.64
+      objectReference: {fileID: 0}
     - target: {fileID: 4196323693561124407, guid: 282e93716f4117c4fae7e399da3af665,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -277,6 +317,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124408, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196323693561124408, guid: 282e93716f4117c4fae7e399da3af665,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8981396645943940242, guid: 17f0f72cffd1e8948bc49986db3613b9,
+        type: 3}
     - target: {fileID: 4196323693561124409, guid: 282e93716f4117c4fae7e399da3af665,
         type: 3}
       propertyPath: m_Name
@@ -285,7 +336,7 @@ PrefabInstance:
     - target: {fileID: 4196323693561124409, guid: 282e93716f4117c4fae7e399da3af665,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5164615401457795226, guid: 282e93716f4117c4fae7e399da3af665,
         type: 3}
@@ -2397,7 +2448,7 @@ PrefabInstance:
     - target: {fileID: 5857219887815489228, guid: 8058297401ea44e4083f3edd4b04c408,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7380409158687637074, guid: 8058297401ea44e4083f3edd4b04c408,
         type: 3}
@@ -2700,13 +2751,13 @@ MonoBehaviour:
   weapon: {fileID: 1248723404846682421, guid: 6cb43c0d60203564098d0efdfa7c3093, type: 3}
   offhand: {fileID: 6288861226262366672, guid: 3ba7ec948596dbf45b15ce1c14713318, type: 3}
   leftArmPositions:
-  - {x: 0, y: 0.4, z: 0}
-  - {x: 0.25, y: 0.4, z: 0}
+  - {x: 0, y: 0.38, z: 0}
+  - {x: 0.25, y: 0.38, z: 0}
   - {x: -0.25, y: 0.4, z: 0}
   - {x: 0.23, y: 0.4, z: 0}
   rightArmPositions:
-  - {x: -0.25, y: 0.4, z: 0}
-  - {x: 0, y: 0.4, z: 0}
+  - {x: -0.25, y: 0.38, z: 0}
+  - {x: 0, y: 0.38, z: 0}
   - {x: 0.21, y: 0.4, z: 0}
   - {x: -0.25, y: 0.4, z: 0}
   rollForce: 3
@@ -3453,7 +3504,7 @@ GameObject:
   - component: {fileID: 1215259609}
   - component: {fileID: 1215259608}
   m_Layer: 0
-  m_Name: Tree Shadow
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3621,6 +3672,24 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
+--- !u!1 &1421653896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4196323693561124409, guid: 282e93716f4117c4fae7e399da3af665,
+    type: 3}
+  m_PrefabInstance: {fileID: 228399507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1421653897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421653896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1528572416
 GameObject:
   m_ObjectHideFlags: 0
