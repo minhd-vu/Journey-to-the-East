@@ -198,7 +198,8 @@ public class PlayerController : MonoBehaviour
             duration = animationTimes["Player_Roll_Down"];
         }
 
-        rb.DOMove(rollVector, duration);
+        rb.velocity = input * moveSpeed * 1.5f;
+        //rb.DOMove(rollVector, duration);
 
         yield return new WaitForSeconds(duration);
 
@@ -209,19 +210,22 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Stop the player from rolling if there is a collision.
-        if (animator.GetBool("Rolling") && roll != null)
-        {
-            StopCoroutine(roll);
-            rb.DOKill();
-            animator.SetBool("Rolling", false);
-            leftArm.SetActive(true);
-            rightArm.SetActive(true);
-        }
+        //if (animator.GetBool("Rolling") && roll != null)
+        //{
+        //    StopCoroutine(roll);
+        //    rb.DOKill();
+        //    animator.SetBool("Rolling", false);
+        //    leftArm.SetActive(true);
+        //    rightArm.SetActive(true);
+        //}
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = input * moveSpeed;
+        if (!animator.GetBool("Rolling") && !animator.GetBool("Slashing"))
+        {
+            rb.velocity = input * moveSpeed;
+        }
         Vector2 direction = (mousePosition - rb.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
