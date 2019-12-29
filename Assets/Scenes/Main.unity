@@ -567,6 +567,22 @@ MonoBehaviour:
     pitchVariance: 0
     loop: 0
     source: {fileID: 0}
+  - name: Fire
+    clip: {fileID: 8300000, guid: dbfe0c35f20e0c24799f3621489755f7, type: 3}
+    volume: 0.7
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Walking
+    clip: {fileID: 8300000, guid: d43cf3fd7e87d7c488ca32ee1a03a62b, type: 3}
+    volume: 0.154
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.052
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &657594851
 Transform:
   m_ObjectHideFlags: 0

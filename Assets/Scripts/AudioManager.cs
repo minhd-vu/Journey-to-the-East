@@ -32,18 +32,41 @@ public class AudioManager : MonoBehaviour
         // Background Music Here.
     }
 
+    private Sound FindSound(string sound) {
+        return Array.Find(sounds, item => item.name == sound);
+    }
+
     public void Play(string sound)
     {
-        Sound s = Array.Find(sounds, item => item.name == sound);
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + sound + " not found!");
-            return;
-        }
+        Play(FindSound(sound));
+    }
 
+    private void Play(Sound s)
+    {
         s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
         s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
         s.source.Play();
+    }
+
+    public void PlayLoop(string sound)
+    {
+        Sound s = FindSound(sound);
+        if (s.source.isPlaying)
+        {
+            return;
+        }
+
+        s.loop = true;
+        Play(s);
+    }
+
+    public void StopLoop(string sound)
+    {
+        Sound s = FindSound(sound);
+        if (s.source.isPlaying)
+        {
+            s.source.Pause();
+        }
     }
 }

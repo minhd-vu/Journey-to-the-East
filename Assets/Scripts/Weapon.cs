@@ -36,6 +36,7 @@ public class Weapon : MonoBehaviour
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);
         Instantiate(muzzleFlash, firePoint);
+        AudioManager.instance.Play("Fire");
         CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);
         bulletTimer = 0f;
     }

@@ -334,6 +334,15 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
 
+        if (animator.GetBool("Moving"))
+        {
+            AudioManager.instance.PlayLoop("Walking");
+        }
+        else
+        {
+            AudioManager.instance.StopLoop("Walking");
+        }
+
         // Prevent the player from moving if they are slashing.
         if (!animator.GetBool("Slashing"))
         {
