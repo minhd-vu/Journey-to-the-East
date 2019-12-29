@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3260572321552191502}
   - component: {fileID: 3260572321552191503}
   - component: {fileID: 7776516870123910538}
-  - component: {fileID: 8473198461636094232}
   m_Layer: 0
   m_Name: Muzzle Flash
   m_TagString: Untagged
@@ -115,17 +114,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfba3d8475067474085f07793d3eef93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8473198461636094232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3260572321552191500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentSpriteRenderer: {fileID: 0}
-  sortingOrderOffset: 0
