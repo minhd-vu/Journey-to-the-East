@@ -326,7 +326,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Flip the arms if the player is facing to the left.
-        leftArm.transform.localScale = rightArm.transform.localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
+        leftArm.transform.Find("Arm").localScale = rightArm.transform.Find("Arm").localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
 
         animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
 
@@ -350,7 +350,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Rotate the arms based on the mouse position.
-        leftArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        rightArm.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        leftArm.transform.Find("Arm").rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        rightArm.transform.Find("Arm").rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
