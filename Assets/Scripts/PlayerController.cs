@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!animator.GetBool("Rolling") && !animator.GetBool("Slashing"))
+        if (!animator.GetBool("Rolling"))
         {
             rb.velocity = input * moveSpeed;
         }

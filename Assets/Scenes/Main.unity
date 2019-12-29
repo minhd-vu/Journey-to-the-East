@@ -4509,5 +4509,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goon
       objectReference: {fileID: 0}
+    - target: {fileID: 1601547937654647765, guid: 23cbfe313b10ef84da109c8d9642903a,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 753930566}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23cbfe313b10ef84da109c8d9642903a, type: 3}

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 122399bda13738842b1c94448ae9cdfc
+guid: cf953a4a6a3dcc44a936f7b0cf9efe7c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4611346557196334171
-    second: blood impact_0
+      213: -846344103373695704
+    second: femaleattack_up_0
   - first:
-      213: -5444967381088270820
-    second: blood impact_1
+      213: 7167556804859989679
+    second: femaleattack_up_1
   - first:
-      213: -8529700254814509914
-    second: blood impact_2
+      213: -6873729706733010983
+    second: femaleattack_up_2
   - first:
-      213: -626225308656735260
-    second: blood impact_3
+      213: -7761837168544748695
+    second: femaleattack_up_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -55,8 +55,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.74}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -84,7 +84,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -96,7 +96,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -108,7 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -122,85 +122,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blood impact_0
+      name: femaleattack_up_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 35
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 28
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7268fb61ddf2a24385e23e3c23aea10
-      internalID: 4611346557196334171
+      spriteID: 02623dbcc056b00429d98621e7454257
+      internalID: -846344103373695704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood impact_1
+      name: femaleattack_up_1
       rect:
         serializedVersion: 2
-        x: 24
+        x: 28
         y: 0
-        width: 24
-        height: 35
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 28
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d62fb7f3b919dc4f96617e3b2dd29b3
-      internalID: -5444967381088270820
+      spriteID: cc83ff5114c019c4988d0c84591afc43
+      internalID: 7167556804859989679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood impact_2
+      name: femaleattack_up_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 56
         y: 0
-        width: 24
-        height: 35
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 28
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c22d1bea05ac0594d9c45b2d2a93fbf0
-      internalID: -8529700254814509914
+      spriteID: ae1292639b2efc94f9f0a2b47864c82c
+      internalID: -6873729706733010983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood impact_3
+      name: femaleattack_up_3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 84
         y: 0
-        width: 24
-        height: 35
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 28
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 352358f63c36e264fb91c5fef884e213
-      internalID: -626225308656735260
+      spriteID: 845e2c2913f1d1e439aca4ffb4ec46a5
+      internalID: -7761837168544748695
       vertices: []
       indices: 
       edges: []

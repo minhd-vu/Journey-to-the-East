@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3120032814617378446}
   - component: {fileID: 4533208346437519718}
   m_Layer: 0
-  m_Name: shadow_entities
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
