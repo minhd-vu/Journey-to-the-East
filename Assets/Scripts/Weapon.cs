@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bullet = null;
     [SerializeField] private GameObject muzzleFlash = null;
-    [HideInInspector] public Transform firePoint;
+    [HideInInspector] public Transform firePoint = null;
 
     [SerializeField] private float shakeMagnitude = 1f;
     [SerializeField] private float shakeRoughness = 1f;
@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private bool isAutomatic = false;
     private float bulletTimer;
-    [SerializeField] private float bulletsPerSecond;
+    [SerializeField] private float bulletsPerSecond = 0f;
 
     // Start is called before the first frame update
     void Start()

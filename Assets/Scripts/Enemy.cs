@@ -21,6 +21,6 @@ public class Enemy : MonoBehaviour
         Vector3 direction = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
         animator.SetFloat("Move X", direction.x);
         animator.SetFloat("Move Y", direction.y);
-        animator.SetBool("Moving", direction.magnitude > 0);
+        animator.SetBool("Moving", !rb.IsSleeping());
     }
 }
