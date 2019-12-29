@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 3f;
 
     [SerializeField] private GameObject arm = null;
+    private Transform arms = null;
     private GameObject leftArm = null;
     private GameObject rightArm = null;
 
@@ -44,8 +45,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        leftArm = Instantiate(arm, transform);
-        rightArm = Instantiate(arm, transform);
+        arms = transform.Find("Arms");
+        leftArm = Instantiate(arm, arms);
+        rightArm = Instantiate(arm, arms);
         weapon = Instantiate(weapon, rightArm.GetComponent<Transform>());
         offhand = Instantiate(offhand, leftArm.GetComponent<Transform>());
         GetAnimationClipLengths();
@@ -225,9 +227,33 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = (mousePosition - rb.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        SpriteSorter.UpdateSpriteRenderer(GetComponent<SpriteRenderer>());
+        //SpriteSorter.UpdateSpriteRenderer(GetComponent<SpriteRenderer>());
+
+        if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
+        {
+            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[0];
+            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[0];
+        }
+        else if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
+        {
+            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[1];
+            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[1];
+        }
+        if (facingDirection[(int)Direction.Up] = (angle >= 45 && angle < 135))
+        {
+            arms.localPosition = new Vector3(0f, 0.001f, 0f);
+            leftArm.GetComponent<Transform>().position = arms.position + leftArmPositions[2];
+            rightArm.GetComponent<Transform>().position = arms.position + rightArmPositions[2];
+        }
+        else if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
+        {
+            arms.localPosition = new Vector3(0f, -0.001f, 0f);
+            leftArm.GetComponent<Transform>().position = arms.position + leftArmPositions[3];
+            rightArm.GetComponent<Transform>().position = arms.position + rightArmPositions[3];
+        }
 
         // Set the direction the mouse is facing.
+        /*
         if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
         {
             leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[0];
@@ -264,6 +290,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
+        */
 
         // Set the direction for diagonal directions.
         if (angle >= 22.5 && angle <= 67.5)

@@ -127,3 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentSpriteRenderer: {fileID: 0}
+  sortingOrderOffset: 0

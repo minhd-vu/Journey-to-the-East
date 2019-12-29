@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1785136593123521003}
   - component: {fileID: 5164615401457795226}
   - component: {fileID: 1421653897}
+  - component: {fileID: 7933141195992898489}
   m_Layer: 0
   m_Name: Zombie Male
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -1262396705
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -432955823490921091, guid: bf7f73fac0f31a6498e73efa4a548acb,
+  m_Sprite: {fileID: 8981396645943940242, guid: 17f0f72cffd1e8948bc49986db3613b9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &4196323693561124406
 Animator:
   serializedVersion: 3
@@ -142,18 +143,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.056375742, y: 0.028187752}
+  m_Offset: {x: 0, y: -0.052415133}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.64, y: 0.16129032}
+    oldSize: {x: 0.78125, y: 0.96875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45033646, y: 0.8026848}
+  m_Size: {x: 0.45033646, y: 0.2238388}
   m_EdgeRadius: 0
 --- !u!114 &7333362668080438386
 MonoBehaviour:
@@ -245,3 +246,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8830c2e1e572634dbbd03b631319bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7933141195992898489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196323693561124409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentSpriteRenderer: {fileID: 0}
+  sortingOrderOffset: 0

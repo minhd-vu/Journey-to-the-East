@@ -20,7 +20,6 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         firePoint = transform.Find("Fire Point");
-
         bulletTimer = 0f;
     }
 
@@ -36,7 +35,7 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);
-        Instantiate(muzzleFlash, firePoint.position, firePoint.rotation);
+        Instantiate(muzzleFlash, firePoint);
         CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);
         bulletTimer = 0f;
     }
