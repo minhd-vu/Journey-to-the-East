@@ -2712,7 +2712,7 @@ MonoBehaviour:
   - {x: 0, y: 0.38, z: 0}
   - {x: 0.21, y: 0.4, z: 0}
   - {x: -0.25, y: 0.4, z: 0}
-  rollForce: 3
+  rollSpeed: 1.5
 --- !u!95 &753930570
 Animator:
   serializedVersion: 3
@@ -4620,6 +4620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Goon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395095672020406686, guid: 23cbfe313b10ef84da109c8d9642903a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1601547937654647765, guid: 23cbfe313b10ef84da109c8d9642903a,
         type: 3}

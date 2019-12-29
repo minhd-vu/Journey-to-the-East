@@ -24,8 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3[] leftArmPositions = null;
     [SerializeField] private Vector3[] rightArmPositions = null;
 
-    private Coroutine roll;
-    [SerializeField] private float rollForce = 3f;
+    [SerializeField] private float rollSpeed = 1.5f;
     private enum Direction
     {
         Left = 0,
@@ -82,7 +81,7 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetButtonDown("Jump") && animator.GetBool("Moving"))
             {
                 // Store the roll coroutine so that we can kill it later.
-                roll = StartCoroutine(Roll());
+                StartCoroutine(Roll());
             }
         }
 
@@ -158,8 +157,6 @@ public class PlayerController : MonoBehaviour
         leftArm.SetActive(false);
         rightArm.SetActive(false);
 
-        Vector3 rollVector = rb.transform.position + (Vector3)input * rollForce;
-
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
 
         // Set the duration of the coroutine to the duration of the animation clip length.
@@ -198,8 +195,7 @@ public class PlayerController : MonoBehaviour
             duration = animationTimes["Player_Roll_Down"];
         }
 
-        rb.velocity = input * moveSpeed * 1.5f;
-        //rb.DOMove(rollVector, duration);
+        rb.velocity = input * moveSpeed * rollSpeed;
 
         yield return new WaitForSeconds(duration);
 
@@ -209,15 +205,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Stop the player from rolling if there is a collision.
-        //if (animator.GetBool("Rolling") && roll != null)
-        //{
-        //    StopCoroutine(roll);
-        //    rb.DOKill();
-        //    animator.SetBool("Rolling", false);
-        //    leftArm.SetActive(true);
-        //    rightArm.SetActive(true);
-        //}
+
     }
 
     private void FixedUpdate()
@@ -226,11 +214,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = input * moveSpeed;
         }
+
         Vector2 direction = (mousePosition - rb.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        //SpriteSorter.UpdateSpriteRenderer(GetComponent<SpriteRenderer>());
-
+        // Set the direction the mouse is facing. Sort the arms accordingly.
         if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
         {
             leftArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
@@ -267,46 +255,6 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
             offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
-
-        // Set the direction the mouse is facing.
-        /*
-        if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
-        {
-            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[0];
-            leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
-            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[0];
-            rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
-            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
-            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
-        }
-        else if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
-        {
-            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[1];
-            leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
-            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[1];
-            rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
-            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
-            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
-        }
-        if (facingDirection[(int)Direction.Up] = (angle >= 45 && angle < 135))
-        {
-            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[2];
-            leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
-            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[2];
-            rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
-            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
-            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder - 1;
-        }
-        else if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
-        {
-            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[3];
-            leftArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
-            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[3];
-            rightArm.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
-            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
-            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.GetComponent<SpriteRenderer>().sortingOrder + 1;
-        }
-        */
 
         // Set the direction for diagonal directions.
         if (angle >= 22.5 && angle <= 67.5)

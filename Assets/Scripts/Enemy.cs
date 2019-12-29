@@ -23,4 +23,16 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("Move Y", direction.y);
         animator.SetBool("Moving", !rb.IsSleeping());
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Equals("Player"))
+        {
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        animator.SetTrigger("Attack");
+    }
 }
