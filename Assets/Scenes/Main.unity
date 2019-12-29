@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentSpriteRenderer: {fileID: 0}
+  sortingOrderOffset: 0
 --- !u!1001 &228399507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3517,8 +3519,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215259606}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.008, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1913381924}
@@ -3536,6 +3538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentSpriteRenderer: {fileID: 1913381923}
+  sortingOrderOffset: -1
 --- !u!212 &1215259609
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3690,6 +3694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentSpriteRenderer: {fileID: 0}
+  sortingOrderOffset: 0
 --- !u!1 &1528572416
 GameObject:
   m_ObjectHideFlags: 0
@@ -4786,6 +4792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentSpriteRenderer: {fileID: 0}
+  sortingOrderOffset: 0
 --- !u!212 &1913381923
 SpriteRenderer:
   m_ObjectHideFlags: 0

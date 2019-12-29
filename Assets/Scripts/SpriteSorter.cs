@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SpriteSorter : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer parentSpriteRenderer = null;
+    [SerializeField] private int sortingOrderOffset = 0;
+
     private SpriteRenderer spriteRenderer;
     private const int scale = -100;
 
@@ -16,7 +19,14 @@ public class SpriteSorter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spriteRenderer.sortingOrder = (int)(spriteRenderer.transform.position.y * scale);
+        if (parentSpriteRenderer != null)
+        {
+            spriteRenderer.sortingOrder = parentSpriteRenderer.sortingOrder + sortingOrderOffset;
+        }
+        else
+        {
+            spriteRenderer.sortingOrder = (int)(spriteRenderer.transform.position.y * scale);
+        }
     }
 
     public static void UpdateSpriteRenderer(SpriteRenderer sr)
