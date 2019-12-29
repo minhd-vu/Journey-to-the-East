@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 3f;
 
     [SerializeField] private GameObject arm = null;
-    private Transform arms = null;
     private GameObject leftArm = null;
     private GameObject rightArm = null;
 
@@ -45,11 +44,10 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        arms = transform.Find("Arms");
-        leftArm = Instantiate(arm, arms);
-        rightArm = Instantiate(arm, arms);
-        weapon = Instantiate(weapon, rightArm.GetComponent<Transform>());
-        offhand = Instantiate(offhand, leftArm.GetComponent<Transform>());
+        leftArm = Instantiate(arm, transform);
+        rightArm = Instantiate(arm, transform);
+        weapon = Instantiate(weapon, rightArm.transform.Find("Arm"));
+        offhand = Instantiate(offhand, leftArm.transform.Find("Arm"));
         GetAnimationClipLengths();
     }
 
@@ -231,25 +229,39 @@ public class PlayerController : MonoBehaviour
 
         if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
         {
-            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[0];
-            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[0];
+            leftArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
+            rightArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
+            leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[0];
+            rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[0];
+            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
         else if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
         {
-            leftArm.GetComponent<Transform>().position = transform.position + leftArmPositions[1];
-            rightArm.GetComponent<Transform>().position = transform.position + rightArmPositions[1];
+            leftArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
+            rightArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
+            leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[1];
+            rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[1];
+            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
         if (facingDirection[(int)Direction.Up] = (angle >= 45 && angle < 135))
         {
-            arms.localPosition = new Vector3(0f, 0.001f, 0f);
-            leftArm.GetComponent<Transform>().position = arms.position + leftArmPositions[2];
-            rightArm.GetComponent<Transform>().position = arms.position + rightArmPositions[2];
+            leftArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
+            rightArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
+            leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[2];
+            rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[2];
+            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
         else if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
         {
-            arms.localPosition = new Vector3(0f, -0.001f, 0f);
-            leftArm.GetComponent<Transform>().position = arms.position + leftArmPositions[3];
-            rightArm.GetComponent<Transform>().position = arms.position + rightArmPositions[3];
+            leftArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
+            rightArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
+            leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[3];
+            rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[3];
+            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
 
         // Set the direction the mouse is facing.

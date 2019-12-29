@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 8907477726696766529}
   - component: {fileID: 7380409158687637074}
   - component: {fileID: 1752290768353145417}
-  - component: {fileID: 9175000849652649197}
   m_Layer: 0
   m_Name: Zombie Female
   m_TagString: Untagged
@@ -244,17 +243,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8830c2e1e572634dbbd03b631319bf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9175000849652649197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5857219887815489228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319c166cd51bcd54183f66a06ac117cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
