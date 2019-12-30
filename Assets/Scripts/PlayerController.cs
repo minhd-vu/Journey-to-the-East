@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Slash()
     {
         animator.SetBool("Slashing", true);
+        animator.SetTrigger("Slash");
         // Play a random sword slash sound.
         AudioManager.instance.Play("Sword Slash " + UnityEngine.Random.Range(1, 3));
         // Make the arms disappear.
@@ -108,6 +109,7 @@ public class PlayerController : MonoBehaviour
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
 
         // Set the duration of the coroutine to the duration of the animation clip length.
+        /*
         if (facingDirection[(int)Direction.Left])
         {
             duration = animationTimes["Player_Slash_Left"];
@@ -142,6 +144,7 @@ public class PlayerController : MonoBehaviour
         {
             duration = animationTimes["Player_Slash_Down"];
         }
+        */
 
         yield return new WaitForSeconds(duration);
 
@@ -153,6 +156,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Roll()
     {
         animator.SetBool("Rolling", true);
+        animator.SetTrigger("Roll");
         // Deactivate the arms.
         leftArm.SetActive(false);
         rightArm.SetActive(false);
@@ -160,6 +164,7 @@ public class PlayerController : MonoBehaviour
         float duration = animator.GetCurrentAnimatorStateInfo(0).length;
 
         // Set the duration of the coroutine to the duration of the animation clip length.
+        /*
         if (movingDirection[(int)Direction.Left])
         {
             duration = animationTimes["Player_Roll_Left"];
@@ -194,6 +199,7 @@ public class PlayerController : MonoBehaviour
         {
             duration = animationTimes["Player_Roll_Down"];
         }
+        */
 
         rb.velocity = input * moveSpeed * rollSpeed;
 
