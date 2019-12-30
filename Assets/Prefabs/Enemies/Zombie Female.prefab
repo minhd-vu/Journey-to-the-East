@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8830c2e1e572634dbbd03b631319bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: 1
   damage: 1
   maxHealth: 100
 --- !u!1 &7125402467230054562

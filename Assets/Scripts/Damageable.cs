@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public abstract class Damageable : MonoBehaviour
 {
-    [HideInInspector]
     public bool isAlive = true;
     public float damage = 0f;
     private float health;
     [SerializeField] private float maxHealth = 100f;
+
     [HideInInspector] public float Health
     {
         get
@@ -30,7 +31,9 @@ public abstract class Damageable : MonoBehaviour
             }
         }
     }
-    protected float healthPercent
+
+    // Return the entity's health in percentages.
+    protected float HealthPercent
     {
         get
         {

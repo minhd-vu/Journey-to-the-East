@@ -209,6 +209,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1421653897, guid: 282e93716f4117c4fae7e399da3af665, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4196323693561124407, guid: 282e93716f4117c4fae7e399da3af665,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2769,7 +2773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAlive: 1
   damage: 1
-  maxHealth: 0
+  maxHealth: 100
   moveSpeed: 3
   arm: {fileID: 3834298472672296217, guid: 0f1aad1a31be3444ca0b4e80f0334397, type: 3}
   weapon: {fileID: 1248723404846682421, guid: 6cb43c0d60203564098d0efdfa7c3093, type: 3}

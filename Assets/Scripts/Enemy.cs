@@ -40,9 +40,12 @@ public class Enemy : Damageable
         animator.SetTrigger("Attack");
     }
 
+    public GameObject damageEffect = null;
+
     public override void Damage(float damage)
     {
         Health -= damage;
+        Instantiate(damageEffect, transform.position, Quaternion.Euler(Vector3.zero)););
     }
 
     protected override void Kill()
