@@ -9,6 +9,8 @@ public abstract class Damageable : MonoBehaviour
     private float health;
     [SerializeField] private float maxHealth = 100f;
 
+    public GameObject damageEffect = null;
+
     [HideInInspector] public float Health
     {
         get

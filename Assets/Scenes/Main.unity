@@ -213,6 +213,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1421653897, guid: 282e93716f4117c4fae7e399da3af665, type: 3}
+      propertyPath: damageEffect
+      value: 
+      objectReference: {fileID: 6937423593114065614, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
     - target: {fileID: 4196323693561124407, guid: 282e93716f4117c4fae7e399da3af665,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2410,6 +2415,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1752290768353145417, guid: 8058297401ea44e4083f3edd4b04c408,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752290768353145417, guid: 8058297401ea44e4083f3edd4b04c408,
+        type: 3}
+      propertyPath: damageEffect
+      value: 
+      objectReference: {fileID: 6937423593114065614, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
     - target: {fileID: 5857219887815489227, guid: 8058297401ea44e4083f3edd4b04c408,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2774,6 +2790,7 @@ MonoBehaviour:
   isAlive: 1
   damage: 1
   maxHealth: 100
+  damageEffect: {fileID: 0}
   moveSpeed: 3
   arm: {fileID: 3834298472672296217, guid: 0f1aad1a31be3444ca0b4e80f0334397, type: 3}
   weapon: {fileID: 1248723404846682421, guid: 6cb43c0d60203564098d0efdfa7c3093, type: 3}
@@ -4713,3 +4730,72 @@ PrefabInstance:
       objectReference: {fileID: 753930566}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23cbfe313b10ef84da109c8d9642903a, type: 3}
+--- !u!1001 &6937423591602221801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065600, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937423593114065614, guid: 15c81b859b941a2459a2328a3733f868,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood Impact
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15c81b859b941a2459a2328a3733f868, type: 3}

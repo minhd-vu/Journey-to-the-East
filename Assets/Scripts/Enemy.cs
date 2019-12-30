@@ -7,6 +7,7 @@ public class Enemy : Damageable
 {
     private Rigidbody2D rb;
     private Animator animator;
+    private Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class Enemy : Damageable
         // Set the direction the enemy is moving in.
         if (isAlive)
         {
-            Vector3 direction = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
+            direction = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
             animator.SetFloat("Move X", direction.x);
             animator.SetFloat("Move Y", direction.y);
             animator.SetBool("Moving", !rb.IsSleeping());
@@ -40,12 +41,11 @@ public class Enemy : Damageable
         animator.SetTrigger("Attack");
     }
 
-    public GameObject damageEffect = null;
-
     public override void Damage(float damage)
     {
         Health -= damage;
-        Instantiate(damageEffect, transform.position, Quaternion.Euler(Vector3.zero)););
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Instantiate(damageEffect, new Vector3(transform.position.x, transform.position.y - 0.0001f), Quaternion.AngleAxis(angle - 180f, Vector3.forward));
     }
 
     protected override void Kill()
