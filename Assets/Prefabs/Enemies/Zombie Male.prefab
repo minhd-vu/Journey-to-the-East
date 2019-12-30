@@ -341,7 +341,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 1
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
-  damage: 1
+  damage: 12
   maxHealth: 100
   damageEffect: {fileID: 6937423593114065614, guid: 15c81b859b941a2459a2328a3733f868,
     type: 3}
