@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 8907477726696766529}
   - component: {fileID: 7380409158687637074}
   - component: {fileID: 1752290768353145417}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Zombie Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,6 +307,8 @@ MonoBehaviour:
   isAlive: 1
   damage: 1
   maxHealth: 100
+  damageEffect: {fileID: 6937423593114065614, guid: 15c81b859b941a2459a2328a3733f868,
+    type: 3}
 --- !u!1 &7125402467230054562
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7960008761121574080}
   - component: {fileID: 2390330775982993602}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

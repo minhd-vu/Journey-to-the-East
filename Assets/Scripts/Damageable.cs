@@ -4,7 +4,7 @@ using System;
 
 public abstract class Damageable : MonoBehaviour
 {
-    public bool isAlive = true;
+    [HideInInspector] public bool isAlive = true;
     public float damage = 0f;
     private float health;
     [SerializeField] private float maxHealth = 100f;

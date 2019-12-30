@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Transform target = null;
-    [SerializeField] private Vector3 offset = Vector3.zero;
-    [SerializeField] private Image image = null;
+    [SerializeField] private Transform bar = null;
 
-    // Update is called once per frame
-    void Update()
+    private float percent = 1f;
+    public float Percent
     {
-        transform.position = target.position + offset;
+        get { return percent; }
+        set
+        {
+            bar.localScale = new Vector3(Mathf.Clamp(value, 0f, 1f), bar.localScale.y, bar.localScale.z);
+        }
     }
 }

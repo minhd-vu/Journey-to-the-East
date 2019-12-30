@@ -8,12 +8,14 @@ public class Enemy : Damageable
     private Rigidbody2D rb;
     private Animator animator;
     private Vector3 direction;
+    [SerializeField] private GameObject healthBar = null;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        healthBar = Instantiate(healthBar, transform);
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class Enemy : Damageable
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             GameObject de = Instantiate(damageEffect, new Vector3(transform.position.x, transform.position.y - 0.0001f), Quaternion.identity);
             de.transform.GetChild(0).rotation = Quaternion.AngleAxis(angle - 180f, Vector3.forward);
+            healthBar.GetComponent<HealthBar>().Percent = HealthPercent;
         }
     }
 

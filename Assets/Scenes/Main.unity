@@ -218,6 +218,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6937423593114065614, guid: 15c81b859b941a2459a2328a3733f868,
         type: 3}
+    - target: {fileID: 1421653897, guid: 282e93716f4117c4fae7e399da3af665, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1356845723627189148, guid: e987275e01fcc4e429477d6566136503,
+        type: 3}
     - target: {fileID: 4196323693561124407, guid: 282e93716f4117c4fae7e399da3af665,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2417,14 +2422,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1752290768353145417, guid: 8058297401ea44e4083f3edd4b04c408,
         type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1752290768353145417, guid: 8058297401ea44e4083f3edd4b04c408,
-        type: 3}
-      propertyPath: damageEffect
+      propertyPath: healthBar
       value: 
-      objectReference: {fileID: 6937423593114065614, guid: 15c81b859b941a2459a2328a3733f868,
+      objectReference: {fileID: 1356845723627189148, guid: e987275e01fcc4e429477d6566136503,
         type: 3}
     - target: {fileID: 5857219887815489227, guid: 8058297401ea44e4083f3edd4b04c408,
         type: 3}
@@ -2485,11 +2485,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie Female
-      objectReference: {fileID: 0}
-    - target: {fileID: 5857219887815489228, guid: 8058297401ea44e4083f3edd4b04c408,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7380409158687637074, guid: 8058297401ea44e4083f3edd4b04c408,
         type: 3}
