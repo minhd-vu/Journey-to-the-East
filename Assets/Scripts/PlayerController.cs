@@ -425,6 +425,7 @@ public class PlayerController : Damageable
 
     protected override void Kill()
     {
+        isAlive = false;
         Destroy(gameObject);
     }
 }
