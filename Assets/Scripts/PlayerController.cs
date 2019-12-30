@@ -126,7 +126,6 @@ public class PlayerController : Damageable
             if (d != null)
             {
                 d.Damage(damage);
-                Debug.Log("Hit: " + collider.name + " Health: " + d.Health);
             }
         }
 
@@ -355,6 +354,7 @@ public class PlayerController : Damageable
     public override void Damage(float damage)
     {
         Health -= damage;
+        Debug.Log("Player Health: " + Health);
     }
 
     protected override void Kill()

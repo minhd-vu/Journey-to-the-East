@@ -35,6 +35,7 @@ public class Enemy : Damageable
         if (collision.gameObject.name.Equals("Player"))
         {
             Attack();
+            collision.gameObject.GetComponent<Damageable>().Damage(damage);
         }
     }
 
