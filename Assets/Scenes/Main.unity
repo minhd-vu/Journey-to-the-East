@@ -2783,7 +2783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
-  damage: 1
+  damage: 20
   maxHealth: 100
   damageEffect: {fileID: 0}
   moveSpeed: 3
