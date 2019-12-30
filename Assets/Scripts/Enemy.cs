@@ -43,9 +43,16 @@ public class Enemy : Damageable
 
     public override void Damage(float damage)
     {
-        Health -= damage;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Instantiate(damageEffect, new Vector3(transform.position.x, transform.position.y - 0.0001f), Quaternion.AngleAxis(angle - 180f, Vector3.forward));
+        if (isAlive)
+        {
+            // Damage the enemy.
+            Health -= damage;
+
+            // Instantiate the damage effects appropriately.
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            GameObject de = Instantiate(damageEffect, new Vector3(transform.position.x, transform.position.y - 0.0001f), Quaternion.identity);
+            de.transform.GetChild(0).rotation = Quaternion.AngleAxis(angle - 180f, Vector3.forward);
+        }
     }
 
     protected override void Kill()
