@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class PlayerController : Damageable
 {
@@ -25,6 +26,9 @@ public class PlayerController : Damageable
 
     [SerializeField] private float rollSpeed = 1.5f;
 
+    private Image healthBar;
+    private Image manaBar;
+
     private enum Direction
     {
         Left = 0,
@@ -38,6 +42,35 @@ public class PlayerController : Damageable
 
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
+    private float mana;
+    [SerializeField] private float maxMana = 100f;
+    [HideInInspector] public float Mana
+    {
+        get
+        {
+            return mana;
+        }
+        set
+        {
+            if ((mana = value) > mana)
+            {
+                mana = maxMana;
+            }
+            else if (mana <= 0)
+            {
+                mana = 0;
+            }
+
+            manaBar.fillAmount = mana / maxMana;
+        }
+    }
+
+    private bool rolling = false;
+    private bool slashing = false;
+
+    [SerializeField] private float rollManaCost = 10f;
+    [SerializeField] private float slashManaCost = 20f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +80,9 @@ public class PlayerController : Damageable
         rightArm = Instantiate(arm, transform);
         weapon = Instantiate(weapon, rightArm.transform.Find("Arm"));
         offhand = Instantiate(offhand, leftArm.transform.Find("Arm"));
-        //GetAnimationClipLengths();
+        healthBar = GameObject.FindWithTag("Health Bar").GetComponent<Image>();
+        manaBar = GameObject.FindWithTag("Mana Bar").GetComponent<Image>();
+        mana = maxMana;
     }
 
     /**
@@ -73,12 +108,12 @@ public class PlayerController : Damageable
         // Prevent the player from slashing or moving when they are already slashing or rolling.
         if (!animator.GetBool("Slashing") && !animator.GetBool("Rolling"))
         {
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2") && Mana >= slashManaCost)
             {
                 StartCoroutine(Slash());
             }
 
-            else if (Input.GetButtonDown("Jump") && animator.GetBool("Moving"))
+            else if (Input.GetButtonDown("Jump") && animator.GetBool("Moving") && Mana >= rollManaCost)
             {
                 // Store the roll coroutine so that we can kill it later.
                 StartCoroutine(Roll());
@@ -113,6 +148,9 @@ public class PlayerController : Damageable
         // Display the sword slash animation.
         animator.SetBool("Slashing", true);
         animator.SetTrigger("Slash");
+
+        // Drain the mana.
+        Mana -= slashManaCost;
 
         // Play a random sword slash sound.
         AudioManager.instance.Play("Sword Slash " + UnityEngine.Random.Range(1, 3));
@@ -186,6 +224,9 @@ public class PlayerController : Damageable
         // Play the rolling animation.
         animator.SetBool("Rolling", true);
         animator.SetTrigger("Roll");
+
+        // Drain the mana.
+        Mana -= rollManaCost;
 
         // Deactivate the arms.
         leftArm.SetActive(false);
@@ -355,6 +396,7 @@ public class PlayerController : Damageable
     {
         Health -= damage;
         Debug.Log("Player Health: " + Health);
+        healthBar.fillAmount = HealthPercent;
     }
 
     protected override void Kill()

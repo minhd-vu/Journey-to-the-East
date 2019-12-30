@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hitbox
+  - Health Bar
+  - Mana Bar
   layers:
   - Default
   - TransparentFX
