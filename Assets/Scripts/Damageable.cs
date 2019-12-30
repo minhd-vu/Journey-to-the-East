@@ -3,6 +3,8 @@ using System.Collections;
 
 public abstract class Damageable : MonoBehaviour
 {
+    [HideInInspector]
+    public bool isAlive = true;
     public float damage = 0f;
     private float health;
     [SerializeField] private float maxHealth = 100f;
@@ -20,7 +22,11 @@ public abstract class Damageable : MonoBehaviour
             }
             else if (health <= 0)
             {
-                Kill();
+                if (isAlive)
+                {
+                    isAlive = false;
+                    Kill();
+                }
             }
         }
     }
@@ -35,6 +41,7 @@ public abstract class Damageable : MonoBehaviour
     private void Awake()
     {
         health = maxHealth;
+        isAlive = true;
     }
 
     // Damage the entity.

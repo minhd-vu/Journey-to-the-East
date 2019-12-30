@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : Damageable
 {
@@ -18,10 +19,13 @@ public class Enemy : Damageable
     void Update()
     {
         // Set the direction the enemy is moving in.
-        Vector3 direction = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
-        animator.SetFloat("Move X", direction.x);
-        animator.SetFloat("Move Y", direction.y);
-        animator.SetBool("Moving", !rb.IsSleeping());
+        if (isAlive)
+        {
+            Vector3 direction = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
+            animator.SetFloat("Move X", direction.x);
+            animator.SetFloat("Move Y", direction.y);
+            animator.SetBool("Moving", !rb.IsSleeping());
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -43,6 +47,14 @@ public class Enemy : Damageable
 
     protected override void Kill()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("Death");
+        GetComponent<AIPath>().canMove = false;
+
+        foreach (Collider2D collider in GetComponents<Collider2D>())
+        {
+            collider.enabled = false;
+        }
+
+        Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
     }
 }
