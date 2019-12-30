@@ -269,11 +269,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Male
       objectReference: {fileID: 0}
-    - target: {fileID: 4196323693561124409, guid: 282e93716f4117c4fae7e399da3af665,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5164615401457795226, guid: 282e93716f4117c4fae7e399da3af665,
         type: 3}
       propertyPath: target
@@ -2471,11 +2466,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Female
       objectReference: {fileID: 0}
-    - target: {fileID: 5857219887815489228, guid: 8058297401ea44e4083f3edd4b04c408,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7380409158687637074, guid: 8058297401ea44e4083f3edd4b04c408,
         type: 3}
       propertyPath: target
@@ -2772,6 +2762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079bb157fd48d01438be5fc7c47236de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  maxHealth: 0
   moveSpeed: 3
   arm: {fileID: 3834298472672296217, guid: 0f1aad1a31be3444ca0b4e80f0334397, type: 3}
   weapon: {fileID: 1248723404846682421, guid: 6cb43c0d60203564098d0efdfa7c3093, type: 3}
@@ -2788,6 +2780,9 @@ MonoBehaviour:
   - {x: -0.25, y: 0.4, z: 0}
   rollSpeed: 1.5
   slashRange: 0.7
+  slashLayers:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!95 &753930570
 Animator:
   serializedVersion: 3
@@ -3140,7 +3135,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -3159,7 +3154,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -4695,11 +4690,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Goon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1395095672020406686, guid: 23cbfe313b10ef84da109c8d9642903a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1601547937654647765, guid: 23cbfe313b10ef84da109c8d9642903a,
         type: 3}
