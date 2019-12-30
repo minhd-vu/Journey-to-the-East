@@ -3072,6 +3072,8 @@ MonoBehaviour:
   - {x: -0.25, y: 0.4, z: 0}
   rollSpeed: 1.5
   maxMana: 100
+  healthPerSecond: 5
+  manaPerSecond: 5
   rollManaCost: 10
   slashManaCost: 20
   slashRange: 0.7
@@ -3661,7 +3663,7 @@ GameObject:
   - component: {fileID: 1517732191}
   - component: {fileID: 1517732190}
   m_Layer: 5
-  m_Name: Health/Mana Bar Base
+  m_Name: Player Health/Mana Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

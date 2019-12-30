@@ -68,6 +68,9 @@ public class PlayerController : Damageable
     private bool rolling = false;
     private bool slashing = false;
 
+    [SerializeField] private float healthPerSecond = 5f;
+    [SerializeField] private float manaPerSecond = 10f;
+
     [SerializeField] private float rollManaCost = 10f;
     [SerializeField] private float slashManaCost = 20f;
 
@@ -83,6 +86,9 @@ public class PlayerController : Damageable
         healthBar = GameObject.FindWithTag("Health Bar").GetComponent<Image>();
         manaBar = GameObject.FindWithTag("Mana Bar").GetComponent<Image>();
         mana = maxMana;
+
+        StartCoroutine(RegenHealth());
+        StartCoroutine(RegenMana());
     }
 
     /**
@@ -138,6 +144,24 @@ public class PlayerController : Damageable
         }
 
         Gizmos.DrawWireSphere(rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange);
+    }
+
+    IEnumerator RegenHealth()
+    {
+        while (isAlive)
+        {
+            Health += healthPerSecond;
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    IEnumerator RegenMana()
+    {
+        while (isAlive)
+        {
+            Mana += manaPerSecond;
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     /**
