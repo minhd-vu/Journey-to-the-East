@@ -583,6 +583,14 @@ MonoBehaviour:
     pitchVariance: 0.052
     loop: 1
     source: {fileID: 0}
+  - name: Music Forest Theme
+    clip: {fileID: 8300000, guid: 4177574783d04f145beaaf7714ea9a2e, type: 3}
+    volume: 0.1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &657594851
 Transform:
   m_ObjectHideFlags: 0
@@ -2779,6 +2787,7 @@ MonoBehaviour:
   - {x: 0.21, y: 0.4, z: 0}
   - {x: -0.25, y: 0.4, z: 0}
   rollSpeed: 1.5
+  slashRange: 0.7
 --- !u!95 &753930570
 Animator:
   serializedVersion: 3

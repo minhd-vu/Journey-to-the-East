@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         rightArm = Instantiate(arm, transform);
         weapon = Instantiate(weapon, rightArm.transform.Find("Arm"));
         offhand = Instantiate(offhand, leftArm.transform.Find("Arm"));
-        GetAnimationClipLengths();
+        //GetAnimationClipLengths();
     }
 
     /**
@@ -92,15 +92,37 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField] private float slashRange = 1.0f;
+
+    private void OnDrawGizmosSelected()
+    {
+        if (rightArm == null)
+        {
+            return;
+        }
+
+        Gizmos.DrawWireSphere(rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange);
+    }
+
     /**
      * Slash coroutine.
      */
     IEnumerator Slash()
     {
+        // Display the sword slash animation.
         animator.SetBool("Slashing", true);
         animator.SetTrigger("Slash");
+
         // Play a random sword slash sound.
         AudioManager.instance.Play("Sword Slash " + UnityEngine.Random.Range(1, 3));
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange);
+
+        foreach (Collider2D collider in colliders)
+        {
+
+        }
+
         // Make the arms disappear.
         leftArm.SetActive(false);
         rightArm.SetActive(false);
@@ -155,8 +177,10 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Roll()
     {
+        // Play the rolling animation.
         animator.SetBool("Rolling", true);
         animator.SetTrigger("Roll");
+
         // Deactivate the arms.
         leftArm.SetActive(false);
         rightArm.SetActive(false);

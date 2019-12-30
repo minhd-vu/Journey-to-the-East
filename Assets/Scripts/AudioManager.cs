@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        // Background Music Here.
+        PlayLoop("Music Forest Theme");
     }
 
     private Sound FindSound(string sound) {
