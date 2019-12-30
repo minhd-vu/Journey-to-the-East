@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Damageable
 {
     private Rigidbody2D rb;
     private Animator animator;
@@ -25,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3[] rightArmPositions = null;
 
     [SerializeField] private float rollSpeed = 1.5f;
+
     private enum Direction
     {
         Left = 0,
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
     }
 
     [SerializeField] private float slashRange = 1.0f;
+    [SerializeField] private LayerMask slashLayers = 0;
 
     private void OnDrawGizmosSelected()
     {
@@ -116,11 +117,17 @@ public class PlayerController : MonoBehaviour
         // Play a random sword slash sound.
         AudioManager.instance.Play("Sword Slash " + UnityEngine.Random.Range(1, 3));
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange, slashLayers);
 
         foreach (Collider2D collider in colliders)
         {
-
+            //Debug.Log("Hit: " + collider.name);
+            Damageable d = collider.GetComponent<Damageable>();
+            if (d != null)
+            {
+                d.Damage(damage);
+                Debug.Log("Hit: " + collider.name + " Health: " + d.Health);
+            }
         }
 
         // Make the arms disappear.
@@ -343,5 +350,15 @@ public class PlayerController : MonoBehaviour
         // Rotate the arms based on the mouse position.
         leftArm.transform.Find("Arm").rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         rightArm.transform.Find("Arm").rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    public override void Damage(float damage)
+    {
+        Health -= damage;
+    }
+
+    protected override void Kill()
+    {
+        Destroy(gameObject);
     }
 }

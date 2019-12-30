@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool isAutomatic = false;
     private float bulletTimer;
     [SerializeField] private float bulletsPerSecond = 0f;
+    [SerializeField] private float damage = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bullet, firePoint.position, firePoint.rotation);
+        Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Bullet>().damage = damage;
         Instantiate(muzzleFlash, firePoint);
         AudioManager.instance.Play("Fire");
         CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);

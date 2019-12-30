@@ -2,29 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Damageable
 {
     private Rigidbody2D rb;
     private Animator animator;
-
-    private float _health;
-    public float health
-    {
-        get { return _health; }
-        set
-        {
-            if ((_health = value) > maxHealth)
-            {
-                _health = maxHealth;
-            }
-            else if (_health <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
-
-    [SerializeField] private float maxHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -53,5 +34,15 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
         animator.SetTrigger("Attack");
+    }
+
+    public override void Damage(float damage)
+    {
+        Health -= damage;
+    }
+
+    protected override void Kill()
+    {
+        Destroy(gameObject);
     }
 }
