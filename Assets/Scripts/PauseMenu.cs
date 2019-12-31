@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool paused = false;
-    public GameObject pauseMenu;
+    [HideInInspector] public static bool isPaused = false;
+    [SerializeField] private GameObject background;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject credits;
+    [SerializeField] private Animator animator;
+    
 
     private void Start()
     {
+        background.SetActive(false);
         pauseMenu.SetActive(false);
+        credits.SetActive(false);
     }
 
     // Update is called once per frame
@@ -18,7 +24,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
-            if (paused)
+            if (isPaused)
             {
                 Resume();
             }
@@ -31,23 +37,42 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        background.SetActive(false);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-        paused = false;
+        isPaused = false;
     }
 
-    void Pause()
+    private void Pause()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        background.SetActive(true);
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        paused = true;
+        isPaused = true;
+    }
+
+    public void Help()
+    {
+
+    }
+
+    public void Credits()
+    {
+        credits.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+
+    public void Back()
+    {
+        credits.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 
     public void Quit()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Main Menu");
+        StartCoroutine(MainMenu.LoadNextScene(animator, 0));
     }
 }

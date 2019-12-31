@@ -106,30 +106,33 @@ public class PlayerController : Damageable
     // Update is called once per frame
     void Update()
     {
-        // Store movement input.
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        // Store mouse input.
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        // Prevent the player from slashing or moving when they are already slashing or rolling.
-        if (!animator.GetBool("Slashing") && !animator.GetBool("Rolling"))
+        if (!PauseMenu.isPaused)
         {
-            if (Input.GetButtonDown("Fire2") && Mana >= slashManaCost)
+            // Store movement input.
+            input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            // Store mouse input.
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            // Prevent the player from slashing or moving when they are already slashing or rolling.
+            if (!animator.GetBool("Slashing") && !animator.GetBool("Rolling"))
             {
-                StartCoroutine(Slash());
+                if (Input.GetButtonDown("Fire2") && Mana >= slashManaCost)
+                {
+                    StartCoroutine(Slash());
+                }
+
+                else if (Input.GetButtonDown("Jump") && animator.GetBool("Moving") && Mana >= rollManaCost)
+                {
+                    // Store the roll coroutine so that we can kill it later.
+                    StartCoroutine(Roll());
+                }
             }
 
-            else if (Input.GetButtonDown("Jump") && animator.GetBool("Moving") && Mana >= rollManaCost)
+            // Prevent the player from moving when they are slashing or rolling.
+            if (animator.GetBool("Slashing") || animator.GetBool("Rolling"))
             {
-                // Store the roll coroutine so that we can kill it later.
-                StartCoroutine(Roll());
+                input = Vector2.zero;
             }
-        }
-
-        // Prevent the player from moving when they are slashing or rolling.
-        if (animator.GetBool("Slashing") || animator.GetBool("Rolling"))
-        {
-            input = Vector2.zero;
         }
     }
 

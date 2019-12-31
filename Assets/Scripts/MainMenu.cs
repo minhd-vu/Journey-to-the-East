@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Animator animtor;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -14,13 +14,12 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        animtor.SetTrigger("Fade");
-        StartCoroutine(LoadNextScene());
+        StartCoroutine(LoadNextScene(animator, SceneManager.GetActiveScene().buildIndex + 1));
     }
-
-    private IEnumerator LoadNextScene()
+    public static IEnumerator LoadNextScene(Animator animator, int index)
     {
-        yield return new WaitForSeconds(animtor.GetCurrentAnimatorStateInfo(0).length);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        animator.SetTrigger("Fade");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        SceneManager.LoadScene(index);
     }
 }
