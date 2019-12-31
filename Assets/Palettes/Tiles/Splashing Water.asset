@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Splashing Water
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -1745429820875406622, guid: bcde5d342be16244a928df191a49ae22, type: 3}
-  - {fileID: -7810945638420544876, guid: bcde5d342be16244a928df191a49ae22, type: 3}
-  - {fileID: -5970000844241164487, guid: bcde5d342be16244a928df191a49ae22, type: 3}
+  - {fileID: -107071608956576832, guid: f7b7587f53bfbee4281dab345ba3df95, type: 3}
+  - {fileID: 4639697196131737100, guid: f7b7587f53bfbee4281dab345ba3df95, type: 3}
+  - {fileID: -5332268298812271076, guid: f7b7587f53bfbee4281dab345ba3df95, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
-  m_TileColliderType: 0
+  m_TileColliderType: 1
