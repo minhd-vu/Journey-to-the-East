@@ -2684,7 +2684,7 @@ MonoBehaviour:
   damageEffect: {fileID: 0}
   moveSpeed: 3
   arm: {fileID: 3834298472672296217, guid: 0f1aad1a31be3444ca0b4e80f0334397, type: 3}
-  weapon: {fileID: 1248723404846682421, guid: 6cb43c0d60203564098d0efdfa7c3093, type: 3}
+  weapon: {fileID: 1248723404846682421, guid: 6edab288d3e530c4b8b26dc45c90b9fa, type: 3}
   offhand: {fileID: 6288861226262366672, guid: 3ba7ec948596dbf45b15ce1c14713318, type: 3}
   leftArmPositions:
   - {x: 0, y: 0.38, z: 0}
@@ -4857,7 +4857,7 @@ PrefabInstance:
     - target: {fileID: 8465251544560908727, guid: 298e9864cd15ee04bb3780a9e05d3421,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
