@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [HideInInspector] public static bool isPaused = false;
+    [HideInInspector] public static bool isPaused;
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject credits;
+    [SerializeField] private GameObject help;
     [SerializeField] private Animator animator;
     
 
@@ -17,6 +18,8 @@ public class PauseMenu : MonoBehaviour
         background.SetActive(false);
         pauseMenu.SetActive(false);
         credits.SetActive(false);
+        help.SetActive(false);
+        isPaused = false;
     }
 
     // Update is called once per frame
@@ -39,6 +42,8 @@ public class PauseMenu : MonoBehaviour
     {
         background.SetActive(false);
         pauseMenu.SetActive(false);
+        credits.SetActive(false);
+        help.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -49,18 +54,23 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         background.SetActive(true);
         pauseMenu.SetActive(true);
+        credits.SetActive(false);
+        help.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void Help()
     {
-
+        credits.SetActive(false);
+        help.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 
     public void Credits()
     {
         credits.SetActive(true);
+        help.SetActive(false);
         pauseMenu.SetActive(false);
     }
 
@@ -68,6 +78,7 @@ public class PauseMenu : MonoBehaviour
     {
         credits.SetActive(false);
         pauseMenu.SetActive(true);
+        help.SetActive(false);
     }
 
     public void Quit()
