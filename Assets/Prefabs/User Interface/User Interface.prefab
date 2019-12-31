@@ -73,7 +73,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 50}
+  m_SizeDelta: {x: 1600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1702510498
 CanvasRenderer:
@@ -116,10 +116,10 @@ MonoBehaviour:
     Story
     Writers: Vu Nguyen, Tung Tran
 
-    Playtesters: Romie, Danny
+    Playtesters: Romie Tekaalem, Danny Durand,
+    Kenito Plant
 
-    Sound Effects:
-    Dan Do
+    Sound Effects: Dan Do
 
     Music: Nick Newry'
   m_isRightToLeft: 0

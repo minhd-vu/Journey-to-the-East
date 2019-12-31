@@ -26,6 +26,12 @@ public class PlayerController : Damageable
 
     [SerializeField] private float rollSpeed = 1.5f;
 
+    [SerializeField] private GameObject walkingParticles = null;
+
+    private float walkingParticlesTimer;
+    [SerializeField] private float walkingParticlesTime = 0.3f;
+    [SerializeField] private float walkingParticlesDistance = 0.3f;
+
     private Image healthBar;
     private Image manaBar;
 
@@ -86,6 +92,7 @@ public class PlayerController : Damageable
         healthBar = GameObject.FindWithTag("Health Bar").GetComponent<Image>();
         manaBar = GameObject.FindWithTag("Mana Bar").GetComponent<Image>();
         mana = maxMana;
+        walkingParticlesTimer = 0f;
 
         StartCoroutine(RegenHealth());
         StartCoroutine(RegenMana());
@@ -389,6 +396,12 @@ public class PlayerController : Damageable
         if (animator.GetBool("Moving"))
         {
             AudioManager.instance.PlayLoop("Walking");
+
+            if ((walkingParticlesTimer += Time.deltaTime) >= walkingParticlesTime)
+            {
+                Instantiate(walkingParticles, transform.position - (transform.forward * walkingParticlesDistance), Quaternion.identity);
+                walkingParticlesTimer = 0f;
+            }
         }
         else
         {

@@ -4020,6 +4020,10 @@ MonoBehaviour:
   - {x: 0.21, y: 0.4, z: 0}
   - {x: -0.25, y: 0.4, z: 0}
   rollSpeed: 1.5
+  walkingParticles: {fileID: 8811173945369212620, guid: 61d45d18161354f4aa5b7b127029b112,
+    type: 3}
+  walkingParticlesTime: 0.3
+  walkingParticlesDistance: 0.3
   maxMana: 100
   healthPerSecond: 5
   manaPerSecond: 5
