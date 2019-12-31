@@ -64,4 +64,9 @@ public class AudioManager : MonoBehaviour
             s.source.Pause();
         }
     }
+
+    public void PlayMusic(string sound)
+    {
+
+    }
 }

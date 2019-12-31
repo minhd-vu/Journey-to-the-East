@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4640573835306580623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4640573835306580621}
+  - component: {fileID: 4640573835306580620}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4640573835306580621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640573835306580623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4640573835306580620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640573835306580623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296b2c79044d42842a960bd7d4c4445d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Sword Slash 1
+    clip: {fileID: 8300000, guid: 42a36ee7abf1ab442abee051ba66610b, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 0.7
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sword Slash 2
+    clip: {fileID: 8300000, guid: 67048c137d2688f4e8d75f4815e24b0c, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 0.7
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Fire
+    clip: {fileID: 8300000, guid: dbfe0c35f20e0c24799f3621489755f7, type: 3}
+    volume: 0.7
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Walking
+    clip: {fileID: 8300000, guid: d43cf3fd7e87d7c488ca32ee1a03a62b, type: 3}
+    volume: 0.154
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.052
+    loop: 1
+    source: {fileID: 0}
+  - name: Music Forest Theme
+    clip: {fileID: 8300000, guid: 4177574783d04f145beaaf7714ea9a2e, type: 3}
+    volume: 0.1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Title Screen
+    clip: {fileID: 8300000, guid: cf6748c72af95e04e855bd6b6bf7bd45, type: 3}
+    volume: 0.2
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
