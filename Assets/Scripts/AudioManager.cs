@@ -27,11 +27,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        PlayLoop("Music Forest Theme");
-    }
-
     private Sound FindSound(string sound) {
         return Array.Find(sounds, item => item.name == sound);
     }
