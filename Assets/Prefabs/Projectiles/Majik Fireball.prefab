@@ -125,7 +125,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &-7303190795008928665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,10 +139,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0400302, y: -0.007247448}
+  m_Offset: {x: -0, y: -0.007247448}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.8076923, y: 0.5}
     oldSize: {x: 2.4375, y: 1}
     newSize: {x: 2.4375, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -167,3 +167,4 @@ MonoBehaviour:
   damage: 0
   range: 20
   force: 5
+  radius: 2

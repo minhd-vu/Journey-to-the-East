@@ -426,6 +426,9 @@ public class PlayerController : Damageable
     protected override void Kill()
     {
         isAlive = false;
-        Destroy(gameObject);
+        animator.SetTrigger("Death");
+        this.enabled = false;
+
+        //Destroy(gameObject);
     }
 }

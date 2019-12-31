@@ -9,6 +9,9 @@ public class Enemy : Damageable
     private Animator animator;
     private Vector3 direction;
     [SerializeField] private GameObject healthBar = null;
+    private float attackTime;
+    private float attackTimer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,8 @@ public class Enemy : Damageable
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         healthBar = Instantiate(healthBar, transform);
+        attackTime = 0f;
+        attackTimer = 0f;
     }
 
     // Update is called once per frame
@@ -34,14 +39,26 @@ public class Enemy : Damageable
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            Attack();
-            collision.gameObject.GetComponent<Damageable>().Damage(damage);
+            Attack(collision.gameObject.GetComponent<Damageable>());
         }
     }
 
-    void Attack()
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        animator.SetTrigger("Attack");
+        if (collision.gameObject.name.Equals("Player"))
+        {
+            Attack(collision.gameObject.GetComponent<Damageable>());
+        }
+    }
+
+    void Attack(Damageable d)
+    {
+        if ((attackTimer -= Time.deltaTime) >= 0f)
+        {
+            animator.SetTrigger("Attack");
+            attackTimer = animator.GetCurrentAnimatorStateInfo(0).length;
+            d.Damage(damage);
+        }
     }
 
     public override void Damage(float damage)

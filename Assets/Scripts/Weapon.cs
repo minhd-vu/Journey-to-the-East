@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     private float bulletTimer;
     [SerializeField] private float bulletsPerSecond = 0f;
     [SerializeField] private float damage = 0f;
+    [SerializeField] private float manaCost = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,13 +36,20 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Bullet>().damage = damage;
-        if (muzzleFlash != null)
+        PlayerController player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        if (player.Mana >= manaCost)
         {
-            Instantiate(muzzleFlash, firePoint);
+            Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Bullet>().damage = damage;
+            if (muzzleFlash != null)
+            {
+                Instantiate(muzzleFlash, firePoint);
+            }
+
+            AudioManager.instance.Play("Fire");
+            CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);
+
+            player.Mana -= manaCost;
+            bulletTimer = 0f;
         }
-        AudioManager.instance.Play("Fire");
-        CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);
-        bulletTimer = 0f;
     }
 }

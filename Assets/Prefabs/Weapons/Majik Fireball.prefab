@@ -102,8 +102,9 @@ MonoBehaviour:
   shakeRoughness: 0
   shakeDuration: 0
   isAutomatic: 1
-  bulletsPerSecond: 8
-  damage: 10
+  bulletsPerSecond: 1
+  damage: 50
+  manaCost: 5
 --- !u!1 &1248723405195273367
 GameObject:
   m_ObjectHideFlags: 0
