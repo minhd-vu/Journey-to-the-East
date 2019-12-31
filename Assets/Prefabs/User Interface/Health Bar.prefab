@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 48ed68e6ca4fd0742b875e6830b11a11, type: 3}
-  m_Color: {r: 0.14346743, g: 0.6862745, b: 0.22969289, a: 0.78431374}
+  m_Color: {r: 0.654902, g: 0.003921569, b: 0.35686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -169,9 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f3e0b1ab336e04db55fffd5a2e8f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: -0.32, y: -0.32, z: 0}
   bar: {fileID: 1356845723322156424}
+  healthBarTimer: 5
 --- !u!1 &1356845723736893440
 GameObject:
   m_ObjectHideFlags: 0

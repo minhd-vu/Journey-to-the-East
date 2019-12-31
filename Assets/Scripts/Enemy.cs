@@ -9,7 +9,6 @@ public class Enemy : Damageable
     private Animator animator;
     private Vector3 direction;
     [SerializeField] private GameObject healthBar = null;
-    private float attackTime;
     private float attackTimer;
 
 
@@ -19,7 +18,6 @@ public class Enemy : Damageable
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         healthBar = Instantiate(healthBar, transform);
-        attackTime = 0f;
         attackTimer = 0f;
     }
 
@@ -53,7 +51,7 @@ public class Enemy : Damageable
 
     void Attack(Damageable d)
     {
-        if ((attackTimer -= Time.deltaTime) >= 0f)
+        if ((attackTimer -= Time.deltaTime) <= 0f)
         {
             animator.SetTrigger("Attack");
             attackTimer = animator.GetCurrentAnimatorStateInfo(0).length;
