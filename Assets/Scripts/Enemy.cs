@@ -24,15 +24,22 @@ public class Enemy : Damageable
     // Update is called once per frame
     void Update()
     {
+        OnUpdate();
+    }
+
+    protected void OnUpdate()
+    {
         // Set the direction the enemy is moving in.
         if (isAlive)
         {
-            direction = (GameObject.FindWithTag("Player").transform.position - transform.position).normalized;
+            GameObject player = GameObject.FindWithTag("Player");
+            direction = (player.transform.position - transform.position).normalized;
             animator.SetFloat("Move X", direction.x);
             animator.SetFloat("Move Y", direction.y);
             animator.SetBool("Moving", !rb.IsSleeping());
         }
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("Player"))
