@@ -65,8 +65,8 @@ public class PlayerController : Damageable
         }
     }
 
-    private bool rolling = false;
-    private bool slashing = false;
+    private bool isRolling = false;
+    private bool isSlashing = false;
 
     [SerializeField] private float healthPerSecond = 5f;
     [SerializeField] private float manaPerSecond = 10f;
