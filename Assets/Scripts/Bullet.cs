@@ -15,7 +15,22 @@ public class Bullet : MonoBehaviour
         initialPosition = transform.position;
 
         // Propel the bullet.
+        StartCoroutine(Shoot());
+    }
+
+    private IEnumerator Shoot()
+    {
+        float delay = 0f;
+
+        if (GetComponent<Animator>() != null)
+        {
+            delay = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
+            GetComponent<Collider2D>().enabled = false;
+        }
+
+        yield return new WaitForSeconds(delay);
         GetComponent<Rigidbody2D>().AddForce(transform.right * force, ForceMode2D.Impulse);
+        GetComponent<Collider2D>().enabled = true;
     }
 
     // Update is called once per frame
