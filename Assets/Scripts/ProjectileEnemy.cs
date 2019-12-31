@@ -5,17 +5,34 @@ using UnityEngine;
 public class ProjectileEnemy : Enemy
 {
     [SerializeField] private GameObject projectile = null;
-    [SerializeField] private float range = 0f;
+    [SerializeField] private float range = 10f;
+    [SerializeField] private float projectilesPerSecond = 1f;
+    private Transform firePoint;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
+
+        if (isAlive && Vector3.Distance(GameObject.FindWithTag("Player").transform.position, transform.position) <= range && (attackTimer += Time.deltaTime) >= 1f / projectilesPerSecond)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Instantiate(projectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward)).GetComponent<Bullet>().damage = damage;
+            attackTimer = 0f;
+        }
+    }
+
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+    }
+
+    protected override void OnCollisionStay2D(Collision2D collision)
+    {
     }
 }

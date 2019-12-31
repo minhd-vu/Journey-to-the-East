@@ -5,15 +5,15 @@ using Pathfinding;
 
 public class Enemy : Damageable
 {
-    private Rigidbody2D rb;
-    private Animator animator;
-    private Vector3 direction;
+    protected Rigidbody2D rb;
+    protected Animator animator;
+    protected Vector3 direction;
     [SerializeField] private GameObject healthBar = null;
-    private float attackTimer;
+    protected float attackTimer;
 
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -22,12 +22,7 @@ public class Enemy : Damageable
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        OnUpdate();
-    }
-
-    protected void OnUpdate()
+    protected virtual void Update()
     {
         // Set the direction the enemy is moving in.
         if (isAlive)
@@ -40,7 +35,7 @@ public class Enemy : Damageable
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("Player"))
         {
@@ -48,7 +43,7 @@ public class Enemy : Damageable
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    protected virtual void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("Player"))
         {
@@ -56,7 +51,7 @@ public class Enemy : Damageable
         }
     }
 
-    void Attack(Damageable d)
+    protected virtual void Attack(Damageable d)
     {
         if ((attackTimer -= Time.deltaTime) <= 0f)
         {
