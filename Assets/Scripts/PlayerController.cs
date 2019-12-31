@@ -427,7 +427,9 @@ public class PlayerController : Damageable
     {
         isAlive = false;
         animator.SetTrigger("Death");
-        this.enabled = false;
+        leftArm.SetActive(false);
+        rightArm.SetActive(false);
+        enabled = false;
 
         //Destroy(gameObject);
     }
