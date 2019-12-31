@@ -28,9 +28,12 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") || (isAutomatic && Input.GetButton("Fire1") && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond))
+        if (!PauseMenu.isPaused)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1") || (isAutomatic && Input.GetButton("Fire1") && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond))
+            {
+                Shoot();
+            }
         }
     }
 
