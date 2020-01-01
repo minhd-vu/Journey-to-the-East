@@ -442,12 +442,12 @@ public class PlayerController : Damageable
     protected override void Kill()
     {
         isAlive = false;
+        leftArm.SetActive(false);
+        rightArm.SetActive(false);
         animator.SetTrigger("Death");
         rb.velocity = Vector3.zero;
         GetComponent<Collider2D>().enabled = false;
         rb.isKinematic = false;
-        leftArm.SetActive(false);
-        rightArm.SetActive(false);
         enabled = false;
 
         //Destroy(gameObject);

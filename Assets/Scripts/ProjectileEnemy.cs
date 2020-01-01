@@ -25,7 +25,7 @@ public class ProjectileEnemy : Enemy
         {
             animator.SetTrigger("Attack");
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Instantiate(projectile, firePoint.position, Quaternion.AngleAxis(angle, Vector3.forward)).GetComponent<Bullet>().damage = damage;
+            Instantiate(projectile, firePoint.position, Quaternion.AngleAxis(angle, Vector3.forward)).GetComponent<Projectile>().damage = damage;
             attackTimer = 0f;
         }
     }

@@ -42,13 +42,13 @@ public class Weapon : MonoBehaviour
         PlayerController player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         if (player.Mana >= manaCost)
         {
-            Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Bullet>().damage = damage;
+            Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Projectile>().damage = damage;
             if (muzzleFlash != null)
             {
                 Instantiate(muzzleFlash, firePoint);
             }
 
-            AudioManager.instance.Play("Fire");
+            //AudioManager.instance.Play("Fire");
             CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);
 
             player.Mana -= manaCost;

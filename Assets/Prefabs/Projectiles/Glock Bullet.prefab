@@ -147,6 +147,7 @@ MonoBehaviour:
   damage: 0
   range: 10
   force: 13
+  fireSound: Fire
 --- !u!95 &4598666856328756333
 Animator:
   serializedVersion: 3

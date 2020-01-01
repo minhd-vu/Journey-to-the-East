@@ -92,3 +92,19 @@ MonoBehaviour:
     pitchVariance: 0
     loop: 1
     source: {fileID: 0}
+  - name: Fireball Portal Open
+    clip: {fileID: 8300000, guid: b46d961992617df4497a3f88ff71ea7e, type: 3}
+    volume: 0.2
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Fireball Fire
+    clip: {fileID: 8300000, guid: ca98f77eb1da73a479f9d38083c3c4b9, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}

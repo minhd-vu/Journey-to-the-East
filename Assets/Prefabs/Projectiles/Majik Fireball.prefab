@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8504090735117274833}
   - component: {fileID: -7722770077414018582}
   - component: {fileID: -7303190795008928665}
-  - component: {fileID: 1118338177433086754}
+  - component: {fileID: 8489632952616636356}
   m_Layer: 8
   m_Name: Majik Fireball
   m_TagString: Untagged
@@ -152,7 +152,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35743952, y: 0.18826962}
   m_EdgeRadius: 0
---- !u!114 &1118338177433086754
+--- !u!114 &8489632952616636356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,11 +161,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8504090735117274832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3d0a72000856c148892b63df85f2b1c, type: 3}
+  m_Script: {fileID: 11500000, guid: f47965343454c5a428bfe147dbb7ea65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  range: 20
-  force: 5
+  range: 10
+  force: 4
+  fireSound: Fireball Fire
   radius: 2
-  hasAnimationDelay: 1
+  preFireSound: Fireball Portal Open
