@@ -146,8 +146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   range: 10
-  force: 13
+  force: 6
   radius: 0
+  hasAnimationDelay: 0
 --- !u!95 &4598666856328756333
 Animator:
   serializedVersion: 3

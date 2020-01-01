@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     private Vector3 initialPosition;
     [SerializeField] private float force = 20f;
     [SerializeField] private float radius = 0f;
+    [SerializeField] private bool hasAnimationDelay = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
         float delay = 0f;
 
-        if (GetComponent<Animator>() != null)
+        if (GetComponent<Animator>() != null && hasAnimationDelay)
         {
             delay = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
             GetComponent<Collider2D>().enabled = false;

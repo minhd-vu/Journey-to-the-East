@@ -13,6 +13,7 @@ public class ProjectileEnemy : Enemy
     protected override void Start()
     {
         base.Start();
+        firePoint = transform.Find("Fire Point");
     }
 
     // Update is called once per frame
@@ -22,8 +23,9 @@ public class ProjectileEnemy : Enemy
 
         if (isAlive && Vector3.Distance(GameObject.FindWithTag("Player").transform.position, transform.position) <= range && (attackTimer += Time.deltaTime) >= 1f / projectilesPerSecond)
         {
+            animator.SetTrigger("Attack");
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Instantiate(projectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward)).GetComponent<Bullet>().damage = damage;
+            Instantiate(projectile, firePoint.position, Quaternion.AngleAxis(angle, Vector3.forward)).GetComponent<Bullet>().damage = damage;
             attackTimer = 0f;
         }
     }

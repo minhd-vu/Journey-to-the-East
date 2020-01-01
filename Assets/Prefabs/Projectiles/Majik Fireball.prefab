@@ -168,3 +168,4 @@ MonoBehaviour:
   range: 20
   force: 5
   radius: 2
+  hasAnimationDelay: 1

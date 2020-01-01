@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [HideInInspector] public static bool isPaused;
-    [SerializeField] private GameObject background;
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject credits;
-    [SerializeField] private GameObject help;
-    [SerializeField] private Animator animator;
-    
-
+    [SerializeField] private GameObject background = null;
+    [SerializeField] private GameObject pauseMenu = null;
+    [SerializeField] private GameObject credits = null;
+    [SerializeField] private GameObject help = null;
+    [SerializeField] private Animator animator = null;
     private void Start()
     {
         background.SetActive(false);
