@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplosiveProjectile : Projectile
 {
-    [SerializeField] private float radius = 0f;
+    [SerializeField] protected float radius = 0f;
     [SerializeField] private LayerMask layers = 0;
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,7 +20,7 @@ public class ExplosiveProjectile : Projectile
         AreaOfEffectCollision();
     }
 
-    private void AreaOfEffectCollision()
+    protected virtual void AreaOfEffectCollision()
     {
         GetComponent<Animator>().SetTrigger("Hit");
         GetComponent<Collider2D>().enabled = false;

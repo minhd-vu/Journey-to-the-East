@@ -173,3 +173,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   preFireSound: Fireball Portal Open
+  majikFire: {fileID: 6081820178027482162, guid: 82ab5d544ab34ce42b72a8d8409f8652,
+    type: 3}
+  majikFireDuration: 5
+  majikFireCount: 3
