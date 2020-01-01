@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour
     {
         if (!PauseMenu.isPaused)
         {
-            if (Input.GetButtonDown("Fire1") || (isAutomatic && Input.GetButton("Fire1") && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond))
+            if (Input.GetButtonDown("Fire1") || (isAutomatic && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond) && Input.GetButton("Fire1"))
             {
                 Shoot();
             }

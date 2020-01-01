@@ -101,6 +101,7 @@ MonoBehaviour:
   shakeMagnitude: 0
   shakeRoughness: 0
   shakeDuration: 0
+  isSemiAutomatic: 0
   isAutomatic: 1
   bulletsPerSecond: 1
   damage: 50
