@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58500849}
   - component: {fileID: 58500850}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5974,7 +5974,7 @@ GameObject:
   - component: {fileID: 753930567}
   - component: {fileID: 753930569}
   - component: {fileID: 753930570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -12574,46 +12574,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 312896729, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 312896729, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 312896729, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 312896729, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 312896729, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702510497, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702510497, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702510497, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702510497, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702510497, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8465251544560908723, guid: 298e9864cd15ee04bb3780a9e05d3421,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12723,11 +12683,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: User Interface
-      objectReference: {fileID: 0}
-    - target: {fileID: 8465251544560908727, guid: 298e9864cd15ee04bb3780a9e05d3421,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 298e9864cd15ee04bb3780a9e05d3421, type: 3}
