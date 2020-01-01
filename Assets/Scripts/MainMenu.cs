@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator animator = null;
 
     private void Start()
     {

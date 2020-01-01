@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemies;
+    [SerializeField] private GameObject[] enemies = null;
     private float timer;
     [SerializeField] private float time = 5f;
 

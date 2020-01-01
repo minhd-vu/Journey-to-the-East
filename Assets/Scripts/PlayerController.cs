@@ -14,12 +14,11 @@ public class PlayerController : Damageable
 
     [SerializeField] private float moveSpeed = 3f;
 
-    [SerializeField] private GameObject arm = null;
-    private GameObject leftArm = null;
-    private GameObject rightArm = null;
+    [SerializeField] private GameObject leftArm = null;
+    [SerializeField] private GameObject rightArm = null;
 
-    [SerializeField] private GameObject weapon = null;
-    [SerializeField] private GameObject offhand = null;
+    [SerializeField] private GameObject mainHand = null;
+    [SerializeField] private GameObject offHand = null;
 
     [SerializeField] private Vector3[] leftArmPositions = null;
     [SerializeField] private Vector3[] rightArmPositions = null;
@@ -47,6 +46,9 @@ public class PlayerController : Damageable
     private bool[] movingDirection = new bool[Enum.GetNames(typeof(Direction)).Length];
 
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
+
+    [SerializeField] private float slashRange = 1.0f;
+    [SerializeField] private LayerMask slashLayers = 0;
 
     private float mana;
     [SerializeField] private float maxMana = 100f;
@@ -85,10 +87,8 @@ public class PlayerController : Damageable
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        leftArm = Instantiate(arm, transform);
-        rightArm = Instantiate(arm, transform);
-        weapon = Instantiate(weapon, rightArm.transform.Find("Arm"));
-        offhand = Instantiate(offhand, leftArm.transform.Find("Arm"));
+        mainHand = Instantiate(mainHand, rightArm.transform.Find("Arm"));
+        offHand = Instantiate(offHand, leftArm.transform.Find("Arm"));
         healthBar = GameObject.FindWithTag("Health Bar").GetComponent<Image>();
         manaBar = GameObject.FindWithTag("Mana Bar").GetComponent<Image>();
         mana = maxMana;
@@ -141,19 +141,6 @@ public class PlayerController : Damageable
                 input = Vector2.zero;
             }
         }
-    }
-
-    [SerializeField] private float slashRange = 1.0f;
-    [SerializeField] private LayerMask slashLayers = 0;
-
-    private void OnDrawGizmosSelected()
-    {
-        if (rightArm == null)
-        {
-            return;
-        }
-
-        Gizmos.DrawWireSphere(rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange);
     }
 
     IEnumerator RegenHealth()
@@ -336,8 +323,8 @@ public class PlayerController : Damageable
             rightArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
             leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[0];
             rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[0];
-            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
-            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
         else if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
         {
@@ -345,8 +332,8 @@ public class PlayerController : Damageable
             rightArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
             leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[1];
             rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[1];
-            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
-            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
         if (facingDirection[(int)Direction.Up] = (angle >= 45 && angle < 135))
         {
@@ -354,8 +341,8 @@ public class PlayerController : Damageable
             rightArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
             leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[2];
             rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[2];
-            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
-            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
         else if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
         {
@@ -363,8 +350,8 @@ public class PlayerController : Damageable
             rightArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
             leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[3];
             rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[3];
-            weapon.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
-            offhand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
 
         // Set the direction for diagonal directions.

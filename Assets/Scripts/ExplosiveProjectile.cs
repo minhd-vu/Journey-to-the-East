@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExplosiveProjectile : Projectile
 {
     [SerializeField] private float radius = 0f;
+    [SerializeField] private LayerMask layers = 0;
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Hitbox"))
@@ -27,7 +28,7 @@ public class ExplosiveProjectile : Projectile
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<SpriteRenderer>().sortingOrder += 1;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, layers);
 
         foreach (Collider2D collider in colliders)
         {

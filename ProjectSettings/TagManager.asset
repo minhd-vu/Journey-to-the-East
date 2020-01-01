@@ -8,6 +8,8 @@ TagManager:
   - Health Bar
   - Mana Bar
   - EXP Bar
+  - Off Hand
+  - Main Hand
   layers:
   - Default
   - TransparentFX

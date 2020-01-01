@@ -169,4 +169,7 @@ MonoBehaviour:
   force: 4
   fireSound: Fireball Fire
   radius: 2
+  layers:
+    serializedVersion: 2
+    m_Bits: 2048
   preFireSound: Fireball Portal Open
