@@ -101,11 +101,11 @@ MonoBehaviour:
   shakeMagnitude: 0
   shakeRoughness: 0
   shakeDuration: 0
-  isSemiAutomatic: 0
-  isAutomatic: 1
+  isAutomatic: 0
   bulletsPerSecond: 1
   damage: 50
-  manaCost: 5
+  manaCost: 20
+  buttonName: Ability 2
 --- !u!1 &1248723405195273367
 GameObject:
   m_ObjectHideFlags: 0
