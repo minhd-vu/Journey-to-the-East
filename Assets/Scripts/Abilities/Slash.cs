@@ -47,9 +47,10 @@ public class Slash : Ability
             player.leftArm.SetActive(false);
             player.rightArm.SetActive(false);
             player.updateFacingDirection = false;
-        }
 
-        yield return null;
+            //yield return new WaitForSeconds(player.animator.GetCurrentAnimatorStateInfo(0).length);
+            yield return null;
+        }
     }
 
     protected void StopSlash()
@@ -58,6 +59,7 @@ public class Slash : Ability
         // Return the arms to normal.
         if (player.isAlive)
         {
+            Debug.Log("Stop Slash");
             player.leftArm.SetActive(true);
             player.rightArm.SetActive(true);
             isConcurrentActive = false;
