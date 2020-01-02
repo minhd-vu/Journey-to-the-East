@@ -94,7 +94,7 @@ public class Enemy : Damageable
         animator.SetTrigger("Death");
         GetComponent<AIPath>().canMove = false;
 
-        foreach (Collider2D collider in GetComponents<Collider2D>())
+        foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
         {
             collider.enabled = false;
         }

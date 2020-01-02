@@ -3379,8 +3379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 32
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionX: 480
+  m_RefResolutionY: 270
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -5747,7 +5747,6 @@ GameObject:
   - component: {fileID: 748344477}
   - component: {fileID: 748344476}
   - component: {fileID: 748344478}
-  - component: {fileID: 748344479}
   m_Layer: 0
   m_Name: CM Virtual Camera
   m_TagString: Untagged
@@ -5817,23 +5816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc4fcc2678114541bbd00fa359e7ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &748344479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 748344475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ConfineMode: 0
-  m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
-  m_ConfineScreenEdges: 1
-  m_Damping: 0
 --- !u!1 &749152909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5898,6 +5880,7 @@ GameObject:
   - component: {fileID: 753930570}
   - component: {fileID: 753930571}
   - component: {fileID: 753930572}
+  - component: {fileID: 753930573}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -6036,7 +6019,10 @@ MonoBehaviour:
   damage: 20
   maxHealth: 100
   damageEffect: {fileID: 0}
+  rb: {fileID: 0}
   animator: {fileID: 0}
+  input: {x: 0, y: 0}
+  mousePosition: {x: 0, y: 0}
   moveSpeed: 3
   leftArm: {fileID: 937043057}
   rightArm: {fileID: 665527527}
@@ -6053,12 +6039,12 @@ MonoBehaviour:
   - {x: 0, y: 0.38, z: 0}
   - {x: 0.21, y: 0.4, z: 0}
   - {x: -0.25, y: 0.4, z: 0}
-  rollSpeed: 1.5
   walkingParticles: {fileID: 8811173945369212620, guid: 61d45d18161354f4aa5b7b127029b112,
     type: 3}
   walkingParticlesTime: 0.3
   walkingParticlesDistance: 0.3
-  canMove: 1
+  updateFacingDirection: 1
+  updateMovingDirection: 1
   maxMana: 100
   healthPerSecond: 5
   manaPerSecond: 5
@@ -6125,6 +6111,23 @@ MonoBehaviour:
   slashLayers:
     serializedVersion: 2
     m_Bits: 6144
+--- !u!114 &753930573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753930564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed7933d7e531a4468b02569dc900663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaCost: 4
+  cooldown: 1
+  buttonName: Jump
+  damage: 0
+  rollSpeed: 2
 --- !u!1001 &937043055
 PrefabInstance:
   m_ObjectHideFlags: 0

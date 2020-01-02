@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerController : Damageable
 {
-    private Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public Animator animator;
 
-    private Vector2 input;
-    private Vector2 mousePosition;
+    [HideInInspector] public Vector2 input;
+    [HideInInspector] public Vector2 mousePosition;
 
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] public float moveSpeed = 3f;
 
     [SerializeField] public GameObject leftArm = null;
     [SerializeField] public GameObject rightArm = null;
@@ -22,8 +22,6 @@ public class PlayerController : Damageable
 
     [SerializeField] private Vector3[] leftArmPositions = null;
     [SerializeField] private Vector3[] rightArmPositions = null;
-
-    [SerializeField] private float rollSpeed = 1.5f;
 
     [SerializeField] private GameObject walkingParticles = null;
 
@@ -47,9 +45,8 @@ public class PlayerController : Damageable
     private bool[] facingDirection = new bool[Enum.GetNames(typeof(Direction)).Length];
     private bool[] movingDirection = new bool[Enum.GetNames(typeof(Direction)).Length];
 
-    private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
-
-    [HideInInspector] public bool canMove = true;
+    [HideInInspector] public bool updateFacingDirection = true;
+    [HideInInspector] public bool updateMovingDirection = true;
 
     private float mana;
     [SerializeField] private float maxMana = 100f;
@@ -98,37 +95,19 @@ public class PlayerController : Damageable
         StartCoroutine(RegenMana());
     }
 
-    /**
-     * Store all animation lengths in the animator in animationTimes corresponding to the animation name.
-     */
-    private void GetAnimationClipLengths()
-    {
-        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-        foreach (AnimationClip clip in clips)
-        {
-            animationTimes[clip.name] = clip.length;
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (!PauseMenu.isPaused)
         {
             // Store movement input.
-            input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            input = updateFacingDirection ? new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized : Vector2.zero;
             // Store mouse input.
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition = updateMovingDirection ? (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) : Vector2.zero;
 
             foreach (Ability ability in GetComponents<Ability>())
             {
                 ability.OnUpdate();
-            }
-
-            // Prevent the player from moving when they are casting an ability.
-            if (!canMove)
-            {
-                input = Vector2.zero;
             }
         }
     }
@@ -151,71 +130,9 @@ public class PlayerController : Damageable
         }
     }
 
-    IEnumerator Roll()
-    {
-        // Play the rolling animation.
-        animator.SetBool("Rolling", true);
-        animator.SetTrigger("Roll");
-
-        // Drain the mana.
-        //Mana -= rollManaCost;
-
-        // Deactivate the arms.
-        leftArm.SetActive(false);
-        rightArm.SetActive(false);
-
-        float duration = animator.GetCurrentAnimatorStateInfo(0).length;
-
-        // Set the duration of the coroutine to the duration of the animation clip length.
-        /*
-        if (movingDirection[(int)Direction.Left])
-        {
-            duration = animationTimes["Player_Roll_Left"];
-
-            if (movingDirection[(int)Direction.Up])
-            {
-                duration = animationTimes["Player_Roll_Up_Left"];
-            }
-            else if (movingDirection[(int)Direction.Down])
-            {
-                duration = animationTimes["Player_Roll_Down_Left"];
-            }
-        }
-        else if (movingDirection[(int)Direction.Right])
-        {
-            duration = animationTimes["Player_Roll_Right"];
-
-            if (movingDirection[(int)Direction.Up])
-            {
-                duration = animationTimes["Player_Roll_Up_Right"];
-            }
-            else if (movingDirection[(int)Direction.Down])
-            {
-                duration = animationTimes["Player_Roll_Down_Right"];
-            }
-        }
-        else if (movingDirection[(int)Direction.Up])
-        {
-            duration = animationTimes["Player_Roll_Up"];
-        }
-        else if (movingDirection[(int)Direction.Down])
-        {
-            duration = animationTimes["Player_Roll_Down"];
-        }
-        */
-
-        rb.velocity = input * moveSpeed * rollSpeed;
-
-        yield return new WaitForSeconds(duration);
-
-        animator.SetBool("Rolling", false);
-        leftArm.SetActive(true);
-        rightArm.SetActive(true);
-    }
-
     private void FixedUpdate()
     {
-        if (!animator.GetBool("Rolling"))
+        if (updateMovingDirection)
         {
             rb.velocity = input * moveSpeed;
         }
@@ -303,22 +220,22 @@ public class PlayerController : Damageable
         }
 
         // Prevent the player from moving if they are slashing.
-        if (canMove)
+        if (updateFacingDirection)
         {
             animator.SetFloat("Direction X", direction.x);
             animator.SetFloat("Direction Y", direction.y);
         }
 
         // Prevent the player from moving if the are rolling.
-        if (!animator.GetBool("Rolling"))
+        if (updateMovingDirection)
         {
-            //animator.SetFloat("Velocity X", rb.velocity.normalized.x);
-            //animator.SetFloat("Velocity Y", rb.velocity.normalized.y);
+            animator.SetFloat("Velocity X", rb.velocity.normalized.x);
+            animator.SetFloat("Velocity Y", rb.velocity.normalized.y);
 
-            //movingDirection[(int)Direction.Left] = rb.velocity.x < 0;
-            //movingDirection[(int)Direction.Right] = rb.velocity.x > 0;
-            //movingDirection[(int)Direction.Up] = rb.velocity.y > 0;
-            //movingDirection[(int)Direction.Down] = rb.velocity.y < 0;
+            movingDirection[(int)Direction.Left] = rb.velocity.x < 0;
+            movingDirection[(int)Direction.Right] = rb.velocity.x > 0;
+            movingDirection[(int)Direction.Up] = rb.velocity.y > 0;
+            movingDirection[(int)Direction.Down] = rb.velocity.y < 0;
         }
 
         // Rotate the arms based on the mouse position.
