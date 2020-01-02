@@ -35,7 +35,6 @@ public class Roll : Ability
         StopAbility();
         if (player.isAlive)
         {
-            Debug.Log("Stop Roll");
             isConcurrentActive = false;
             player.updateMovingDirection = true;
             player.leftArm.SetActive(true);

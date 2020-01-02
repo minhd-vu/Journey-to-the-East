@@ -59,7 +59,6 @@ public class Slash : Ability
         // Return the arms to normal.
         if (player.isAlive)
         {
-            Debug.Log("Stop Slash");
             player.leftArm.SetActive(true);
             player.rightArm.SetActive(true);
             isConcurrentActive = false;

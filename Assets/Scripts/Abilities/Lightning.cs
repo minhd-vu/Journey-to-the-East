@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lightning : Ability
 {
     [SerializeField] private GameObject lightning = null;
+    [SerializeField] private GameObject lightningImpact = null;
     [SerializeField] private float radius = 1f;
     [SerializeField] private LayerMask layers = 0;
 
@@ -12,6 +13,7 @@ public class Lightning : Ability
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Instantiate(lightning, mousePosition, Quaternion.identity);
+        Destroy(Instantiate(lightningImpact, mousePosition, Quaternion.identity), 5f);
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePosition, radius, layers);
 
