@@ -205,6 +205,7 @@ public class PlayerController : Damageable
                 if (p != null)
                 {
                     p.GetComponent<Rigidbody2D>().velocity = direction * p.GetComponent<Rigidbody2D>().velocity.magnitude;
+                    p.initialPosition = p.transform.position;
                     p.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                     p.gameObject.layer = LayerMask.NameToLayer("Player Projectile");
                 }

@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [HideInInspector] public float damage = 0f;
     [SerializeField] protected float range = 10f;
-    private Vector3 initialPosition;
+    [HideInInspector] public Vector3 initialPosition;
     [SerializeField] public float force = 20f;
     [SerializeField] protected string fireSound = "";
 
