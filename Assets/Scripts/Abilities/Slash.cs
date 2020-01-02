@@ -18,6 +18,7 @@ public class Slash : Ability
 
             // Play a random sword slash sound.
             AudioManager.instance.PlayRandom("Sword Slash 1", "Sword Slash 2");
+            Debug.Log("Slash");
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(player.rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange, slashLayers);
 
@@ -51,9 +52,9 @@ public class Slash : Ability
         yield return null;
     }
 
-    protected override void StopAbility()
+    protected void StopSlash()
     {
-        base.StopAbility();
+        StopAbility();
         // Return the arms to normal.
         if (player.isAlive)
         {

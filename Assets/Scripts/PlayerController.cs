@@ -137,70 +137,73 @@ public class PlayerController : Damageable
             rb.velocity = input * moveSpeed;
         }
 
-        direction = (mousePosition - rb.position).normalized;
-        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        if (updateFacingDirection)
+        {
+            direction = (mousePosition - rb.position).normalized;
+            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Set the direction the mouse is facing. Sort the arms accordingly.
-        if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
-        {
-            leftArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
-            rightArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
-            leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[0];
-            rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[0];
-            mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
-            offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
-        }
-        else if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
-        {
-            leftArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
-            rightArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
-            leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[1];
-            rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[1];
-            mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
-            offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
-        }
-        if (facingDirection[(int)Direction.Up] = (angle >= 45 && angle < 135))
-        {
-            leftArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
-            rightArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
-            leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[2];
-            rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[2];
-            mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
-            offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
-        }
-        else if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
-        {
-            leftArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
-            rightArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
-            leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[3];
-            rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[3];
-            mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
-            offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
-        }
+            // Set the direction the mouse is facing. Sort the arms accordingly.
+            if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
+            {
+                leftArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
+                rightArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
+                leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[0];
+                rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[0];
+                mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+                offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            }
+            else if (facingDirection[(int)Direction.Right] = (angle >= -45 && angle < 45))
+            {
+                leftArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
+                rightArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
+                leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[1];
+                rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[1];
+                mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+                offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            }
+            if (facingDirection[(int)Direction.Up] = (angle >= 45 && angle < 135))
+            {
+                leftArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
+                rightArm.transform.localPosition = new Vector3(0f, 0.001f, 0f);
+                leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[2];
+                rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[2];
+                mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+                offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            }
+            else if (facingDirection[(int)Direction.Down] = (angle >= -135 && angle <= -45))
+            {
+                leftArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
+                rightArm.transform.localPosition = new Vector3(0f, -0.001f, 0f);
+                leftArm.transform.Find("Arm").position = leftArm.transform.position + leftArmPositions[3];
+                rightArm.transform.Find("Arm").position = rightArm.transform.position + rightArmPositions[3];
+                mainHand.GetComponent<SpriteRenderer>().sortingOrder = rightArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+                offHand.GetComponent<SpriteRenderer>().sortingOrder = leftArm.transform.Find("Arm").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            }
 
-        // Set the direction for diagonal directions.
-        if (angle >= 22.5 && angle <= 67.5)
-        {
-            facingDirection[(int)Direction.Up] = facingDirection[(int)Direction.Right] = true;
-        }
+            // Set the direction for diagonal directions.
+            if (angle >= 22.5 && angle <= 67.5)
+            {
+                facingDirection[(int)Direction.Up] = facingDirection[(int)Direction.Right] = true;
+            }
 
-        else if (angle >= 112.5 && angle <= 157.5)
-        {
-            facingDirection[(int)Direction.Up] = facingDirection[(int)Direction.Left] = true;
-        }
+            else if (angle >= 112.5 && angle <= 157.5)
+            {
+                facingDirection[(int)Direction.Up] = facingDirection[(int)Direction.Left] = true;
+            }
 
-        else if (angle >= -157.5 && angle < -112.5)
-        {
-            facingDirection[(int)Direction.Down] = facingDirection[(int)Direction.Left] = true;
-        }
+            else if (angle >= -157.5 && angle < -112.5)
+            {
+                facingDirection[(int)Direction.Down] = facingDirection[(int)Direction.Left] = true;
+            }
 
-        else if (angle <= -22.5 && angle >= -67.5)
-        {
-            facingDirection[(int)Direction.Down] = facingDirection[(int)Direction.Right] = true;
-        }
+            else if (angle <= -22.5 && angle >= -67.5)
+            {
+                facingDirection[(int)Direction.Down] = facingDirection[(int)Direction.Right] = true;
+            }
 
-        // Flip the arms if the player is facing to the left.
-        leftArm.transform.Find("Arm").localScale = rightArm.transform.Find("Arm").localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
+            // Flip the arms if the player is facing to the left.
+            leftArm.transform.Find("Arm").localScale = rightArm.transform.Find("Arm").localScale = (angle > 90 || angle < -90) ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
+        }
 
         animator.SetBool("Moving", Mathf.Abs(input.magnitude) > 0);
 

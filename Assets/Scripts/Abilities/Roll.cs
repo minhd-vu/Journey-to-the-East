@@ -17,6 +17,8 @@ public class Roll : Ability
             player.animator.SetTrigger("Roll");
             player.updateMovingDirection = false;
 
+            Debug.Log("Roll");
+
             // Deactivate the arms.
             player.leftArm.SetActive(false);
             player.rightArm.SetActive(false);
@@ -27,11 +29,12 @@ public class Roll : Ability
         yield return null;
     }
 
-    protected override void StopAbility()
+    protected void StopRoll()
     {
-        base.StopAbility();
+        StopAbility();
         if (player.isAlive)
         {
+            Debug.Log("Stop Roll");
             isConcurrentActive = false;
             player.updateMovingDirection = true;
             player.leftArm.SetActive(true);
