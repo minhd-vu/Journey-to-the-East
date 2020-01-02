@@ -10,6 +10,7 @@ TagManager:
   - EXP Bar
   - Off Hand
   - Main Hand
+  - Low Mana Indicator
   layers:
   - Default
   - TransparentFX

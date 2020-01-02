@@ -24,13 +24,14 @@ public class Roll : Ability
             player.rightArm.SetActive(false);
 
             player.rb.velocity = player.input * player.moveSpeed * rollSpeed;
-        }
 
-        yield return null;
+            yield return new WaitForSeconds(player.animator.GetCurrentAnimatorStateInfo(0).length);
+        }
     }
 
     protected void StopRoll()
     {
+
         StopAbility();
         if (player.isAlive)
         {
