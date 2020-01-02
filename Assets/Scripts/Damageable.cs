@@ -43,7 +43,7 @@ public abstract class Damageable : MonoBehaviour
         }
     }
 
-    private void Awake()
+    protected virtual void Start()
     {
         health = maxHealth;
         isAlive = true;

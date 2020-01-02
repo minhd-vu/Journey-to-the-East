@@ -34,6 +34,8 @@ public class PlayerController : Damageable
     private Image healthBar;
     private Image manaBar;
 
+    private Coroutine lerpHealthBar;
+
     private enum Direction
     {
         Left = 0,
@@ -83,8 +85,9 @@ public class PlayerController : Damageable
     [SerializeField] private float slashManaCost = 20f;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         mainHand = Instantiate(mainHand, rightArm.transform.Find("Arm"));
@@ -132,6 +135,11 @@ public class PlayerController : Damageable
                 {
                     // Store the roll coroutine so that we can kill it later.
                     StartCoroutine(Roll());
+                }
+
+                foreach (Ability ability in GetComponents<Ability>())
+                {
+                    ability.OnUpdate();
                 }
             }
 
@@ -301,10 +309,6 @@ public class PlayerController : Damageable
         leftArm.SetActive(true);
         rightArm.SetActive(true);
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
 
     private void FixedUpdate()
     {
@@ -422,8 +426,22 @@ public class PlayerController : Damageable
     public override void Damage(float damage)
     {
         Health -= damage;
-        Debug.Log("Player Health: " + Health);
-        healthBar.fillAmount = HealthPercent;
+
+        if (lerpHealthBar != null)
+        {
+            StopCoroutine(lerpHealthBar);
+        }
+
+        lerpHealthBar = StartCoroutine(LerpHealthBar());
+    }
+
+    private IEnumerator LerpHealthBar()
+    {
+        while (healthBar.fillAmount - HealthPercent >= 0.01f)
+        {
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, HealthPercent, Time.deltaTime * 15);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
     }
 
     protected override void Kill()

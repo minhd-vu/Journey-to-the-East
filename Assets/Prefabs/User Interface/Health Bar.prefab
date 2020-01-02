@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 1356845723322156424}
   healthBarTimer: 5
+  lerpSpeed: 10
 --- !u!1 &1356845723736893440
 GameObject:
   m_ObjectHideFlags: 0

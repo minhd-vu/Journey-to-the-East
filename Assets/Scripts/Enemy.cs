@@ -13,8 +13,9 @@ public class Enemy : Damageable
 
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         healthBar = Instantiate(healthBar, transform);
@@ -72,7 +73,6 @@ public class Enemy : Damageable
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             GameObject de = Instantiate(damageEffect, new Vector3(transform.position.x, transform.position.y - 0.0001f), Quaternion.identity);
             de.transform.GetChild(0).rotation = Quaternion.AngleAxis(angle - 180f, Vector3.forward);
-
             healthBar.GetComponent<HealthBar>().Percent = HealthPercent;
         }
     }

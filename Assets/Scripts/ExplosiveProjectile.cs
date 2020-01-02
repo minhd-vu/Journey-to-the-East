@@ -41,7 +41,9 @@ public class ExplosiveProjectile : Projectile
                 d.Damage(damage * effect);
             }
         }
-
-        Destroy(gameObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+    }
+    protected void DestroyExplosion()
+    {
+        Destroy(gameObject);
     }
 }
