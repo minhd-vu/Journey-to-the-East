@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float bulletsPerSecond = 0f;
     [SerializeField] private float damage = 0f;
     [SerializeField] private float manaCost = 0f;
+    [SerializeField] private string buttonName = "Fire1";
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class Weapon : MonoBehaviour
     {
         if (!PauseMenu.isPaused)
         {
-            if (Input.GetButtonDown("Fire1") || (isAutomatic && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond) && Input.GetButton("Fire1"))
+            if (Input.GetButtonDown(buttonName) || (isAutomatic && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond) && Input.GetButton(buttonName))
             {
                 Shoot();
             }
