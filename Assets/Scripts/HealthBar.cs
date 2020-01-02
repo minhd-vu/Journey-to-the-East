@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour
 
     private float target;
     private float percent = 1f;
-    [SerializeField] private float lerpSpeed;
+    [SerializeField] private float lerpSpeed = 10f;
     public float Percent
     {
         get { return percent; }

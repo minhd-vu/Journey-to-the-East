@@ -255,6 +255,11 @@ MonoBehaviour:
     type: 3}
   healthBar: {fileID: 1356845723627189148, guid: e987275e01fcc4e429477d6566136503,
     type: 3}
+  deathTime: 3
+  walkingParticlesTime: 0.3
+  walkingParticlesDistance: 0.3
+  walkingParticles: {fileID: 8811173945369212620, guid: 61d45d18161354f4aa5b7b127029b112,
+    type: 3}
   projectile: {fileID: 1861497663312174962, guid: 18890ba5e1d409b40ac611c53c55e146,
     type: 3}
   range: 10

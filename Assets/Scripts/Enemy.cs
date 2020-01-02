@@ -11,6 +11,10 @@ public class Enemy : Damageable
     [SerializeField] private GameObject healthBar = null;
     protected float attackTimer;
     [SerializeField] private float deathTime = 3f;
+    private float walkingParticlesTimer;
+    [SerializeField] private float walkingParticlesTime = 0.3f;
+    [SerializeField] private float walkingParticlesDistance = 0.3f;
+    [SerializeField] private GameObject walkingParticles = null;
 
 
     // Start is called before the first frame update
@@ -21,6 +25,7 @@ public class Enemy : Damageable
         animator = GetComponent<Animator>();
         healthBar = Instantiate(healthBar, transform);
         attackTimer = 0f;
+        walkingParticlesTimer = 0f;
     }
 
     // Update is called once per frame
@@ -34,6 +39,12 @@ public class Enemy : Damageable
             animator.SetFloat("Move X", direction.x);
             animator.SetFloat("Move Y", direction.y);
             animator.SetBool("Moving", !rb.IsSleeping());
+
+            if (GetComponent<AIPath>().velocity.magnitude > 0.1f && walkingParticles != null && (walkingParticlesTimer += Time.deltaTime) >= walkingParticlesTime)
+            {
+                Instantiate(walkingParticles, transform.position - (transform.forward * walkingParticlesDistance), Quaternion.identity);
+                walkingParticlesTimer = 0f;
+            }
         }
     }
 
