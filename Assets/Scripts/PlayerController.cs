@@ -7,15 +7,15 @@ using UnityEngine.UI;
 public class PlayerController : Damageable
 {
     private Rigidbody2D rb;
-    private Animator animator;
+    [HideInInspector] public Animator animator;
 
     private Vector2 input;
     private Vector2 mousePosition;
 
     [SerializeField] private float moveSpeed = 3f;
 
-    [SerializeField] private GameObject leftArm = null;
-    [SerializeField] private GameObject rightArm = null;
+    [SerializeField] public GameObject leftArm = null;
+    [SerializeField] public GameObject rightArm = null;
 
     [SerializeField] private GameObject mainHand = null;
     [SerializeField] private GameObject offHand = null;
@@ -49,8 +49,7 @@ public class PlayerController : Damageable
 
     private Dictionary<string, float> animationTimes = new Dictionary<string, float>();
 
-    [SerializeField] private float slashRange = 1.0f;
-    [SerializeField] private LayerMask slashLayers = 0;
+    [HideInInspector] public bool canMove = true;
 
     private float mana;
     [SerializeField] private float maxMana = 100f;
@@ -76,17 +75,11 @@ public class PlayerController : Damageable
         }
     }
 
-    private bool isRolling = false;
-    private bool isSlashing = false;
-
     [SerializeField] private float healthPerSecond = 5f;
     [SerializeField] private float manaPerSecond = 10f;
 
-    [SerializeField] private float rollManaCost = 10f;
-    [SerializeField] private float slashManaCost = 20f;
-
-    private Vector2 direction;
-    private float angle;
+    [HideInInspector] public Vector2 direction;
+    [HideInInspector] public float angle;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -127,28 +120,13 @@ public class PlayerController : Damageable
             // Store mouse input.
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            // Prevent the player from slashing or moving when they are already slashing or rolling.
-            if (!animator.GetBool("Slashing") && !animator.GetBool("Rolling"))
+            foreach (Ability ability in GetComponents<Ability>())
             {
-                if (Input.GetButtonDown("Fire2") && Mana >= slashManaCost)
-                {
-                    StartCoroutine(Slash());
-                }
-
-                else if (Input.GetButtonDown("Jump") && animator.GetBool("Moving") && Mana >= rollManaCost)
-                {
-                    // Store the roll coroutine so that we can kill it later.
-                    StartCoroutine(Roll());
-                }
-
-                foreach (Ability ability in GetComponents<Ability>())
-                {
-                    ability.OnUpdate();
-                }
+                ability.OnUpdate();
             }
 
-            // Prevent the player from moving when they are slashing or rolling.
-            if (animator.GetBool("Slashing") || animator.GetBool("Rolling"))
+            // Prevent the player from moving when they are casting an ability.
+            if (!canMove)
             {
                 input = Vector2.zero;
             }
@@ -173,97 +151,6 @@ public class PlayerController : Damageable
         }
     }
 
-    /**
-     * Slash coroutine.
-     */
-    IEnumerator Slash()
-    {
-        // Display the sword slash animation.
-        animator.SetBool("Slashing", true);
-        animator.SetTrigger("Slash");
-
-        // Drain the mana.
-        Mana -= slashManaCost;
-
-        // Play a random sword slash sound.
-        AudioManager.instance.Play("Sword Slash " + UnityEngine.Random.Range(1, 3));
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange, slashLayers);
-
-        foreach (Collider2D collider in colliders)
-        {
-            //Debug.Log("Hit: " + collider.name);
-            Damageable d = collider.GetComponent<Damageable>();
-            if (d != null)
-            {
-                d.Damage(damage);
-            }
-
-            else
-            {
-                Projectile p = collider.GetComponent<Projectile>();
-                if (p != null)
-                {
-                    p.GetComponent<Rigidbody2D>().velocity = direction * p.GetComponent<Rigidbody2D>().velocity.magnitude;
-                    p.initialPosition = p.transform.position;
-                    p.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                    p.gameObject.layer = LayerMask.NameToLayer("Player Projectile");
-                }
-            }
-        }
-
-        // Make the arms disappear.
-        leftArm.SetActive(false);
-        rightArm.SetActive(false);
-
-        // Temporarily set the duration.
-        float duration = animator.GetCurrentAnimatorStateInfo(0).length;
-
-        // Set the duration of the coroutine to the duration of the animation clip length.
-        /*
-        if (facingDirection[(int)Direction.Left])
-        {
-            duration = animationTimes["Player_Slash_Left"];
-
-            if (facingDirection[(int)Direction.Up])
-            {
-                duration = animationTimes["Player_Slash_Up_Left"];
-            }
-            else if (facingDirection[(int)Direction.Down])
-            {
-                duration = animationTimes["Player_Slash_Down_Left"];
-            }
-        }
-        else if (facingDirection[(int)Direction.Right])
-        {
-            duration = animationTimes["Player_Slash_Right"];
-
-            if (facingDirection[(int)Direction.Up])
-            {
-                duration = animationTimes["Player_Slash_Up_Right"];
-            }
-            else if (facingDirection[(int)Direction.Down])
-            {
-                duration = animationTimes["Player_Slash_Down_Right"];
-            }
-        }
-        else if (facingDirection[(int)Direction.Up])
-        {
-            duration = animationTimes["Player_Slash_Up"];
-        }
-        else if (facingDirection[(int)Direction.Down])
-        {
-            duration = animationTimes["Player_Slash_Down"];
-        }
-        */
-
-        yield return new WaitForSeconds(duration);
-
-        // Return the arms to normal.
-        animator.SetBool("Slashing", false);
-        leftArm.SetActive(true);
-        rightArm.SetActive(true);
-    }
     IEnumerator Roll()
     {
         // Play the rolling animation.
@@ -271,7 +158,7 @@ public class PlayerController : Damageable
         animator.SetTrigger("Roll");
 
         // Drain the mana.
-        Mana -= rollManaCost;
+        //Mana -= rollManaCost;
 
         // Deactivate the arms.
         leftArm.SetActive(false);
@@ -416,7 +303,7 @@ public class PlayerController : Damageable
         }
 
         // Prevent the player from moving if they are slashing.
-        if (!animator.GetBool("Slashing"))
+        if (canMove)
         {
             animator.SetFloat("Direction X", direction.x);
             animator.SetFloat("Direction Y", direction.y);
@@ -425,13 +312,13 @@ public class PlayerController : Damageable
         // Prevent the player from moving if the are rolling.
         if (!animator.GetBool("Rolling"))
         {
-            animator.SetFloat("Velocity X", rb.velocity.normalized.x);
-            animator.SetFloat("Velocity Y", rb.velocity.normalized.y);
+            //animator.SetFloat("Velocity X", rb.velocity.normalized.x);
+            //animator.SetFloat("Velocity Y", rb.velocity.normalized.y);
 
-            movingDirection[(int)Direction.Left] = rb.velocity.x < 0;
-            movingDirection[(int)Direction.Right] = rb.velocity.x > 0;
-            movingDirection[(int)Direction.Up] = rb.velocity.y > 0;
-            movingDirection[(int)Direction.Down] = rb.velocity.y < 0;
+            //movingDirection[(int)Direction.Left] = rb.velocity.x < 0;
+            //movingDirection[(int)Direction.Right] = rb.velocity.x > 0;
+            //movingDirection[(int)Direction.Up] = rb.velocity.y > 0;
+            //movingDirection[(int)Direction.Down] = rb.velocity.y < 0;
         }
 
         // Rotate the arms based on the mouse position.
@@ -469,7 +356,5 @@ public class PlayerController : Damageable
         leftArm.SetActive(false);
         rightArm.SetActive(false);
         enabled = false;
-
-        //Destroy(gameObject);
     }
 }

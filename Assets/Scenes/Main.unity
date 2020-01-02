@@ -5897,6 +5897,7 @@ GameObject:
   - component: {fileID: 753930569}
   - component: {fileID: 753930570}
   - component: {fileID: 753930571}
+  - component: {fileID: 753930572}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -6035,6 +6036,7 @@ MonoBehaviour:
   damage: 20
   maxHealth: 100
   damageEffect: {fileID: 0}
+  animator: {fileID: 0}
   moveSpeed: 3
   leftArm: {fileID: 937043057}
   rightArm: {fileID: 665527527}
@@ -6056,15 +6058,12 @@ MonoBehaviour:
     type: 3}
   walkingParticlesTime: 0.3
   walkingParticlesDistance: 0.3
-  slashRange: 0.7
-  slashLayers:
-    serializedVersion: 2
-    m_Bits: 6144
+  canMove: 1
   maxMana: 100
   healthPerSecond: 5
   manaPerSecond: 5
-  rollManaCost: 10
-  slashManaCost: 5
+  direction: {x: 0, y: 0}
+  angle: 0
 --- !u!95 &753930570
 Animator:
   serializedVersion: 3
@@ -6106,6 +6105,26 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &753930572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753930564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdfaece6f6247441be6247da26421aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaCost: 5
+  cooldown: 0.8
+  buttonName: Fire2
+  damage: 60
+  slashRange: 1
+  slashLayers:
+    serializedVersion: 2
+    m_Bits: 6144
 --- !u!1001 &937043055
 PrefabInstance:
   m_ObjectHideFlags: 0

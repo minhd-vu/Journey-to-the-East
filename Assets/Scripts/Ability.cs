@@ -8,24 +8,33 @@ public abstract class Ability : MonoBehaviour
     [SerializeField] protected float cooldown = 5f;
     [SerializeField] protected string buttonName = "";
     [SerializeField] protected float damage;
+
+    protected PlayerController player;
+    protected bool isActive;
     private float timer;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        player = GetComponent<PlayerController>();
         timer = cooldown;
+        isActive = false;
     }
 
     // Update is called once per frame
     public virtual void OnUpdate()
     {
-        if ((timer += Time.deltaTime) >= cooldown && Input.GetButtonDown(buttonName) && GetComponent<PlayerController>().Mana >= manaCost)
+        if ((timer += Time.deltaTime) >= cooldown && !isActive && Input.GetButtonDown(buttonName) && GetComponent<PlayerController>().Mana >= manaCost)
         {
             StartCoroutine(CastAbility());
-            GetComponent<PlayerController>().Mana -= manaCost;
+            player.Mana -= manaCost;
             timer = 0f;
         }
     }
 
     protected abstract IEnumerator CastAbility();
+    protected virtual void StopAbility()
+    {
+        isActive = false;
+    }
 }
