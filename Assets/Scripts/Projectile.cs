@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public float damage = 0f;
     [SerializeField] protected float range = 10f;
     private Vector3 initialPosition;
-    [SerializeField] protected float force = 20f;
+    [SerializeField] public float force = 20f;
     [SerializeField] protected string fireSound = "";
 
     // Start is called before the first frame update

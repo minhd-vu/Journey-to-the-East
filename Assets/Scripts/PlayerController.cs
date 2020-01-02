@@ -85,6 +85,9 @@ public class PlayerController : Damageable
     [SerializeField] private float rollManaCost = 10f;
     [SerializeField] private float slashManaCost = 20f;
 
+    private Vector2 direction;
+    private float angle;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -201,7 +204,8 @@ public class PlayerController : Damageable
                 Projectile p = collider.GetComponent<Projectile>();
                 if (p != null)
                 {
-                    p.GetComponent<Rigidbody2D>().velocity = -p.GetComponent<Rigidbody2D>().velocity;
+                    p.GetComponent<Rigidbody2D>().velocity = direction * p.GetComponent<Rigidbody2D>().velocity.magnitude;
+                    p.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                     p.gameObject.layer = LayerMask.NameToLayer("Player Projectile");
                 }
             }
@@ -328,8 +332,8 @@ public class PlayerController : Damageable
             rb.velocity = input * moveSpeed;
         }
 
-        Vector2 direction = (mousePosition - rb.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        direction = (mousePosition - rb.position).normalized;
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // Set the direction the mouse is facing. Sort the arms accordingly.
         if (facingDirection[(int)Direction.Left] = (angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135))
