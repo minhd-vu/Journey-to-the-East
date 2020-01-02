@@ -54,7 +54,8 @@ public class PlayerController : Damageable
 
     private float mana;
     [SerializeField] private float maxMana = 100f;
-    [HideInInspector] public float Mana
+    [HideInInspector]
+    public float Mana
     {
         get
         {
@@ -193,6 +194,16 @@ public class PlayerController : Damageable
             if (d != null)
             {
                 d.Damage(damage);
+            }
+
+            else
+            {
+                Projectile p = collider.GetComponent<Projectile>();
+                if (p != null)
+                {
+                    p.GetComponent<Rigidbody2D>().velocity = -p.GetComponent<Rigidbody2D>().velocity;
+                    p.gameObject.layer = LayerMask.NameToLayer("Player Projectile");
+                }
             }
         }
 

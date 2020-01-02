@@ -6217,12 +6217,12 @@ MonoBehaviour:
   slashRange: 0.7
   slashLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 6144
   maxMana: 100
   healthPerSecond: 5
   manaPerSecond: 5
   rollManaCost: 10
-  slashManaCost: 20
+  slashManaCost: 5
 --- !u!95 &753930570
 Animator:
   serializedVersion: 3
