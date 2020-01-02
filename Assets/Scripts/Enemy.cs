@@ -10,6 +10,7 @@ public class Enemy : Damageable
     protected Vector3 direction;
     [SerializeField] private GameObject healthBar = null;
     protected float attackTimer;
+    [SerializeField] private float deathTime = 3f;
 
 
     // Start is called before the first frame update
@@ -88,6 +89,6 @@ public class Enemy : Damageable
         }
 
         Destroy(healthBar);
-        Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+        Destroy(gameObject, deathTime);
     }
 }
