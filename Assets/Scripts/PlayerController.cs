@@ -92,8 +92,6 @@ public class PlayerController : Damageable
         mana = maxMana;
         walkingParticlesTimer = 0f;
 
-        StartCoroutine(RegenHealth());
-        StartCoroutine(RegenMana());
         StartCoroutine(Awaken());
     }
 
@@ -108,6 +106,9 @@ public class PlayerController : Damageable
         isAlive = true;
         leftArm.SetActive(true);
         rightArm.SetActive(true);
+
+        StartCoroutine(RegenHealth());
+        StartCoroutine(RegenMana());
     }
 
     // Update is called once per frame
@@ -290,6 +291,8 @@ public class PlayerController : Damageable
 
     protected override void Kill()
     {
+        isAlive = false;
+        AudioManager.instance.StopLoop("Walking");
         animator.SetTrigger("Death");
         rb.velocity = Vector3.zero;
         GetComponent<Collider2D>().enabled = false;
