@@ -7,7 +7,7 @@ public abstract class Damageable : MonoBehaviour
     [HideInInspector] public bool isAlive = true;
     public float damage = 0f;
     private float health;
-    [SerializeField] private float maxHealth = 100f;
+    public float maxHealth = 100f;
 
     public GameObject damageEffect = null;
 

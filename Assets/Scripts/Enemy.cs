@@ -68,7 +68,7 @@ public class Enemy : Damageable
 
     protected virtual void Attack(Damageable d)
     {
-        if (attackTimer >= 0)
+        if (attackTimer <= 0)
         {
             animator.SetTrigger("Attack");
             attackTimer = animator.GetCurrentAnimatorStateInfo(0).length;

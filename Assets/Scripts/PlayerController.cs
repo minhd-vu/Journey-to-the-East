@@ -126,6 +126,8 @@ public class PlayerController : Damageable
                 ability.OnUpdate();
             }
 
+            float shake = (maxHealth - Health) / maxHealth * 2f;
+
             float manaPercent = Mana / maxMana;
             if (manaBar.fillAmount != manaPercent)
             {
