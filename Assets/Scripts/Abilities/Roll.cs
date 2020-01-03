@@ -17,8 +17,6 @@ public class Roll : Ability
             player.animator.SetTrigger("Roll");
             player.updateMovingDirection = false;
 
-            Debug.Log("Roll");
-
             // Deactivate the arms.
             player.leftArm.SetActive(false);
             player.rightArm.SetActive(false);

@@ -14,6 +14,7 @@ public class Lightning : Ability
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Instantiate(lightning, mousePosition, Quaternion.identity);
         Destroy(Instantiate(lightningImpact, mousePosition, Quaternion.identity), 5f);
+        AudioManager.instance.Play(sound);
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePosition, radius, layers);
 

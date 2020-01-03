@@ -7,7 +7,8 @@ public abstract class Ability : MonoBehaviour
     [SerializeField] protected float manaCost = 10f;
     [SerializeField] protected float cooldown = 5f;
     [SerializeField] protected string buttonName = "";
-    [SerializeField] protected float damage;
+    [SerializeField] protected float damage = 1f;
+    [SerializeField] protected string sound = "";
 
     protected GameObject lowManaText = null;
     protected static bool isConcurrentActive = false;
@@ -18,7 +19,7 @@ public abstract class Ability : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        player = GetComponent<PlayerController>();
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         timer = cooldown;
         isActive = false;
         lowManaText = GameObject.FindWithTag("Low Mana Indicator");
@@ -35,7 +36,7 @@ public abstract class Ability : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= cooldown && !isActive && Input.GetButtonDown(buttonName))
         {
-            if (GetComponent<PlayerController>().Mana >= manaCost)
+            if (player.Mana >= manaCost)
             {
                 StartCoroutine(CastAbility());
                 player.Mana -= manaCost;

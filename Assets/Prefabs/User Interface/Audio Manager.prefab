@@ -65,7 +65,7 @@ MonoBehaviour:
     volume: 0.7
     volumeVariance: 0
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.091
     loop: 0
     source: {fileID: 0}
   - name: Walking
@@ -106,5 +106,13 @@ MonoBehaviour:
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Lighting
+    clip: {fileID: 8300000, guid: 30f9da135d37aa442a7503f97af72d6f, type: 3}
+    volume: 0.188
+    volumeVariance: 0.055
+    pitch: 1
+    pitchVariance: 0.247
     loop: 0
     source: {fileID: 0}
