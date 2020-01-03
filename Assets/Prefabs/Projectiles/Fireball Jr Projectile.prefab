@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1861497663312174965}
   - component: {fileID: 1861497663312174969}
   - component: {fileID: 1861497663312174966}
-  - component: {fileID: 1861497663312174967}
   - component: {fileID: 4598666856328756333}
+  - component: {fileID: 3965735894410454284}
   m_Layer: 12
   m_Name: Fireball Jr Projectile
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &1861497663312174969
 Rigidbody2D:
   serializedVersion: 4
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1861497663312174966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,23 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21780503, y: 0.09242827}
   m_EdgeRadius: 0
---- !u!114 &1861497663312174967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861497663312174962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3d0a72000856c148892b63df85f2b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  range: 10
-  initialPosition: {x: 0, y: 0, z: 0}
-  force: 6
-  fireSound: Fire
 --- !u!95 &4598666856328756333
 Animator:
   serializedVersion: 3
@@ -160,7 +143,7 @@ Animator:
   m_GameObject: {fileID: 1861497663312174962}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 983c943288ca0284bbbd9b7f082dbd23, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -169,3 +152,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3965735894410454284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861497663312174962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ee7b8a33fe87c43b29254f8c9b9284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  range: 6
+  initialPosition: {x: 0, y: 0, z: 0}
+  force: 3
+  fireSound: Fire
+  radius: 2
+  layers:
+    serializedVersion: 2
+    m_Bits: 512

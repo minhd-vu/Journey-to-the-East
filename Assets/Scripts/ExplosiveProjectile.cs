@@ -31,13 +31,16 @@ public class ExplosiveProjectile : Projectile
 
         foreach (Collider2D collider in colliders)
         {
-            Damageable d = collider.GetComponent<Damageable>();
-
-            if (d != null)
+            if (collider.CompareTag("Hitbox"))
             {
-                float proximity = (transform.position - d.transform.position).magnitude;
-                float effect = 1 - (proximity / radius);
-                d.Damage(damage * effect);
+                Damageable d;
+
+                if ((d = collider.GetComponent<Damageable>()) != null || (d = collider.GetComponentInParent<Damageable>()) != null)
+                {
+                    float proximity = (transform.position - d.transform.position).magnitude;
+                    float effect = 1 - (proximity / radius);
+                    d.Damage(damage * effect);
+                }
             }
         }
     }

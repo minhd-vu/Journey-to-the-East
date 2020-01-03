@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: 1312c5b92209e3b4b8e6333966030e9e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4103271702291241539
+    second: fireballjr_death_facingleft_0
+  - first:
+      213: -2736049632971860041
+    second: fireballjr_death_facingleft_1
+  - first:
+      213: -902527617134725946
+    second: fireballjr_death_facingleft_2
+  - first:
+      213: 1836980159066521413
+    second: fireballjr_death_facingleft_3
+  - first:
+      213: 2263672466007928593
+    second: fireballjr_death_facingleft_4
+  - first:
+      213: 768660014229114095
+    second: fireballjr_death_facingleft_5
+  - first:
+      213: 3146789528067280010
+    second: fireballjr_death_facingleft_6
+  - first:
+      213: 5634062279915350132
+    second: fireballjr_death_facingleft_7
+  - first:
+      213: -5941495291300251927
+    second: fireballjr_death_facingleft_8
+  - first:
+      213: 5752585165769183687
+    second: fireballjr_death_facingleft_9
+  - first:
+      213: 9118356337946674505
+    second: fireballjr_death_facingleft_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +73,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -60,10 +93,46 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +141,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c1fdb58d9b0b240b62c19f10e3907f
+      internalID: 4103271702291241539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 74
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2105cd198b679eb409cd36840b071807
+      internalID: -2736049632971860041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 74
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9feb69a769ee14489fb4894d7f751f0
+      internalID: -902527617134725946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 74
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e61af93143ab94aaba29d76bde479d
+      internalID: 1836980159066521413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 74
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c42cb109a66724f9ddf16392a239f2
+      internalID: 2263672466007928593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0711db4aeb916344bf0df5230603d30
+      internalID: 768660014229114095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_6
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 37
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3566b1c4be530014c8b99955a9e26c5b
+      internalID: 3146789528067280010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 37
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9ca59171b8a254c9f250f0f206f396
+      internalID: 5634062279915350132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 37
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956fda5757430e6489cfb1afe21b0f41
+      internalID: -5941495291300251927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 37
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981ca018fe5d5d44dbf6074e5f319b89
+      internalID: 5752585165769183687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireballjr_death_facingleft_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 37
+      alignment: 9
+      pivot: {x: 0.32, y: 0.2972973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7cb08789962aef49acfc6b0fab0f5a2
+      internalID: 9118356337946674505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

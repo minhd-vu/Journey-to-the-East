@@ -6471,8 +6471,8 @@ MonoBehaviour:
   updateFacingDirection: 1
   updateMovingDirection: 1
   maxMana: 100
-  healthPerSecond: 5
-  manaPerSecond: 5
+  healthPerSecond: 2
+  manaPerSecond: 3
   direction: {x: 0, y: 0}
   angle: 0
 --- !u!95 &753930570
@@ -6512,8 +6512,6 @@ MonoBehaviour:
   damage: 80
   sound: Lighting
   lightning: {fileID: 2247812684300258331, guid: 6bd83431b900a064fa0e38a0fff5b309,
-    type: 3}
-  lightningImpact: {fileID: 7203786149774693794, guid: b7e70ca559870dc4c803bc305d68238a,
     type: 3}
   radius: 4
   layers:
