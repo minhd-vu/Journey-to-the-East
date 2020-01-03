@@ -86,17 +86,34 @@ public class PlayerController : Damageable
         offHand = Instantiate(offHand, leftArm.transform.Find("Arm"));
         healthBar = GameObject.FindWithTag("Health Bar").GetComponent<Image>();
         manaBar = GameObject.FindWithTag("Mana Bar").GetComponent<Image>();
+        leftArm.SetActive(false);
+        rightArm.SetActive(false);
+        isAlive = false;
         mana = maxMana;
         walkingParticlesTimer = 0f;
 
         StartCoroutine(RegenHealth());
         StartCoroutine(RegenMana());
+        StartCoroutine(Awaken());
+    }
+
+    private IEnumerator Awaken()
+    {
+        yield return new WaitForSeconds(2f);
+
+        animator.SetTrigger("Awake");
+        
+        yield return new WaitForSeconds(0.667f);
+
+        isAlive = true;
+        leftArm.SetActive(true);
+        rightArm.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!PauseMenu.isPaused)
+        if (!PauseMenu.isPaused && isAlive)
         {
             // Store movement input.
             input = updateFacingDirection ? new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized : Vector2.zero;
