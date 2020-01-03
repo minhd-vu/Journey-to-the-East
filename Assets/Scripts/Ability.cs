@@ -11,15 +11,18 @@ public abstract class Ability : MonoBehaviour
     [SerializeField] protected string sound = "";
 
     protected static GameObject lowManaText = null;
+    protected static PlayerController player;
     protected static bool isConcurrentActive = false;
-    protected PlayerController player;
     protected bool isActive;
     private float timer;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        }
         timer = cooldown;
         isActive = false;
 
