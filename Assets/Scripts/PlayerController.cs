@@ -59,7 +59,7 @@ public class PlayerController : Damageable
         }
         set
         {
-            if ((mana = value) > mana)
+            if ((mana = value) > maxMana)
             {
                 mana = maxMana;
             }
@@ -67,8 +67,6 @@ public class PlayerController : Damageable
             {
                 mana = 0;
             }
-
-            manaBar.fillAmount = mana / maxMana;
         }
     }
 
@@ -108,6 +106,12 @@ public class PlayerController : Damageable
             foreach (Ability ability in GetComponents<Ability>())
             {
                 ability.OnUpdate();
+            }
+
+            float manaPercent = Mana / maxMana;
+            if (manaBar.fillAmount != manaPercent)
+            {
+                manaBar.fillAmount = Mathf.Lerp(manaBar.fillAmount, manaPercent, Time.deltaTime * 15);
             }
         }
     }
@@ -260,7 +264,7 @@ public class PlayerController : Damageable
 
     private IEnumerator LerpHealthBar()
     {
-        while (healthBar.fillAmount - HealthPercent >= 0.01f)
+        while (Mathf.Abs(healthBar.fillAmount - HealthPercent) >= 0.01f)
         {
             healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, HealthPercent, Time.deltaTime * 15);
             yield return new WaitForSeconds(Time.deltaTime);

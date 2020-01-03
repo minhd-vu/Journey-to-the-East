@@ -6012,7 +6012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c2306b6dfce364ba8e4cedc7e93ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaCost: 10
+  manaCost: 20
   cooldown: 1
   buttonName: Ability 1
   damage: 80
