@@ -99,12 +99,14 @@ MonoBehaviour:
   muzzleFlash: {fileID: 3260572321552191500, guid: 1453d15e8435c774eb7865fb6dd45b26,
     type: 3}
   firePoint: {fileID: 0}
-  shakeMagnitude: 1
-  shakeRoughness: 1
+  shakeMagnitude: 1.3
+  shakeRoughness: 3
   shakeDuration: 0.3
   isAutomatic: 1
   bulletsPerSecond: 8
   damage: 10
+  manaCost: 0
+  buttonName: Fire1
 --- !u!1 &1248723405195273367
 GameObject:
   m_ObjectHideFlags: 0

@@ -6038,7 +6038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaCost: 10
-  cooldown: 0
+  cooldown: 0.1
   buttonName: Fire2
   damage: 60
   sound: 
@@ -6059,7 +6059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaCost: 10
-  cooldown: 0
+  cooldown: 0.1
   buttonName: Jump
   damage: 0
   sound: 

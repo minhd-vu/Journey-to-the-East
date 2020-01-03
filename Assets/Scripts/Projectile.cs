@@ -47,6 +47,12 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
+        Damageable d = collision.gameObject.GetComponent<Damageable>();
+        if (d != null)
+        {
+            d.Damage(damage);
+        }
+
         Destroy(gameObject);
     }
 }

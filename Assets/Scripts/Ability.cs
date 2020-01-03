@@ -10,7 +10,7 @@ public abstract class Ability : MonoBehaviour
     [SerializeField] protected float damage = 1f;
     [SerializeField] protected string sound = "";
 
-    protected GameObject lowManaText = null;
+    protected static GameObject lowManaText = null;
     protected static bool isConcurrentActive = false;
     protected PlayerController player;
     protected bool isActive;
@@ -22,11 +22,15 @@ public abstract class Ability : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         timer = cooldown;
         isActive = false;
-        lowManaText = GameObject.FindWithTag("Low Mana Indicator");
 
         if (lowManaText != null)
         {
             lowManaText.SetActive(false);
+        }
+
+        else
+        {
+            lowManaText = GameObject.FindWithTag("Low Mana Indicator");
         }
     }
 
@@ -52,7 +56,6 @@ public abstract class Ability : MonoBehaviour
             {
                 lowManaText.SetActive(true);
             }
-
         }
     }
 
