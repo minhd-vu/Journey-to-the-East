@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Swaying Grass Thick
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -3259752153198575758, guid: 27880da745f76e643ad98372b161c265, type: 3}
-  - {fileID: -7933054259797879574, guid: 27880da745f76e643ad98372b161c265, type: 3}
-  - {fileID: 1389764162040536356, guid: 27880da745f76e643ad98372b161c265, type: 3}
-  - {fileID: 145342952762522546, guid: 27880da745f76e643ad98372b161c265, type: 3}
-  - {fileID: 8637560646235791171, guid: 27880da745f76e643ad98372b161c265, type: 3}
-  - {fileID: 2134073709588142847, guid: 27880da745f76e643ad98372b161c265, type: 3}
+  - {fileID: -3259752153198575758, guid: 279d9bcdbcfd496498e09eb2fa68dbab, type: 3}
+  - {fileID: -7933054259797879574, guid: 279d9bcdbcfd496498e09eb2fa68dbab, type: 3}
+  - {fileID: 1389764162040536356, guid: 279d9bcdbcfd496498e09eb2fa68dbab, type: 3}
+  - {fileID: 145342952762522546, guid: 279d9bcdbcfd496498e09eb2fa68dbab, type: 3}
+  - {fileID: 8637560646235791171, guid: 279d9bcdbcfd496498e09eb2fa68dbab, type: 3}
+  - {fileID: 2134073709588142847, guid: 279d9bcdbcfd496498e09eb2fa68dbab, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
