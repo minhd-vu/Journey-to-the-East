@@ -45,6 +45,8 @@ public class Enemy : Damageable
                 Instantiate(walkingParticles, transform.position - (transform.forward * walkingParticlesDistance), Quaternion.identity);
                 walkingParticlesTimer = 0f;
             }
+
+            attackTimer -= Time.deltaTime;
         }
     }
 
@@ -66,7 +68,7 @@ public class Enemy : Damageable
 
     protected virtual void Attack(Damageable d)
     {
-        if ((attackTimer -= Time.deltaTime) <= 0f)
+        if (attackTimer <= 0f)
         {
             animator.SetTrigger("Attack");
             attackTimer = animator.GetCurrentAnimatorStateInfo(0).length;
