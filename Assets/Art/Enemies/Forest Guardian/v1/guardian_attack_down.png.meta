@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: e8b3ff5a81a50f744a60e6c64c5fb1e2
+guid: 12fef51ae36221745ab0d4f0bd4be090
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8765780250265281769
-    second: guardian_attack_right_0
+      213: 2498830872125572077
+    second: guardian_attack_down_0
   - first:
-      213: 4304728075963509847
-    second: guardian_attack_right_1
+      213: -3005039332222124633
+    second: guardian_attack_down_1
   - first:
-      213: 4947107250644358110
-    second: guardian_attack_right_2
+      213: -6403950357037026040
+    second: guardian_attack_down_2
   - first:
-      213: -5184769684522403393
-    second: guardian_attack_right_3
+      213: 8449258364616309015
+    second: guardian_attack_down_3
   - first:
-      213: -4687273222764151392
-    second: guardian_attack_right_4
+      213: 841331912427675823
+    second: guardian_attack_down_4
   - first:
-      213: -1586465225835040441
-    second: guardian_attack_right_5
+      213: -1408939033804346681
+    second: guardian_attack_down_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -78,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -90,7 +90,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -102,7 +102,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -114,7 +114,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -128,127 +128,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: guardian_attack_right_0
+      name: guardian_attack_down_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 104
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5480769, y: 0}
+        y: 53
+        width: 72
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2051a4ceeb2833b4d82885781a747144
-      internalID: -8765780250265281769
+      spriteID: e70da9d9df07102458cf23c122f6188b
+      internalID: 2498830872125572077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: guardian_attack_right_1
+      name: guardian_attack_down_1
       rect:
         serializedVersion: 2
-        x: 104
-        y: 48
-        width: 104
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5480769, y: 0}
+        x: 72
+        y: 53
+        width: 72
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc0f8fead981ea46954f6fbab93064a
-      internalID: 4304728075963509847
+      spriteID: 77b1930da24b37043b76fcfa6be9a61f
+      internalID: -3005039332222124633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: guardian_attack_right_2
+      name: guardian_attack_down_2
       rect:
         serializedVersion: 2
-        x: 208
-        y: 48
-        width: 104
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5480769, y: 0}
+        x: 144
+        y: 53
+        width: 72
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 558c5ee89fc74c5419d992bd48f0d355
-      internalID: 4947107250644358110
+      spriteID: 3a302ffed7880cd45925c562e6c5e381
+      internalID: -6403950357037026040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: guardian_attack_right_3
+      name: guardian_attack_down_3
       rect:
         serializedVersion: 2
-        x: 312
-        y: 48
-        width: 104
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5480769, y: 0}
+        x: 216
+        y: 53
+        width: 72
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e93bc24095179e942b4361679e34f4c2
-      internalID: -5184769684522403393
+      spriteID: a4b3669b91a4e5640adae3d9c313e9c9
+      internalID: 8449258364616309015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: guardian_attack_right_4
+      name: guardian_attack_down_4
       rect:
         serializedVersion: 2
-        x: 416
-        y: 48
-        width: 104
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5480769, y: 0.14583333}
+        x: 288
+        y: 53
+        width: 72
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1515a22495b0c7142b9888a40d72fd8e
-      internalID: -4687273222764151392
+      spriteID: 760babd3f10b23142b523549e3170111
+      internalID: 841331912427675823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: guardian_attack_right_5
+      name: guardian_attack_down_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 104
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5480769, y: 0}
+        width: 72
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a895e86c4d4f04f4ab59437fced8a00a
-      internalID: -1586465225835040441
+      spriteID: 3cad97e0ab9e99743a1da61f91b06a3b
+      internalID: -1408939033804346681
       vertices: []
       indices: 
       edges: []
