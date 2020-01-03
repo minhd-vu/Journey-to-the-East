@@ -12,7 +12,7 @@ public class MajikFireball : ExplosiveProjectile
     protected override IEnumerator Shoot()
     {
         float delay = 0f;
-        GameObject.FindWithTag("Off Hand").GetComponent<Animator>().SetTrigger("Cast Majik Fireball");
+        GameObject.FindWithTag("Off Hand").GetComponent<Animator>().SetTrigger("Cast Spell");
         AudioManager.instance.Play(preFireSound);
         if (GetComponent<Animator>() != null)
         {
