@@ -87,7 +87,7 @@ public class Enemy : Damageable
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             GameObject de = Instantiate(damageEffect, new Vector3(transform.position.x, transform.position.y - 0.0001f), Quaternion.identity);
             de.transform.GetChild(0).rotation = Quaternion.AngleAxis(angle - 180f, Vector3.forward);
-            if (healthBar.GetComponent<HealthBar>() != null)
+            if (healthBar != null)
             {
                 healthBar.GetComponent<HealthBar>().Percent = HealthPercent;
             }

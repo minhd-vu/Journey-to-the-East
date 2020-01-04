@@ -45,7 +45,12 @@ public abstract class Ability : MonoBehaviour
         {
             if (player.Mana >= manaCost)
             {
-                GameObject.FindWithTag("Off Hand").GetComponent<Animator>().SetTrigger("Cast Spell");
+                GameObject offHand = GameObject.FindWithTag("Off Hand");
+                if (offHand != null)
+                {
+                    offHand.GetComponent<Animator>().SetTrigger("Cast Spell");
+                }
+
                 StartCoroutine(CastAbility());
                 player.Mana -= manaCost;
                 timer = 0f;
