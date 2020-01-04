@@ -116,4 +116,4 @@ MonoBehaviour:
     pitchVariance: 0.247
     loop: 0
     source: {fileID: 0}
-  transitionTime: 2
+  transitionTime: 5
