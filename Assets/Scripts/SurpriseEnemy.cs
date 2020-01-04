@@ -30,20 +30,17 @@ public class SurpriseEnemy : Enemy
     {
         if (!isAwoken && Vector2.Distance(player.transform.position , transform.position) <= range)
         {
-            StartCoroutine(Awaken());
+            animator.SetTrigger("Awaken");
         }
+
         if (isAwoken)
         {
             base.Update();
         }
     }
 
-    private IEnumerator Awaken()
+    private void Awaken()
     {
-        animator.SetTrigger("Awaken");
-
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-
         isAwoken = true;
         foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
         {
