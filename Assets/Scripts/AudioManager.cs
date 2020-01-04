@@ -1,11 +1,18 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     [SerializeField] private Sound[] sounds = null;
+
+    private static Sound currentMusic = null;
+    private static Sound targetMusic = null;
+
+    [SerializeField] private float transitionTime = 2f;
 
     void Awake()
     {
@@ -25,6 +32,42 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.loop = s.loop;
         }
+    }
+
+    public void PlayMusic(string sound)
+    {
+        if (currentMusic == null || !currentMusic.source.isPlaying)
+        {
+            currentMusic = FindSound(sound);
+            Play(currentMusic);
+        }
+
+        else
+        {
+            targetMusic = FindSound(sound);
+            StartCoroutine(CrossfadeSound());
+        }
+    }
+
+    private IEnumerator CrossfadeSound()
+    {
+        float timer  = 0f;
+        float currentVolume = currentMusic.source.volume;
+
+        Play(targetMusic);
+        float targetVolume = targetMusic.source.volume;
+        targetMusic.source.volume = 0;
+
+        while (timer <= transitionTime)
+        {
+            float step = (timer += Time.deltaTime) / transitionTime;
+            currentMusic.source.volume = Mathf.Lerp(currentVolume, 0, step);
+            targetMusic.source.volume = Mathf.Lerp(0, targetVolume, step);
+            yield return null;
+        }
+
+        currentMusic = targetMusic;
+        targetMusic = null;
     }
 
     private Sound FindSound(string sound) {
@@ -68,10 +111,5 @@ public class AudioManager : MonoBehaviour
         {
             s.source.Pause();
         }
-    }
-
-    public void PlayMusic(string sound)
-    {
-
     }
 }

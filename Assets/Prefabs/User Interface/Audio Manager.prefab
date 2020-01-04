@@ -86,7 +86,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Title Screen
     clip: {fileID: 8300000, guid: cf6748c72af95e04e855bd6b6bf7bd45, type: 3}
-    volume: 0.2
+    volume: 0.1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -116,3 +116,4 @@ MonoBehaviour:
     pitchVariance: 0.247
     loop: 0
     source: {fileID: 0}
+  transitionTime: 2

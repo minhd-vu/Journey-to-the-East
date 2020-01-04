@@ -13,6 +13,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Animator animator = null;
     private void Start()
     {
+        AudioManager.instance.PlayMusic("Music Forest Theme");
+
         background.SetActive(false);
         pauseMenu.SetActive(false);
         credits.SetActive(false);

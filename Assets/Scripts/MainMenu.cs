@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.PlayLoop("Title Screen");
+        AudioManager.instance.PlayMusic("Title Screen");
     }
 
     public void Play()
