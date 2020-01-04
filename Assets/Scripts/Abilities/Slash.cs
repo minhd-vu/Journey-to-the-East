@@ -6,6 +6,7 @@ public class Slash : Ability
 {
     [SerializeField] private float slashRange = 1f;
     [SerializeField] private LayerMask slashLayers = 0;
+    [SerializeField] private GameObject slashParticles = null;
 
     protected override IEnumerator CastAbility()
     {
@@ -24,9 +25,10 @@ public class Slash : Ability
             foreach (Collider2D collider in colliders)
             {
                 Damageable d = collider.GetComponent<Damageable>();
-                if (d != null)
+                if (d != null || (d = collider.GetComponentInParent<Damageable>()) != null)
                 {
                     d.Damage(damage);
+                    Instantiate(slashParticles, d.transform.position, Quaternion.AngleAxis(player.angle, Vector3.forward));
                 }
 
                 else

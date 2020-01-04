@@ -116,4 +116,12 @@ MonoBehaviour:
     pitchVariance: 0.247
     loop: 0
     source: {fileID: 0}
+  - name: Music Danger Ahead
+    clip: {fileID: 8300000, guid: d5a49e47d9208e14196004496677d8c9, type: 3}
+    volume: 0.1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
   transitionTime: 5

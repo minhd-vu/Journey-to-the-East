@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class HurtEffect : MonoBehaviour
 {
-    [SerializeField] private PlayerController player;
+    [SerializeField] private PlayerController player = null;
     private ColorGrading colorGrading;
     private PostProcessVolume volume;
-    [SerializeField] private Image image;
+    [SerializeField] private Image image = null;
 
     // Start is called before the first frame update
     void Start()
