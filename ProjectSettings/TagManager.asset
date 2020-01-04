@@ -7,10 +7,10 @@ TagManager:
   - Hitbox
   - Health Bar
   - Mana Bar
-  - EXP Bar
   - Off Hand
   - Main Hand
   - Low Mana Indicator
+  - Exp Bar
   layers:
   - Default
   - TransparentFX

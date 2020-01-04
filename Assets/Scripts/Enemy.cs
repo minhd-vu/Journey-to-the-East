@@ -15,6 +15,7 @@ public class Enemy : Damageable
     [SerializeField] private float walkingParticlesTime = 0.3f;
     [SerializeField] private float walkingParticlesDistance = 0.3f;
     [SerializeField] private GameObject walkingParticles = null;
+    [SerializeField] private float exp = 10f;
 
 
     // Start is called before the first frame update
@@ -103,6 +104,8 @@ public class Enemy : Damageable
         {
             collider.enabled = false;
         }
+
+        GameObject.FindWithTag("Player").GetComponent<PlayerController>().Exp += exp;
 
         Destroy(healthBar);
         Destroy(gameObject, deathTime);

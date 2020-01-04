@@ -76,6 +76,25 @@ public class PlayerController : Damageable
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public float angle;
 
+    private float exp = 0;
+    private float maxExp = 100;
+    private int level = 1;
+
+    public float Exp
+    {
+        get { return exp; }
+        set
+        {
+            if ((exp = value) >= maxExp)
+            {
+                exp -= maxExp;
+                ++level;
+            }
+        }
+    }
+
+    private Image expBar;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -86,6 +105,7 @@ public class PlayerController : Damageable
         offHand = Instantiate(offHand, leftArm.transform.Find("Arm"));
         healthBar = GameObject.FindWithTag("Health Bar").GetComponent<Image>();
         manaBar = GameObject.FindWithTag("Mana Bar").GetComponent<Image>();
+        expBar = GameObject.FindWithTag("Exp Bar").GetComponent<Image>();
         leftArm.SetActive(false);
         rightArm.SetActive(false);
         isAlive = false;
@@ -132,6 +152,12 @@ public class PlayerController : Damageable
             if (manaBar.fillAmount != manaPercent)
             {
                 manaBar.fillAmount = Mathf.Lerp(manaBar.fillAmount, manaPercent, Time.deltaTime * 15);
+            }
+
+            float expPercent = Exp / maxExp;
+            if (expBar.fillAmount != expPercent)
+            {
+                expBar.fillAmount = Mathf.Lerp(expBar.fillAmount, expPercent, Time.deltaTime * 15);
             }
         }
     }

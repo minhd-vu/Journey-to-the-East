@@ -260,6 +260,7 @@ MonoBehaviour:
   walkingParticlesDistance: 0.3
   walkingParticles: {fileID: 8811173945369212620, guid: 61d45d18161354f4aa5b7b127029b112,
     type: 3}
+  exp: 10
   projectile: {fileID: 1861497663312174962, guid: 18890ba5e1d409b40ac611c53c55e146,
     type: 3}
   range: 10

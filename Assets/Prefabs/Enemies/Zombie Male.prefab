@@ -392,3 +392,8 @@ MonoBehaviour:
     type: 3}
   healthBar: {fileID: 1356845723627189148, guid: e987275e01fcc4e429477d6566136503,
     type: 3}
+  deathTime: 3
+  walkingParticlesTime: 0.3
+  walkingParticlesDistance: 0.3
+  walkingParticles: {fileID: 0}
+  exp: 3.26

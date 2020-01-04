@@ -231,6 +231,7 @@ MonoBehaviour:
   walkingParticlesTime: 0
   walkingParticlesDistance: 0
   walkingParticles: {fileID: 0}
+  exp: 12.92
   projectile: {fileID: 1861497663312174962, guid: 8f1512d274f388e4690f816ecce7bc3c,
     type: 3}
   range: 10

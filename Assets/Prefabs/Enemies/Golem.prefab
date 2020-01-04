@@ -314,6 +314,7 @@ MonoBehaviour:
   walkingParticlesTime: 0
   walkingParticlesDistance: 0
   walkingParticles: {fileID: 0}
+  exp: 9.09
   range: 4
 --- !u!1 &7125402467230054562
 GameObject:
