@@ -8,50 +8,52 @@ public class Slash : Ability
     [SerializeField] private LayerMask slashLayers = 0;
     [SerializeField] private GameObject slashParticles = null;
 
+    protected override bool CanCast()
+    {
+        return base.CanCast() && !isConcurrentActive;
+    }
+
     protected override IEnumerator CastAbility()
     {
-        if (!isConcurrentActive)
+        // Display the sword slash animation.
+        isActive = true;
+        isConcurrentActive = true;
+        player.animator.SetTrigger("Slash");
+
+        // Play a random sword slash sound.
+        AudioManager.instance.PlayRandom("Sword Slash 1", "Sword Slash 2");
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange, slashLayers);
+
+        foreach (Collider2D collider in colliders)
         {
-            // Display the sword slash animation.
-            isActive = true;
-            isConcurrentActive = true;
-            player.animator.SetTrigger("Slash");
-
-            // Play a random sword slash sound.
-            AudioManager.instance.PlayRandom("Sword Slash 1", "Sword Slash 2");
-
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(player.rightArm.GetComponentInChildren<Weapon>().firePoint.position, slashRange, slashLayers);
-
-            foreach (Collider2D collider in colliders)
+            Damageable d = collider.GetComponent<Damageable>();
+            if (d != null || (d = collider.GetComponentInParent<Damageable>()) != null)
             {
-                Damageable d = collider.GetComponent<Damageable>();
-                if (d != null || (d = collider.GetComponentInParent<Damageable>()) != null)
-                {
-                    d.Damage(damage);
-                    Instantiate(slashParticles, d.transform.position, Quaternion.AngleAxis(player.angle, Vector3.forward));
-                }
-
-                else
-                {
-                    Projectile p = collider.GetComponent<Projectile>();
-                    if (p != null)
-                    {
-                        p.GetComponent<Rigidbody2D>().velocity = player.direction * p.GetComponent<Rigidbody2D>().velocity.magnitude;
-                        p.initialPosition = p.transform.position;
-                        p.transform.rotation = Quaternion.AngleAxis(player.angle, Vector3.forward);
-                        p.gameObject.layer = LayerMask.NameToLayer("Player Projectile");
-                    }
-                }
+                d.Damage(damage);
+                Instantiate(slashParticles, d.transform.position, Quaternion.AngleAxis(player.angle, Vector3.forward));
             }
 
-            // Make the arms disappear.
-            player.leftArm.SetActive(false);
-            player.rightArm.SetActive(false);
-            player.updateFacingDirection = false;
-
-            //yield return new WaitForSeconds(player.animator.GetCurrentAnimatorStateInfo(0).length);
-            yield return null;
+            else
+            {
+                Projectile p = collider.GetComponent<Projectile>();
+                if (p != null)
+                {
+                    p.GetComponent<Rigidbody2D>().velocity = player.direction * p.GetComponent<Rigidbody2D>().velocity.magnitude;
+                    p.initialPosition = p.transform.position;
+                    p.transform.rotation = Quaternion.AngleAxis(player.angle, Vector3.forward);
+                    p.gameObject.layer = LayerMask.NameToLayer("Player Projectile");
+                }
+            }
         }
+
+        // Make the arms disappear.
+        player.leftArm.SetActive(false);
+        player.rightArm.SetActive(false);
+        player.updateFacingDirection = false;
+
+        //yield return new WaitForSeconds(player.animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return null;
     }
 
     protected void StopSlash()

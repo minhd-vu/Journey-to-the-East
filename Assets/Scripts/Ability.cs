@@ -37,35 +37,37 @@ public abstract class Ability : MonoBehaviour
         }
     }
 
+    protected virtual bool CanCast()
+    {
+        return ((timer += Time.deltaTime) >= cooldown && !isActive && Input.GetButtonDown(buttonName) && player.Mana >= manaCost);
+    }
+
     // Update is called once per frame
     public virtual void OnUpdate()
     {
-        timer += Time.deltaTime;
-        if (timer >= cooldown && !isActive && Input.GetButtonDown(buttonName))
+        if (CanCast())
         {
-            if (player.Mana >= manaCost)
+            GameObject offHand = GameObject.FindWithTag("Off Hand");
+            if (offHand != null)
             {
-                GameObject offHand = GameObject.FindWithTag("Off Hand");
-                if (offHand != null)
-                {
-                    offHand.GetComponent<Animator>().SetTrigger("Cast Spell");
-                }
-
-                StartCoroutine(CastAbility());
-                player.Mana -= manaCost;
-                timer = 0f;
-
-                if (lowManaText != null)
-                {
-                    lowManaText.SetActive(false);
-                }
+                offHand.GetComponent<Animator>().SetTrigger("Cast Spell");
             }
 
-            else if (lowManaText != null)
+            StartCoroutine(CastAbility());
+            player.Mana -= manaCost;
+            timer = 0f;
+
+            if (lowManaText != null)
             {
-                lowManaText.SetActive(true);
+                lowManaText.SetActive(false);
             }
         }
+
+        else if (lowManaText != null)
+        {
+            lowManaText.SetActive(true);
+        }
+
     }
 
     protected abstract IEnumerator CastAbility();

@@ -6,26 +6,28 @@ public class Roll : Ability
 {
     [SerializeField] private float rollSpeed = 1.5f;
 
+    protected override bool CanCast()
+    {
+        return base.CanCast() && player.animator.GetBool("Moving") && !isConcurrentActive;
+    }
+
     protected override IEnumerator CastAbility()
     {
-        if (player.animator.GetBool("Moving") && !isConcurrentActive)
-        {
-            isActive = true;
-            isConcurrentActive = true;
+        isActive = true;
+        isConcurrentActive = true;
 
-            // Play the rolling animation.
-            player.animator.SetTrigger("Roll");
-            player.updateMovingDirection = false;
+        // Play the rolling animation.
+        player.animator.SetTrigger("Roll");
+        player.updateMovingDirection = false;
 
-            // Deactivate the arms.
-            player.leftArm.SetActive(false);
-            player.rightArm.SetActive(false);
+        // Deactivate the arms.
+        player.leftArm.SetActive(false);
+        player.rightArm.SetActive(false);
 
-            player.rb.velocity = player.input * player.moveSpeed * rollSpeed;
+        player.rb.velocity = player.input * player.moveSpeed * rollSpeed;
 
-            //yield return new WaitForSeconds(player.animator.GetCurrentAnimatorStateInfo(0).length);
-            yield return null;
-        }
+        //yield return new WaitForSeconds(player.animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return null;
     }
 
     protected void StopRoll()
