@@ -39,11 +39,12 @@ public class ExplosiveProjectile : Projectile
                 {
                     float proximity = (transform.position - d.transform.position).magnitude;
                     float effect = 1 - (proximity / radius);
-                    d.Damage(damage * effect);
+                    d.DamageOverTime(damage * effect, 5, 1f);
                 }
             }
         }
     }
+
     protected void DestroyExplosion()
     {
         Destroy(gameObject);

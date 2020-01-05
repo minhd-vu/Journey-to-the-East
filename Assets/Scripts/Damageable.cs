@@ -11,7 +11,8 @@ public abstract class Damageable : MonoBehaviour
 
     public GameObject damageEffect = null;
 
-    [HideInInspector] public float Health
+    [HideInInspector]
+    public float Health
     {
         get
         {
@@ -47,6 +48,20 @@ public abstract class Damageable : MonoBehaviour
     {
         health = maxHealth;
         isAlive = true;
+    }
+
+    public void DamageOverTime(float damage, int ticks, float time)
+    {
+        StartCoroutine(dot(damage, ticks, time));
+    }
+
+    private IEnumerator dot(float damage, int ticks, float time)
+    {
+        for (int i = 0; i < ticks; ++i)
+        {
+            Damage(damage);
+            yield return new WaitForSeconds(time);
+        }
     }
 
     // Damage the entity.
