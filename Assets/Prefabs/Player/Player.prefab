@@ -162,7 +162,7 @@ MonoBehaviour:
   moveSpeed: 3
   leftArm: {fileID: 5967245242185409680}
   rightArm: {fileID: 5967245241922151450}
-  mainHand: {fileID: 1248723404846682421, guid: 6cb43c0d60203564098d0efdfa7c3093,
+  mainHand: {fileID: 1248723404846682421, guid: 624cb78821bd1d248bf71362f6f7a459,
     type: 3}
   offHand: {fileID: 1248723404846682421, guid: 6edab288d3e530c4b8b26dc45c90b9fa, type: 3}
   leftArmPositions:
