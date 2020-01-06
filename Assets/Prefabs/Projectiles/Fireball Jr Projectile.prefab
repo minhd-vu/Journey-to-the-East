@@ -169,7 +169,7 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   force: 3
   fireSound: Fire
-  radius: 2
+  radius: 3
   layers:
     serializedVersion: 2
     m_Bits: 512

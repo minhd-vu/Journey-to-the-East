@@ -5,7 +5,8 @@ using UnityEngine;
 public class ExplosiveProjectile : Projectile
 {
     [SerializeField] protected float radius = 0f;
-    [SerializeField] private LayerMask layers = 0;
+    public LayerMask layers = 0;
+
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Hitbox"))
@@ -31,16 +32,13 @@ public class ExplosiveProjectile : Projectile
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Hitbox"))
-            {
-                Damageable d;
+            Damageable d;
 
-                if ((d = collider.GetComponent<Damageable>()) != null || (d = collider.GetComponentInParent<Damageable>()) != null)
-                {
-                    float proximity = (transform.position - d.transform.position).magnitude;
-                    float effect = 1 - (proximity / radius);
-                    d.DamageOverTime(damage * effect, 5, 1f);
-                }
+            if ((d = collider.GetComponent<Damageable>()) != null || (d = collider.GetComponentInParent<Damageable>()) != null)
+            {
+                float proximity = (transform.position - d.transform.position).magnitude;
+                float effect = 1 - (proximity / radius);
+                d.DamageOverTime(damage * effect, 5, 1f);
             }
         }
     }

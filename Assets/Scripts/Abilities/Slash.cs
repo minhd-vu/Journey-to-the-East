@@ -43,6 +43,11 @@ public class Slash : Ability
                     p.initialPosition = p.transform.position;
                     p.transform.rotation = Quaternion.AngleAxis(player.angle, Vector3.forward);
                     p.gameObject.layer = LayerMask.NameToLayer("Player Projectile");
+
+                    if ((p = collider.GetComponent<ExplosiveProjectile>()) != null)
+                    {
+                        ((ExplosiveProjectile)p).layers = LayerMask.GetMask("Enemy");
+                    }
                 }
             }
         }

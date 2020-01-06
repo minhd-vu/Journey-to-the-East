@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
-  damage: 8
+  damage: 1
   maxHealth: 100
   damageEffect: {fileID: 6937423593114065614, guid: 15c81b859b941a2459a2328a3733f868,
     type: 3}
