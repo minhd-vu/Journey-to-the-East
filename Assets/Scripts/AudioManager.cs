@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
 
     private static Sound currentMusic = null;
     private static Sound targetMusic = null;
+    private static Coroutine crossfade = null;
 
     [SerializeField] private float transitionTime = 2f;
 
@@ -44,8 +45,14 @@ public class AudioManager : MonoBehaviour
 
         else
         {
+            if (targetMusic != null)
+            {
+                StopCoroutine(crossfade);
+                targetMusic.source.Stop();
+            }
+
             targetMusic = FindSound(sound);
-            StartCoroutine(CrossfadeSound());
+            crossfade = StartCoroutine(CrossfadeSound());
         }
     }
 
