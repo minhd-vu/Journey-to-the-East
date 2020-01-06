@@ -124,4 +124,4 @@ MonoBehaviour:
     pitchVariance: 0
     loop: 1
     source: {fileID: 0}
-  transitionTime: 5
+  transitionTime: 2
