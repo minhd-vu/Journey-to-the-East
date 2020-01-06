@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Ability : MonoBehaviour
 {
@@ -45,6 +46,23 @@ public abstract class Ability : MonoBehaviour
     // Update is called once per frame
     public virtual void OnUpdate()
     {
+        if (buttonName != "Jump")
+        {
+            GameObject cooldownUI = GameObject.FindWithTag(buttonName + " Cooldown");
+
+            if (cooldownUI != null)
+            {
+                float cooldownPercent = Mathf.Clamp(timer / this.cooldown, 0f, 1f);
+
+                if (cooldownPercent >= 1f)
+                {
+                    cooldownPercent = 0;
+                }
+
+                cooldownUI.GetComponent<Image>().fillAmount = cooldownPercent;
+            }
+        }
+
         if (CanCast())
         {
             GameObject offHand = GameObject.FindWithTag("Off Hand");
