@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: Water Waves
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -3626741473987149482, guid: dc8186b92aec2884e9309ccefa3fe950, type: 3}
-  - {fileID: -3508867097717989545, guid: dc8186b92aec2884e9309ccefa3fe950, type: 3}
-  - {fileID: -1887043112484886834, guid: dc8186b92aec2884e9309ccefa3fe950, type: 3}
-  - {fileID: -1569994233971564447, guid: dc8186b92aec2884e9309ccefa3fe950, type: 3}
-  - {fileID: -5025952981953688224, guid: dc8186b92aec2884e9309ccefa3fe950, type: 3}
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  - {fileID: -1420858657761629612, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  - {fileID: -1302288021367070161, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  - {fileID: 978388294595928013, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  - {fileID: -1529257772030615094, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  - {fileID: 1601610801109891688, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  - {fileID: -3655520347604306363, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  - {fileID: -2106193904205693467, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  - {fileID: 5762175982041880953, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  - {fileID: -1541498127530191385, guid: d82582d3de4cf1043a9488be10797fd7, type: 3}
+  m_MinSpeed: 8
+  m_MaxSpeed: 8
   m_AnimationStartTime: 0
   m_TileColliderType: 0
