@@ -40,12 +40,14 @@ public abstract class Ability : MonoBehaviour
 
     protected virtual bool CanCast()
     {
-        return ((timer += Time.deltaTime) >= cooldown && !isActive && Input.GetButtonDown(buttonName) && player.Mana >= manaCost);
+        return timer >= cooldown && !isActive && Input.GetButtonDown(buttonName));
     }
 
     // Update is called once per frame
     public virtual void OnUpdate()
     {
+        timer += Time.deltaTime;
+
         if (buttonName != "Jump")
         {
             GameObject cooldownUI = GameObject.FindWithTag(buttonName + " Cooldown");
@@ -63,21 +65,24 @@ public abstract class Ability : MonoBehaviour
             }
         }
 
-        if (CanCast())
+        if (player.Mana >= manaCost)
         {
-            GameObject offHand = GameObject.FindWithTag("Off Hand");
-            if (offHand != null)
+            if (CanCast())
             {
-                offHand.GetComponent<Animator>().SetTrigger("Cast Spell");
-            }
+                GameObject offHand = GameObject.FindWithTag("Off Hand");
+                if (offHand != null)
+                {
+                    offHand.GetComponent<Animator>().SetTrigger("Cast Spell");
+                }
 
-            StartCoroutine(CastAbility());
-            player.Mana -= manaCost;
-            timer = 0f;
+                StartCoroutine(CastAbility());
+                player.Mana -= manaCost;
+                timer = 0f;
 
-            if (lowManaText != null)
-            {
-                lowManaText.SetActive(false);
+                if (lowManaText != null)
+                {
+                    lowManaText.SetActive(false);
+                }
             }
         }
 
@@ -85,7 +90,6 @@ public abstract class Ability : MonoBehaviour
         {
             lowManaText.SetActive(true);
         }
-
     }
 
     protected abstract IEnumerator CastAbility();
