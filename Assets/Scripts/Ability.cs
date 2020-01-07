@@ -40,7 +40,7 @@ public abstract class Ability : MonoBehaviour
 
     protected virtual bool CanCast()
     {
-        return timer >= cooldown && !isActive && Input.GetButtonDown(buttonName));
+        return timer >= cooldown && !isActive && Input.GetButtonDown(buttonName);
     }
 
     // Update is called once per frame
