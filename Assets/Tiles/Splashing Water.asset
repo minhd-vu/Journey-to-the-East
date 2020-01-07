@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Splashing Water
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 4232997815900744080, guid: af416fc79d3856a46bae8d04f26d6201, type: 3}
-  - {fileID: 8141975817346191191, guid: af416fc79d3856a46bae8d04f26d6201, type: 3}
-  - {fileID: 2622290629983288565, guid: af416fc79d3856a46bae8d04f26d6201, type: 3}
+  - {fileID: 1532853197559362514, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
+  - {fileID: 809547178622862236, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
+  - {fileID: 3033841039805340799, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
+  - {fileID: -6816637556107595983, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
+  - {fileID: -9176021797930373718, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
+  - {fileID: -653203278338066326, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
+  - {fileID: 3686092136246798233, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
+  - {fileID: -6585770927523592084, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
+  - {fileID: 5523766285466024718, guid: c5b7de39c95cd7445a45a9900105fd49, type: 3}
   m_MinSpeed: 2
   m_MaxSpeed: 2
   m_AnimationStartTime: 0
