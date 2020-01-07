@@ -14,8 +14,6 @@ public class Weapon : Ability
 
     [SerializeField] private int numberOfBullets = 1;
     [SerializeField] private bool isAutomatic = false;
-    private float bulletTimer;
-    [SerializeField] private float bulletsPerSecond = 0f;
     [SerializeField] private float spreadDegree = 5f;
 
     // Start is called before the first frame update
@@ -24,37 +22,29 @@ public class Weapon : Ability
         base.Start();
 
         firePoint = transform.Find("Fire Point");
-        bulletTimer = 0f;
     }
 
     protected override bool CanCast()
     {
-        return Input.GetButtonDown(buttonName) || (isAutomatic && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond) && Input.GetButton(buttonName);
+        return Input.GetButtonDown(buttonName) || (isAutomatic && base.CanCast());
     }
 
     protected override IEnumerator CastAbility()
     {
-        PlayerController player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        if (player.Mana >= manaCost)
+        for (int i = 0; i < numberOfBullets; ++i)
         {
-            for (int i = 0; i < numberOfBullets; ++i)
-            {
-                Projectile p = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Projectile>();
-                p.damage = damage;
-                p.transform.Rotate(Vector3.forward * Random.Range(-1f, 1f) * spreadDegree);
-            }
-
-            if (muzzleFlash != null)
-            {
-                Instantiate(muzzleFlash, firePoint);
-            }
-
-            //AudioManager.instance.Play("Fire");
-            CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);
-
-            player.Mana -= manaCost;
-            bulletTimer = 0f;
+            Projectile p = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Projectile>();
+            p.damage = damage;
+            p.transform.Rotate(Vector3.forward * Random.Range(-1f, 1f) * spreadDegree);
         }
+
+        if (muzzleFlash != null)
+        {
+            Instantiate(muzzleFlash, firePoint);
+        }
+
+        //AudioManager.instance.Play("Fire");
+        CameraShake.instance.ShakeOnce(shakeMagnitude, shakeRoughness, shakeDuration);
 
         yield return null;
     }
