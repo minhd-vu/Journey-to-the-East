@@ -141,7 +141,7 @@ public class PlayerController : Damageable
             // Store mouse input.
             mousePosition = updateMovingDirection ? (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) : Vector2.zero;
 
-            foreach (Ability ability in GetComponents<Ability>())
+            foreach (Ability ability in GetComponentsInChildren<Ability>())
             {
                 ability.OnUpdate();
             }

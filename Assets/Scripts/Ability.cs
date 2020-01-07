@@ -40,7 +40,7 @@ public abstract class Ability : MonoBehaviour
 
     protected virtual bool CanCast()
     {
-        return timer >= cooldown && !isActive && Input.GetButtonDown(buttonName);
+        return timer >= cooldown && Input.GetButtonDown(buttonName);
     }
 
     // Update is called once per frame
@@ -48,7 +48,7 @@ public abstract class Ability : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (buttonName != "Jump")
+        if (cooldown > 0)
         {
             GameObject cooldownUI = GameObject.FindWithTag(buttonName + " Cooldown");
 
@@ -65,7 +65,7 @@ public abstract class Ability : MonoBehaviour
             }
         }
 
-        if (player.Mana >= manaCost)
+        if (!isActive && player.Mana >= manaCost)
         {
             if (CanCast())
             {

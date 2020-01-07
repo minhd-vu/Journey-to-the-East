@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon : Ability
 {
     [SerializeField] private GameObject bullet = null;
     [SerializeField] private GameObject muzzleFlash = null;
@@ -16,31 +16,23 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool isAutomatic = false;
     private float bulletTimer;
     [SerializeField] private float bulletsPerSecond = 0f;
-    [SerializeField] private float damage = 0f;
-    [SerializeField] private float manaCost = 0f;
-    [SerializeField] private string buttonName = "Fire1";
     [SerializeField] private float spreadDegree = 5f;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         firePoint = transform.Find("Fire Point");
         bulletTimer = 0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override bool CanCast()
     {
-        if (!PauseMenu.isPaused)
-        {
-            if (Input.GetButtonDown(buttonName) || (isAutomatic && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond) && Input.GetButton(buttonName))
-            {
-                Shoot();
-            }
-        }
+        return Input.GetButtonDown(buttonName) || (isAutomatic && (bulletTimer += Time.deltaTime) >= 1f / bulletsPerSecond) && Input.GetButton(buttonName);
     }
 
-    void Shoot()
+    protected override IEnumerator CastAbility()
     {
         PlayerController player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         if (player.Mana >= manaCost)
@@ -63,5 +55,7 @@ public class Weapon : MonoBehaviour
             player.Mana -= manaCost;
             bulletTimer = 0f;
         }
+
+        yield return null;
     }
 }
