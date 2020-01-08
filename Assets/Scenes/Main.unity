@@ -3710,7 +3710,7 @@ MonoBehaviour:
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
   m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -3758,7 +3758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 579419286}
   - component: {fileID: 579419285}
-  m_Layer: 24
+  m_Layer: 0
   m_Name: Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18838,7 +18838,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528572416
 GameObject:
@@ -55640,7 +55640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1847928759}
   - component: {fileID: 1847928758}
-  m_Layer: 24
+  m_Layer: 0
   m_Name: Cloud Skinny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56001,8 +56001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bird: {fileID: 3253696820510889670, guid: d4c72c4c34fefe04abfbefcf5a7a3276, type: 3}
   speedRange: {x: 4.6, y: 8.16}
-  heightRange: {x: 0, y: 0}
-  time: 2
+  heightRange: {x: -14, y: 21}
+  time: 1
 --- !u!1001 &2054316693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56283,75 +56283,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ed2734e2644e2c4fb05b123da7ae957, type: 3}
---- !u!1001 &3253696820447414713
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 27.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889531, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253696820510889670, guid: d4c72c4c34fefe04abfbefcf5a7a3276,
-        type: 3}
-      propertyPath: m_Name
-      value: Bird
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d4c72c4c34fefe04abfbefcf5a7a3276, type: 3}
 --- !u!1001 &3767635999164901276
 PrefabInstance:
   m_ObjectHideFlags: 0
