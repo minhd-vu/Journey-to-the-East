@@ -65,7 +65,7 @@ public abstract class Ability : MonoBehaviour
             }
         }
 
-        if (!isActive && player.Mana >= manaCost)
+        if (player.Mana >= manaCost)
         {
             if (CanCast())
             {
@@ -86,7 +86,7 @@ public abstract class Ability : MonoBehaviour
             }
         }
 
-        else if (lowManaText != null)
+        else if (lowManaText != null && !isActive)
         {
             lowManaText.SetActive(true);
         }

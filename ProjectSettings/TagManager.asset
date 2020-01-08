@@ -57,3 +57,6 @@ TagManager:
   - name: Objects
     uniqueID: 3032570591
     locked: 0
+  - name: Sky
+    uniqueID: 1684024523
+    locked: 0
