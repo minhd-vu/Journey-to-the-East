@@ -56514,11 +56514,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7492234735331552427, guid: b88431b079a5dc34d9ba06383753c22a,
-        type: 3}
-      propertyPath: cooldown
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b88431b079a5dc34d9ba06383753c22a, type: 3}
 --- !u!1001 &7767120365866621945

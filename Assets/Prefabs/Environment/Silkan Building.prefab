@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3767635999521778671}
   - component: {fileID: 3767635999521778670}
-  - component: {fileID: 3767635999521778669}
+  - component: {fileID: 7015079050142797869}
   m_Layer: 10
   m_Name: Silkan Building
   m_TagString: Untagged
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: -1262396705
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e392035ec0276d64d95bad4b675ab558, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9104a5900534cd446874f3610a4f1819, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!60 &3767635999521778669
+--- !u!60 &7015079050142797869
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.25, y: 1.8125}
-      - {x: -1.25, y: -0.1875}
-      - {x: 1.25, y: -0.1875}
-      - {x: 1.25, y: 1.8125}
+    - - {x: 1.25, y: 1.71875}
+      - {x: -1.25, y: 1.71875}
+      - {x: -1.25, y: 0}
+      - {x: -0.40625, y: 0}
+      - {x: -0.40625, y: 0.625}
+      - {x: 0.40625, y: 0.625}
+      - {x: 0.40625, y: 0}
+      - {x: 1.25, y: 0}
