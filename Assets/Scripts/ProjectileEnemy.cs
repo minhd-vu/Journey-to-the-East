@@ -7,6 +7,8 @@ public class ProjectileEnemy : Enemy
     [SerializeField] private GameObject projectile = null;
     [SerializeField] private float range = 10f;
     [SerializeField] private float projectilesPerSecond = 1f;
+    [SerializeField] private int numberOfProjectiles = 1;
+    [SerializeField] private float spreadDegree = 0f;
     private float projectileTimer;
     private Transform firePoint;
 
@@ -27,7 +29,12 @@ public class ProjectileEnemy : Enemy
         {
             animator.SetTrigger("Attack");
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Instantiate(projectile, firePoint.position, Quaternion.AngleAxis(angle, Vector3.forward)).GetComponent<Projectile>().damage = damage;
+
+            for (int i = 0; i < numberOfProjectiles; ++i)
+            {
+                Instantiate(projectile, firePoint.position, Quaternion.AngleAxis(angle + UnityEngine.Random.Range(-1f, 1f) * spreadDegree, Vector3.forward)).GetComponent<Projectile>().damage = damage;
+            }
+
             projectileTimer = 0f;
         }
     }
