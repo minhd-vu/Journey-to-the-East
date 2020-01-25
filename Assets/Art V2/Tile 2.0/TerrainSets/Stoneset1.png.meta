@@ -43,7 +43,7 @@ TextureImporter:
     second: 2co
   - first:
       213: -3908649634077285736
-    second: Stoneset1_13
+    second: 1c
   - first:
       213: -4319144629680971306
     second: empty
@@ -428,7 +428,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stoneset1_13
+      name: 1c
       rect:
         serializedVersion: 2
         x: 32
