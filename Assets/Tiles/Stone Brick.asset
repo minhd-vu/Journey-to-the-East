@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e4e4fc705376343a3e65b25d94f0e2, type: 3}
+  m_Name: Stone Brick
+  m_EditorClassIdentifier: 
+  m_Sprites:
+  - {fileID: 7379331722875049953, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 7109354729606352011, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: -7943075819088990711, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 1638573276135257726, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 3309811806994376702, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 2895765279271013480, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: -7399277778347295858, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: -6925768428820401067, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: -51009101942235905, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 5964153746509311021, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 8406351019475629295, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 1244479724503556590, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: -4310960375185596652, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 8898508060461481620, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
+  - {fileID: 2909687465763839131, guid: dcf1ebd07bc2e0c4ab4f2439ded64306, type: 3}
