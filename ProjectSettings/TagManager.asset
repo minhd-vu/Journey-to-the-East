@@ -14,6 +14,7 @@ TagManager:
   - Ability 1 Cooldown
   - Ability 2 Cooldown
   - Ability 3 Cooldown
+  - Fade to Black
   layers:
   - Default
   - TransparentFX
