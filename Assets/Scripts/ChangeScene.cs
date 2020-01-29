@@ -5,21 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    [SerializeField] private string scene;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    [HideInInspector]
+    public enum Scenes
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            MainMenu.LoadNextScene(GameObject.FindWithTag("Fade to Black").GetComponent<Animator>(), SceneManager.GetSceneByName(scene).buildIndex);
-        }
-    }
+        Silkan = 3,
+    };
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] private Scenes scene = 0;
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            MainMenu.LoadNextScene(GameObject.FindWithTag("Fade to Black").GetComponent<Animator>(), SceneManager.GetSceneByName(scene).buildIndex);
+            StartCoroutine(MainMenu.LoadNextScene(GameObject.FindWithTag("Fade to Black").GetComponent<Animator>(), (int)scene));
         }
     }
 }
