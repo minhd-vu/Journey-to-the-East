@@ -126,7 +126,7 @@ namespace Pathfinding {
 			// to avoid too large FPS drops
 			IEnumerator ie = UpdateGraphCoroutine();
 			AstarPath.active.AddWorkItem(new AstarWorkItem(
-					(context, force) => {
+				(context, force) => {
 				// If force is true we need to calculate all steps at once
 				if (force) while (ie.MoveNext()) {}
 
