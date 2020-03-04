@@ -104,9 +104,9 @@ MonoBehaviour:
   muzzleFlash: {fileID: 3260572321552191500, guid: 1453d15e8435c774eb7865fb6dd45b26,
     type: 3}
   firePoint: {fileID: 0}
-  shakeMagnitude: 0
-  shakeRoughness: 0
-  shakeDuration: 0
+  shakeMagnitude: 1
+  shakeRoughness: 1
+  shakeDuration: 0.3
   numberOfBullets: 8
   isAutomatic: 0
   spreadDegree: 10
