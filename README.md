@@ -1,12 +1,51 @@
-# Journey to the East
+<!-- PROJECT LOGO -->
+<p align="center">
+  <h3 align="center">Journey to the East</h3>
+  <p align="center">
+    project_description
+    <br />
+    <a href="https://minhd-vu.github.io/Journey-to-the-East/">View Demo</a>
+    ·
+    <a href="https://github.com/github_username/Journey-to-the-East/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/github_username/Journey-to-the-East/issues">Request Feature</a>
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributors">Contributing</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
 A top down post-apoctalyptic shooter rpg created in Unity.
+
+### Built With
+
+* [Unity](https://unity.com/)
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/github_username/Journey-to-the-East/issues) for a list of proposed features (and known issues).
+
+<!-- CONTRIBUTING -->
 ## Contributors
-- Project Leader: Minh Vu
+- Project Leader: Minh Vu [@minhd-vu](https://github.com/minhd-vu)
 - Art Director: Tung Tran
 - Artists: Connie
 - Developers: Vu Nguyen
 - Playtesters: Romie
 - Sound Engineers: Dan Do, Nick Newry
-
-Play the latest version and tell us what you think!
-https://minhd-vu.github.io/Journey-to-the-East/
