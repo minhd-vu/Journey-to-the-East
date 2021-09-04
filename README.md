@@ -34,9 +34,11 @@ A top down post-apoctalyptic shooter rpg created in Unity.
 
 ### Screenshots
 <details>
+
   ![title-screen](docs/images/title-screen.png?raw=true "Title Screen")
   ![cutscene](docs/images/cutscene.png?raw=true "Cutscene")
   ![gameplay](docs/images/gameplay.png?raw=true "Gameplay")
+  
 </details>
 
 ### Built With
