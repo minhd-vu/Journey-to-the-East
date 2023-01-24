@@ -30,7 +30,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A top down post-apoctalyptic shooter rpg created in Unity.
+A top down post-apocalyptic shooter RPG created in Unity.
 
 ### Screenshots
 <details>
