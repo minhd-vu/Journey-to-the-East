@@ -2,7 +2,7 @@
 <p align="center">
   <h3 align="center">Journey to the East</h3>
   <p align="center">
-    Majik, zombies, bullets, aesthetics, insanity, and humor are all incorporated to create this top down shooter in Unity.
+    Magic, zombies, bullets, aesthetics, insanity, and humor are all incorporated in this top-down shooter made with Unity.
     <br />
     <a href="https://minhd-vu.github.io/Journey-to-the-East/">View Demo</a>
     ·
